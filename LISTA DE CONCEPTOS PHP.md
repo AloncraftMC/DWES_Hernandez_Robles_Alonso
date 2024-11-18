@@ -442,7 +442,9 @@ for(inicialización, condición, iteración){
 }
 ```
 
-Bucle `foreach` para array indexado
+### Bucle `foreach`
+
+Recorrer array indexado
 
 ```
 foreach ($array as $elemento) {
@@ -450,7 +452,7 @@ foreach ($array as $elemento) {
 }
 ```
 
-Bucle `foreach` para array asociativo
+Recorrer array asociativo
 
 ```
 foreach ($array as $clave => $valor) {
