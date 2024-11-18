@@ -1385,11 +1385,12 @@ Generar objeto tiempo de: hoy
 strtotime("now")
 ```
 
-Generar objeto tiempo de: fecha en string
+Generar objeto tiempo de: fecha y hora en string
 
 ```php
-strtotime(string)
-strtotime("02-10-2024")
+strtotime(string);
+strtotime("02-10-2024");
+strtotime("02-10-2024 01:20:34");
 ```
 
 Generar objeto tiempo de: tiempo de fecha específica con offset
@@ -1416,27 +1417,71 @@ date("d/m/Y");
 Generar objeto fecha con formato `dd/mm/yyyy` de: tiempo de fecha específica
 
 ```php
-date("d/m/Y", strtotime("02-10-2024"))
+date("d/m/Y", strtotime("02-10-2024"));
+date("d/m/Y H:i:s", strtotime("02-10-2024 01:20:34"));
 ```
 
-Tipos de formatos de `date`
+<details>
+	<summary>Ejemplo</summary>
 
-- `d` Día en número
-- `D` Día en tres letras
-- `m` Mes en número
-- `M` Mes en tres letras
-- `y` Año en dos números
-- `Y` Año en cuatro números
+```php
+$timestamp = strtotime("15-03-2004 09:30:00");
+echo "El timestamp es: " . $timestamp . "<br>";
+echo "Fecha y hora: " . date("Y-m-d H:i:s", $timestamp);
+```
+</details>
 
+### Tipos de formatos de `date`
 
+| Formato     | Descripción                                                  | Ejemplos              |
+|-------------|--------------------------------------------------------------|-----------------------|
+| `d`         | Día en número (con ceros iniciales) (`01` a `31`)            | `01`, `15`, `31`      |
+| `j`         | Día en número (sin ceros iniciales) (`1` a `31`)             | `1`, `15`, `31`       |
+| `D`         | Día de la semana en tres letras                              | `Mon`, `Tue`, `Wed`   |
+| `l`         | Día de la semana completo                                    | `Monday`, `Tuesday`   |
+| `N`         | Día de la semana numérico (`1` = `lunes` a `7` = `domingo`)  | `1`, `5`, `7`         |
+| `w`         | Día de la semana numérico (`0` = `domingo` a `6` = `sábado`) | `0`, `4`, `6`         |
+| `z`         | Día del año (`0` a `365`)                                    | `0`, `123`, `365`     |
+| `W`         | Número de la semana del año (`ISO-8601`, semanas de lunes)     | `01`, `23`, `52`      |
+| `m`         | Mes en número (con ceros iniciales) (`01` a `12`)            | `01`, `06`, `12`      |
+| `n`         | Mes en número (sin ceros iniciales) (`1` a `12`)             | `1`, `6`, `12`        |
+| `M`         | Mes en tres letras                                           | `Jan`, `Feb`, `Dec`   |
+| `F`         | Mes completo                                                 | `January`, `February` |
+| `t`         | Número de días en el mes (`28` a `31`)                       | `28`, `30`, `31`      |
+| `y`         | Año en dos números                                           | `23`, `99`            |
+| `Y`         | Año en cuatro números                                        | `2023`, `1999`        |
+| `L`         | ¿Es año bisiesto? (`1` = sí, `0` = no)                       | `1`, `0`              |
+| `H`         | Hora en 24h (con ceros iniciales) (`00` a `23`)              | `00`, `15`, `23`      |
+| `G`         | Hora en 24h (sin ceros iniciales) (`0` a `23`)               | `0`, `15`, `23`       |
+| `h`         | Hora en 12h (con ceros iniciales) (`01` a `12`)              | `01`, `10`, `12`      |
+| `g`         | Hora en 12h (sin ceros iniciales) (`1` a `12`)               | `1`, `10`, `12`       |
+| `a`         | `am`/`pm` en minúsculas                                      | `am`, `pm`            |
+| `A`         | `AM`/`PM` en mayúsculas                                      | `AM`, `PM`            |
+| `i`         | Minutos (con ceros iniciales) (`00` a `59`)                  | `00`, `15`, `59`      |
+| `s`         | Segundos (con ceros iniciales) (`00` a `59`)                 | `00`, `15`, `59`      |
+| `u`         | Microsegundos                                                | `654321`              |
 
 ## Funciones de Strings
 
-Carácter en posición
+Carácter en posición (empezando por el final si `posicion` $<$ `0`)
 
 ```php
 $string[posicion]
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "Hola Mundo";
+
+echo $string[0]; // Imprime 'H'
+echo $string[5]; // Imprime 'M'
+
+echo $string[-1]; // Imprime 'o'
+echo $string[-2]; // Imprime 'd'
+```
+</details>
 
 Longitud de string
 
@@ -1444,11 +1489,29 @@ Longitud de string
 strlen($string)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "Hola Mundo";
+echo strlen($string); // Imprime 10
+```
+</details>
+
 String al revés
 
 ```php
 strrev($string)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "Hola Mundo";
+echo strrev($string); // Imprime "odnuM aloH"
+```
+</details>
 
 String en minúscula
 
@@ -1456,23 +1519,93 @@ String en minúscula
 strtolower($string)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "Hola Mundo";
+echo strtolower($string); // Imprime "hola mundo"
+```
+</details>
+
 String en mayúscula
 
 ```php
 strtoupper($string)
 ```
 
-Comparar strings
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "Hola Mundo";
+echo strtoupper($string); // Imprime "HOLA MUNDO"
+```
+</details>
+
+Comparar strings (teniendo en cuenta mayúsculas)
 
 ```php
 strcmp($string1, $string2)
 ```
 
-Posición de primera ocurrencia de `string2` dentro de `string1`
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string1 = "Hola";
+$string2 = "Mundo";
+
+echo strcmp($string1, $string2); // Imprime un valor negativo porque "Hola" es menor que "Mundo"
+echo strcmp($string1, $string1); // Imprime 0 porque ambas cadenas son iguales
+echo strcmp($string2, $string1); // Imprime un valor positivo porque "Mundo" es mayor que "Hola"
+```
+</details>
+
+Comparar strings (sin tener en cuenta mayúsculas)
+
+```php
+strcasecmp($string1, $string2)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string1 = "Hola";
+$string2 = "hola";
+
+echo strcasecmp($string1, $string2); // Imprime 0 porque "Hola" y "hola" son consideradas iguales
+echo strcasecmp("Mundo", "mundo"); // Imprime 0 porque "Mundo" y "mundo" son iguales sin importar las mayúsculas
+echo strcasecmp("Hola", "Mundo"); // Imprime un valor negativo porque "Hola" es menor que "Mundo"
+```
+</details>
+
+Posición de primera ocurrencia de `string2` dentro de `string1` (devuelve `false` si no está)
 
 ```php
 strpos($string1, $string2);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string1 = "Hola Mundo";
+$string2 = "Mundo";
+
+echo strpos($string1, $string2); // Imprime 5, porque "Mundo" comienza en la posición 5
+
+$string3 = "Hola Mundo";
+$string4 = "Python";
+
+if (strpos($string3, $string4) === false) {
+    echo "No se encuentra la subcadena."; // Imprime esto, ya que no se encuentra "Python"
+} else {
+    echo "Subcadena encontrada.";
+}
+```
+</details>
 
 ¿`string1` contiene `string2`?
 
@@ -1480,11 +1613,40 @@ strpos($string1, $string2);
 str_contains($string1, $string2)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string1 = "Hola Mundo";
+$string2 = "Mundo";
+
+echo str_contains($string1, $string2) ? "Sí, contiene" : "No, no contiene"; // Imprime "Sí, contiene"
+
+$string3 = "PHP es raro";
+$string4 = "Python";
+
+echo str_contains($string3, $string4) ? "Sí, contiene" : "No, no contiene"; // Imprime "No, no contiene"
+```
+</details>
+
 ¿`string1` empieza por `string2`?
 
 ```php
 str_starts_with($string1, $string2)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string1 = "Hola Mundo";
+$string2 = "Hola";
+$string3 = "Mundo";
+
+echo str_starts_with($string1, $string2) ? "Sí" : "No"; // Imprime "Sí", porque "Hola Mundo" empieza con "Hola"
+echo str_starts_with($string1, $string3) ? "Sí" : "No"; // Imprime "No", porque "Hola Mundo" no empieza con "Mundo"
+```
+</details>
 
 ¿`string1` acaba por `string2`?
 
@@ -1492,17 +1654,62 @@ str_starts_with($string1, $string2)
 str_ends_with($string1, $string2)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string1 = "Hola Mundo";
+$string2 = "Hola";
+$string3 = "Mundo";
+
+echo str_ends_with($string1, $string2) ? "Sí" : "No"; // Imprime "No", porque "Hola Mundo" no termina con "Hola"
+echo str_ends_with($string1, $string3) ? "Sí" : "No"; // Imprime "Sí", porque "Hola Mundo" termina con "Mundo"
+```
+</details>
+
 Array de substrings separados por `","` de `$string` (similar a `split()` de Java)
 
 ```php
 explode(",", $string)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "manzana,banana,kiwi";
+$array = explode(",", $string);
+
+print_r($array);
+```
+
+`Salida`
+```
+Array
+(
+    [0] => manzana
+    [1] => banana
+    [2] => kiwi
+)
+```
+</details>
+
 Generar string a partir de array de strings, separados por `","`
 
 ```php
 implode(",", $array)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$array = ["manzana", "banana", "kiwi"];
+$string = implode(",", $array);
+
+echo $string; // Imprime "manzana,banana,kiwi"
+```
+</details>
 
 ---
 
@@ -1534,21 +1741,54 @@ Codificar texto a valores URL
 urlencode(texto)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "Hola Mundo!";
+echo urlencode($texto);  // Resultado: "Hola+Mundo%21"
+```
+</details>
+
 Descodificar texto de valores URL
 
 ```php
 urldecode(texto)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "Hola+Mundo%21";
+echo urldecode($texto);  // Resultado: "Hola Mundo!"
+```
+</details>
+
 ---
 
 ## Expresiones Regulares
 
-Comprobar que variable cumple con expresión regular
+¿Variable cumple con expresión regular?
 
 ```php
 preg_match($patron, $variable)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "Hola Mundo!";
+$patron = "/u/";
+
+if (preg_match($patron, $texto)) {
+    echo "¡Coincidencia encontrada!"; // Imprimirá esto
+} else {
+    echo "No se encontró coincidencia.";
+}
+```
+</details>
 
 Patrón que contenga la letra `a`
 
@@ -1595,7 +1835,7 @@ Patrón que empiece por `3` números
 Patrón que acabe por `3` números
 
 ```php
-"/[0-9]{3}$/
+"/[0-9]{3}$/"
 ```
 
 Patrón que contenga mayúsculas
@@ -1640,7 +1880,7 @@ Patrón que contenga `0` o `1` minúscula
 "/[a-z]?/"
 ```
 
-Patron que contenga un número o minúscula o mayúscula
+Patrón que contenga un número o minúscula o mayúscula
 
 ```php
 "/[0-9A-Za-z]/"
@@ -1688,7 +1928,6 @@ Patron que contenga un número o minúscula o mayúscula
 | `\S`      | Carácter No Invisible        | `[^ \t\n\r\f\v]`      |
 | `.`       | Comodín (Excepto `\n`)       | No tiene              |
 
-
 ---
 
 ## Excepciones
@@ -1709,11 +1948,40 @@ try{
 }
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+try {
+    $edad = -1;
+    if ($edad < 0) {
+        throw new InvalidArgumentException(); // Se lanzará esta excepción
+    }
+    echo "Edad válida.";
+} catch (InvalidArgumentException $iae) {
+    // Maneja la excepción
+    echo "Error.";
+}
+```
+</details>
+
 Mensaje de la excepción
 
 ```php
 $iae->getMessage()
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+try {
+    throw new InvalidArgumentException("Mensaje de error.");
+} catch (InvalidArgumentException $iae) {
+    echo $iae->getMessage(); // Muestra el mensaje de la excepción
+}
+```
+</details>
 
 ---
 
@@ -1734,16 +2002,66 @@ $capitales = ["España" => "Madrid", "Francia" => "París", "Italia" => "Roma"];
 Acceder a posición de array
 
 ```php
-$miArray[0] = 5;
+$miArray[0];
 $miArray[1] = "X";
-$capitales["España"]
+
+$capitales["Francia"];
+$capitales["España"] = "Madrid";
 ```
 
-Agregar valor a array
+Agregar valor al final de array indexado (en asociativos agrega el valor con el primer número disponible como clave)
 
 ```php
 $miArray[] = valor;
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$miArray = [0, 5, 2, 3, 1];
+
+$miArray[] = 4;
+print_r($miArray);
+```
+
+`Salida`
+```php
+Array
+(
+    [0] => 0
+    [1] => 5
+    [2] => 2
+    [3] => 3
+    [4] => 1
+    [5] => 4
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$miArray = [
+    "nombre" => "Juan",
+    "edad" => 30
+];
+
+$miArray[] = "valor";
+print_r($miArray);
+```
+
+`Salida`
+```php
+Array
+(
+    [nombre] => Juan
+    [edad] => 30
+    [0] => valor
+)
+```
+</details>
 
 Tamaño de array
 
@@ -1751,17 +2069,81 @@ Tamaño de array
 count($miArray)
 ```
 
-Generar array de números en un rango ordenadamente
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$miArray = [1, 2, 3, 4];
+echo count($miArray) // Imprime 4
+```
+</details>
+
+Generar array de números en un rango ordenadamente (incluyente)
 
 ```php
 range(1, 10)
 ```
 
-Array nuevo de función aplicada a elementos de un array
+<details>
+	<summary>Ejemplo</summary>
 
 ```php
-$arrayModificado = array_map($funcion, $array);
+$numeros = range(6, 10);
+print_r($numeros);
 ```
+
+`Salida`
+```php
+Array
+(
+    [0] => 6
+    [1] => 7
+    [2] => 8
+    [3] => 9
+    [4] => 10
+)
+```
+</details>
+
+Array nuevo de función aplicada a elementos de uno o varios array
+
+```php
+$arrayModificado = array_map($funcion, ...$arrays);
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$numeros = [1, 2, 3, 4, 5];
+
+$dobles = array_map(function($numero) {
+    return $numero * 2;
+}, $numeros);
+
+print_r($dobles);
+```
+
+`Salida`
+```php
+Array
+(
+    [0] => 2
+    [1] => 4
+    [2] => 6
+    [3] => 8
+    [4] => 10
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+
+```
+</details>
 
 Array nuevo de sólo los elementos de un array que cumplan un criterio
 
@@ -1769,17 +2151,41 @@ Array nuevo de sólo los elementos de un array que cumplan un criterio
 $arrayFiltrado = array_filter($array, $funcion);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Valor devuelto luego de aplicar una función a un array iterativamente con un acumulador y su valor inicial
 
 ```php
 $valor = array_reduce($array, $funcion, $valorInicialAcum);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Almacenar en variables los valores de un array (Desestructuración)
 
 ```php
 list($a, $b, $c, $d) = [1, 2, 3, 4];
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Array Multidimensional
 
@@ -1795,12 +2201,28 @@ sort($array);
 rsort($array);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Ordenar array original asociativo por valores ascendentemente y descendentemente
 
 ```php
 asort($array);
 arsort($array);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Ordenar array original asociativo por claves ascendentemente y descendentemente
 
@@ -1809,11 +2231,27 @@ ksort($array);
 krsort($array);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Ordenar array original por criterio
 
 ```php
 usort($array, criterio);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 ¿Está en un array un valor?
 
@@ -1821,11 +2259,27 @@ usort($array, criterio);
 in_array($valor, $array)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Array indexado de valores de un array (sea indexado o asociativo)
 
 ```php
 array_values($array)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Array indexado de claves de un array
 
@@ -1833,11 +2287,27 @@ Array indexado de claves de un array
 array_keys($array)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 ¿Existe la clave en el array?
 
 ```php
 array_key_exists($array, $clave)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Array al revés
 
@@ -1845,11 +2315,27 @@ Array al revés
 array_reverse($array);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Insertar valor/es al final de un array
 
 ```php
 array_push($array, ...$valores);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Extraer valor al final de un array (`null` si está vacío)
 
@@ -1857,11 +2343,27 @@ Extraer valor al final de un array (`null` si está vacío)
 array_pop($array)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Insertar valor/es al principio de un array
 
 ```php
 array_unshift($array, ...$valores);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Extraer valor al principio de un array (`null` si está vacío)
 
@@ -1869,11 +2371,27 @@ Extraer valor al principio de un array (`null` si está vacío)
 array_shift($array)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Intercambiar claves por valores
 
 ```php
 array_flip($array)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Posición actual del puntero en el array
 
@@ -1899,11 +2417,27 @@ Posición de la primera ocurrencia de elemento en array (`indexOf()` de Java)
 array_search($elemento, $array)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Porción del array empezando por un valor y de una longitud determinada, opcionalmente manteniendo las claves
 
 ```php
 array_slice($array, $inicio, $longitud, $preservarClaves)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 Reemplazar elementos de un array que están empezando por un valor y con una longitud determinada, por otros valores
 
@@ -1911,11 +2445,27 @@ Reemplazar elementos de un array que están empezando por un valor y con una lon
 array_splice($array, $inicio, $longitud, $valoresNuevos);
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
+
 Dos arrays concatenados
 
 ```php
 array_merge($array1, $array2)
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+
+```
+</details>
 
 ---
 
