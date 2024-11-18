@@ -944,7 +944,9 @@ echo htmlspecialchars($texto);  // Imprime "&lt;Hola&gt;"
 ```
 </details>
 
-Variable `$_POST` (Array asociativo con claves que son los `name` de un `<form>`)
+### Variable `$_POST`
+
+(Array asociativo con claves que son los `name` de un `<form>`)
 
 ```php
 $_POST
@@ -1095,7 +1097,9 @@ if($usuario == "admin" && $password == "1234") {
 ```
 </details>
 
-Variable `$_GET` (Array asociativo con claves mostradas en la URL)
+### Variable `$_GET`
+
+(Array asociativo con claves al igual que `$_POST`, pero mostradas en la URL)
 
 ```php
 $_GET
@@ -1202,7 +1206,9 @@ echo "Hola, $nombre $apellido. Tienes $edad años.";
 ```
 </details>
 
-Variable `$_REQUEST` (Array asociativo con todos los campos ya sean de `$_GET` o `$_POST`)
+### Variable `$_REQUEST`
+
+(Array asociativo con todos los campos ya sean de `$_GET` o `$_POST`)
 
 ```php
 $_REQUEST
@@ -1214,7 +1220,69 @@ Acceder a clave de `$_REQUEST` con `name = "clave"`
 $_REQUEST["clave"]
 ```
 
-Variable `$_FILES` (Array bidimensional asociativo con todos los archivos y sus atributos)
+<details>
+	<summary>Ejemplo 1</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 1 - GET</title>
+	</head>
+	<body>
+		<form method="get" action="index.php">
+			<label for="usuario">Usuario:</label>
+			<input type="text" name="usuario" required/>
+			<br>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(isset($_REQUEST["usuario"])) {
+    echo "El usuario es: " . $_REQUEST["usuario"];
+} else {
+    echo "No se ha enviado ningún usuario.";
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 2 - POST</title>
+	</head>
+	<body>
+		<form method="post" action="index.php">
+			<label for="email">Email:</label>
+			<input type="email" name="email" required/>
+			<br>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(isset($_REQUEST["email"])) {
+    echo "El email es: " . $_REQUEST["email"];
+} else {
+    echo "No se ha enviado ningún email.";
+}
+```
+</details>
+
+### Variable `$_FILES`
+
+(Array bidimensional asociativo con todos los archivos y sus atributos)
 
 ```php
 $_FILES
@@ -1236,7 +1304,66 @@ $_FILES["archivo"]["tmp_name"]	// Nombre en el cliente
 $_FILES["archivo"]["error"]	// Error
 ```
 
-Variable `$_SERVER` (Array asociativo con información del servidor)
+<details>
+	<summary>Ejemplo</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Subir archivo</title>
+	</head>
+	<body>
+		<form method="post" action="index.php" enctype="multipart/form-data">
+			<label for="archivo">Selecciona un archivo:</label>
+			<input type="file" name="archivo" required/>
+			<br>
+			<input type="submit" value="Subir archivo"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(isset($_FILES["archivo"])) {
+    $archivo = $_FILES["archivo"];
+
+    // Acceder a las propiedades del archivo
+    echo "Nombre del archivo: " . $archivo["name"] . "<br>";
+    echo "Tipo de archivo: " . $archivo["type"] . "<br>";
+    echo "Tamaño del archivo: " . $archivo["size"] . " bytes<br>";
+    echo "Nombre temporal del archivo: " . $archivo["tmp_name"] . "<br>";
+    echo "Código de error: " . $archivo["error"] . "<br>";
+
+    // Verificar si hubo algún error
+    if($archivo["error"] === UPLOAD_ERR_OK) {
+        echo "Archivo subido correctamente.";
+    } else {
+        echo "Error en la subida del archivo.";
+    }
+} else {
+    echo "No se ha enviado ningún archivo.";
+}
+```
+</details>
+
+#### Tipos de Códigos de Error (`$_FILES["..."]["error"]`)
+
+| Código | Error |
+|-|-|
+| `UPLOAD_ERR_OK` | Sin errores |
+| `UPLOAD_ERR_INI_SIZE`| El archivo es más grande que el valor permitido en la directiva upload_max_filesize de PHP |
+| `UPLOAD_ERR_FORM_SIZE` | El archivo es más grande que el valor permitido en el formulario (a través de `MAX_FILE_SIZE`) |
+| `UPLOAD_ERR_PARTIAL` | El archivo fue subido parcialmente |
+| `UPLOAD_ERR_NO_FILE` | No se subió ningún archivo |
+| `UPLOAD_ERR_NO_TMP_DIR` | Falta el directorio temporal |
+| `UPLOAD_ERR_CANT_WRITE` | No se puede escribir el archivo en el disco |
+| `UPLOAD_ERR_EXTENSION` | Una extensión de PHP detuvo la carga del archivo |
+
+### Variable `$_SERVER`
+
+(Array asociativo con información del servidor)
 
 ```php
 $_SERVER
