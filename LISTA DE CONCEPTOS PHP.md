@@ -415,6 +415,24 @@ Si se da `condición`, mostrar `1`, si no, `2`.
 echo (condición) ? "1" : "2";
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+echo ($esAdmin) ? "Bienvenido al sistema" : "Acceso denegado";
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$numero = 5;
+$resultado = ($numero % 2 == 0) ? "Par" : "Impar";
+echo "El número es: $resultado";
+```
+</details>
+
 Múltiple condición
 
 ```php
