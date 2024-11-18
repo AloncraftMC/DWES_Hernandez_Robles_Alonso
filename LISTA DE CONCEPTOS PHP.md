@@ -1684,6 +1684,7 @@ print_r($array);
 ```
 
 ###### Salida
+
 ```
 Array
 (
@@ -2026,6 +2027,7 @@ print_r($miArray);
 ```
 
 ###### Salida
+
 ```php
 Array
 (
@@ -2053,6 +2055,7 @@ print_r($miArray);
 ```
 
 ###### Salida
+
 ```php
 Array
 (
@@ -2093,6 +2096,7 @@ print_r($numeros);
 ```
 
 ###### Salida
+
 ```php
 Array
 (
@@ -2125,6 +2129,7 @@ print_r($dobles);
 ```
 
 ###### Salida
+
 ```php
 Array
 (
@@ -2152,6 +2157,7 @@ print_r($personas);
 ```
 
 ###### Salida
+
 ```php
 Array
 (
