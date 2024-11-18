@@ -363,6 +363,7 @@ if($edad >= 18) {
 }
 ```
 </details>
+
 <details>
 	<summary>Ejemplo 2</summary>
 
@@ -394,6 +395,7 @@ if($hora < 12) {
 }
 ```
 </details>
+
 <details>
 	<summary>Ejemplo 2</summary>
 
@@ -441,6 +443,7 @@ if($hora < 12) {
 }
 ```
 </details>
+
 <details>
 	<summary>Ejemplo 2</summary>
 
@@ -460,7 +463,7 @@ if($puntos >= 90) {
 
 ### Condicional `switch` / `match`
 
-Realizar instrucción dependiendo del valor de `variable`
+Realizar instrucción dependiendo del valor de `$variable`
 
 ```php
 switch($variable){
@@ -498,6 +501,7 @@ switch($color) {
 }
 ```
 </details>
+
 <details>
 	<summary>Ejemplo 2</summary>
 
@@ -519,7 +523,7 @@ switch($edad) {
 ```
 </details>
 
-Elemento dependiendo de valor de `variable`
+Elemento dependiendo de valor de `$variable`
 
 ```php
 echo match($variable){
@@ -548,6 +552,18 @@ while(condición) {
 }
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$contador = 1;
+while($contador <= 5) {
+    echo "Contador: $contador\n";
+    $contador++;  // Aumenta el contador en cada iteración
+}
+```
+</details>
+
 ### Bucle `do while`
 
 Realizar `instrucción` y repetir mientras se cumpla `condición`
@@ -557,6 +573,18 @@ do{
 	// Instrucción
 }while(condición);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$contador = 1;
+do {
+    echo "Contador: $contador\n";
+    $contador++;  // Aumenta el contador en cada iteración
+} while($contador <= 5);
+```
+</details>
 
 ### Bucle `for`
 
@@ -568,6 +596,26 @@ for(inicialización, condición, iteración){
 }
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+for($i = 0; $i < 5; $i++) {
+    echo $i . "\n";
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+for($i = 10; $i >= 0; $i--) {
+    echo $i . "\n";
+}
+```
+</details>
+
 ### Bucle `foreach`
 
 Recorrer array indexado
@@ -578,6 +626,28 @@ foreach ($array as $elemento) {
 }
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$numeros = [1, 2, 3, 4, 5];
+foreach ($numeros as $numero) {
+    echo $numero . "\n";
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$nombres = ["Pepe", "Lola", "Alex", "Ana", "Javi"];
+foreach ($nombres as $nombre) {
+    echo $nombre . "\n";
+}
+```
+</details>
+
 Recorrer array asociativo
 
 ```php
@@ -585,6 +655,28 @@ foreach ($array as $clave => $valor) {
 	echo $clave . ":" . $valor;
 }
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$capitales = ["España" => "Madrid", "Francia" => "París", "Portugal" => "Lisboa"];
+foreach ($capitales as $pais => $capital) {
+    echo "La capital de " . $pais . " es " . $capital ".\n";
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = ["nombre" => "Juan", "edad" => 30, "ciudad" => "Madrid"];
+foreach ($array as $clave => $valor) {
+    echo "$clave: $valor\n";
+}
+```
+</details>
 
 ### `break` y `continue`
 
@@ -596,6 +688,21 @@ while(condición){
 }
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$numero = 10;
+while($numero > 0) {
+    if($numero == 5) {
+        break;  // Sale del bucle cuando $numero es igual a 5
+    }
+    echo "Número: $numero\n";
+    $numero--;
+}
+```
+</details>
+
 Ejecutar siguiente iteración del bucle
 
 ```php
@@ -603,6 +710,21 @@ while(condición){
 	continue;
 }
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$numero = 10;
+while($numero > 0) {
+    $numero--;
+    if($numero % 2 == 0) {
+        continue;  // Salta la iteración cuando $numero es par
+    }
+    echo "Número impar: $numero\n";
+}
+```
+</details>
 
 ---
 
