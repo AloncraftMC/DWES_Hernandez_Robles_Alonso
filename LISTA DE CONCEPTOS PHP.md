@@ -847,7 +847,7 @@ unset($nombre);  // Elimina la variable $nombre
 
 
 ```php
-is_integer($variable)
+is_integer($variable);
 is_string($variable)
 is_bool($variable)
 is_array($variable)
