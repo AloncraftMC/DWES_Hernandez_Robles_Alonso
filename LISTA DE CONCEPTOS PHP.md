@@ -327,6 +327,17 @@ Crear variable cuyo nombre es el valor de la variable `$var`
 $$var;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = "nombre";
+$$var = "Juan";
+
+echo $nombre;  // Imprime: Juan
+```
+</details>
+
 ---
 
 ## Condicionales
@@ -341,6 +352,25 @@ if(condición) {
 }
 if(condición) instruccion();
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$edad = 18;
+if($edad >= 18) {
+    echo "Eres mayor de edad.";
+}
+```
+</details>
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$usuarioActivo = true;
+if($usuarioActivo) echo "Usuario activo.";
+```
+</details>
 
 Si se da `condición`, realizar `1`, si no, `2`.
 
