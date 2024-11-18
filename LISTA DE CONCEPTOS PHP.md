@@ -6,7 +6,7 @@
 
 ## Comentarios
 
-```
+```php
 // Comentario de línea
 # Comentario de línea
 
@@ -16,12 +16,11 @@ párrafo
 */
 ```
 
-
 ## Mensajes
 
 Imprimir texto
 
-```
+```php
 echo "Hola Mundo";
 echo $mi_variable;
 echo "Tengo ".$manzanas." manzanas.";
@@ -31,13 +30,13 @@ print("Hola Mundo");
 
 Salto de línea
 
-```
+```php
 echo "<br>";
 ```
 
 Cualquier otra etiqueta de HTML
 
-```
+```php
 echo "<table>";
 echo "<tr><td> XD </td></tr>";
 echo "</table>";
@@ -45,20 +44,20 @@ echo "</table>";
 
 Ejecutar comando (sintaxis de SO)
 
-```
-echo `ls -la`;
-echo `dir`;
+```php
+echo `ls -la`;	// Mac OS & Linux
+echo `dir`;	// Windows
 ```
 
 Mostrar información completa de variable
 
-```
+```php
 var_dump($variable);
 ```
 
 Mostrar array u objeto
 
-```
+```php
 print_r($miArray);
 ```
 
@@ -68,7 +67,7 @@ print_r($miArray);
 
 Mostrar metadatos útiles de PHP
 
-```
+```php
 phpinfo();
 ```
 
@@ -78,13 +77,13 @@ phpinfo();
 
 Declarar constante
 
-```
+```php
 define("PI", 3.141592);
 ```
 
 ¿Está definida la constante?
 
-```
+```php
 defined("PI")
 ```
 
@@ -94,45 +93,45 @@ defined("PI")
 
 Declarar e inicializar variable
 
-```
+```php
 $mi_variable = 3;
 ```
 
 Entero
 
-```
+```php
 $mi_variable = 10;
 $mi_variable = 0x2A;
 ```
 
 Booleano
 
-```
+```php
 $mi_variable = true;
 ```
 
 Decimal
 
-```
+```php
 $mi_variable = 4.5;
 $mi_variable = 7.3e-1;
 ```
 
 Cadena
 
-```
+```php
 $mi_variable = "texto";
 ```
 
 Nulo
 
-```
+```php
 $mi_variable = null;
 ```
 
 Mixto (en clase; en función)
 
-```
+```php
 private mixed $mi_variable
 public function mi_funcion(mixed $mi_variable) {...}
 ```
@@ -141,13 +140,13 @@ public function mi_funcion(mixed $mi_variable) {...}
 
 Convertir a entero
 
-```
+```php
 (int) $variable
 ```
 
 Convertir a decimal
 
-```
+```php
 (double) $variable
 (float) $variable
 (real) $variable
@@ -155,25 +154,25 @@ Convertir a decimal
 
 Convertir a booleano
 
-```
+```php
 (boolean) $variable
 ```
 
 Convertir a cadena
 
-```
+```php
 (string) $variable
 ```
 
 Convertir a array
 
-```
+```php
 (array) $variable
 ```
 
 Convertir a objeto
 
-```
+```php
 (object) $variable
 ```
 
@@ -203,85 +202,85 @@ Convertir a objeto
 
 Incremento anterior
 
-```
+```php
 ++$variable;
 ```
 
 Incremento posterior
 
-```
+```php
 $variable++;
 ```
 
 Decremento anterior
 
-```
+```php
 --$variable;
 ```
 
 Decremento posterior
 
-```
+```php
 $variable--;
 ```
 
 Sumar valor a variable
 
-```
+```php
 $variable += $valor;
 ```
 
 Restar valor a variable
 
-```
+```php
 $variable -= $valor;
 ```
 
 Multiplicar valor a variable
 
-```
+```php
 $variable *= $valor;
 ```
 
 Dividir valor a variable
 
-```
+```php
 $variable /= $valor;
 ```
 
 Hacer módulo a variable
 
-```
+```php
 $variable %= $valor;
 ```
 
 Hacer potencia con valor a variable
 
-```
+```php
 $variable **= valor;
 ```
 
 Concatenar valor (texto) a variable
 
-```
+```php
 $variable .= $valor
 ```
 
 Convertir a entero o decimal si no lo es ya
 
-```
+```php
 $variable = +$variable;
 ```
 
 Multiplicar variable por $2^{valor}$
 
-```
+```php
 $variable <<= $valor;
 ```
 
 Dividir variable por $2^{valor}$
 
-```
+```php
 $variable >>= $valor;
 ```
 
@@ -324,7 +323,7 @@ $variable >>= $valor;
 
 Crear variable cuyo nombre es el valor de la variable `$var`
 
-```
+```php
 $$var;
 ```
 
@@ -336,7 +335,7 @@ $$var;
 
 Si se da `condición`, realizar `instrucción`
 
-```
+```php
 if(condición) {
 	// instrucción
 }
@@ -345,7 +344,7 @@ if(condición) instruccion();
 
 Si se da `condición`, realizar `1`, si no, `2`.
 
-```
+```php
 if(condición){
 	// 1
 }else{
@@ -355,13 +354,13 @@ if(condición){
 
 Si se da `condición`, mostrar `1`, si no, `2`.
 
-```
+```php
 echo (condición) ? "1" : "2";
 ```
 
 Múltiple condición
 
-```
+```php
 if(condición1){
 	// 1
 }else if(condición2){
@@ -377,7 +376,7 @@ if(condición1){
 
 Realizar instrucción dependiendo del valor de `variable`
 
-```
+```php
 switch($variable){
 	case 1:
 		// 1
@@ -395,7 +394,7 @@ switch($variable){
 
 Elemento dependiendo de valor de `variable`
 
-```
+```php
 echo match($variable){
 	1 => "Lunes",
 	2 => "Martes",
@@ -416,7 +415,7 @@ echo match($variable){
 
 Repetir `instrucción` mientras se cumpla `condición`
 
-```
+```php
 while(condición) {
 	// Instrucción
 }
@@ -426,7 +425,7 @@ while(condición) {
 
 Realizar `instrucción` y repetir mientras se cumpla `condición`
 
-```
+```php
 do{
 	// Instrucción
 }while(condición);
@@ -436,7 +435,7 @@ do{
 
 Realizar `inicialización` y repetir `instrucción` mientras se cumpla `condición`, y realizar `iteración`
 
-```
+```php
 for(inicialización, condición, iteración){
 	// Instrucción
 }
@@ -446,7 +445,7 @@ for(inicialización, condición, iteración){
 
 Recorrer array indexado
 
-```
+```php
 foreach ($array as $elemento) {
 	echo $elemento;
 }
@@ -454,7 +453,7 @@ foreach ($array as $elemento) {
 
 Recorrer array asociativo
 
-```
+```php
 foreach ($array as $clave => $valor) {
 	echo $clave . ":" . $valor;
 }
@@ -464,7 +463,7 @@ foreach ($array as $clave => $valor) {
 
 Salir del bucle
 
-```
+```php
 while(condición){
 	break;
 }
@@ -472,7 +471,7 @@ while(condición){
 
 Ejecutar siguiente iteración del bucle
 
-```
+```php
 while(condición){
 	continue;
 }
@@ -484,7 +483,7 @@ while(condición){
 
 Obtener tipo de dato de variable (`integer` / `double` / `boolean` / `string` / `null` / `object`)
 
-```
+```php
 gettype($variable);
 ```
 
@@ -494,7 +493,7 @@ gettype($variable);
 
 Crear variable de referencia a variable `$a` llamada `$b`
 
-```
+```php
 $b = &$a;
 ```
 
@@ -504,26 +503,26 @@ $b = &$a;
 
 ¿Está inicializada y no es nula la variable?
 
-```
+```php
 isset($variable)
 ```
 
 ¿Existe y está vacía?
 
-```
+```php
 empty($variable)
 ```
 
 Eliminar variable en memoria
 
-```
+```php
 unset($variable);
 ```
 
 ¿Es `<tipo de dato>`?
 
 
-```
+```php
 is_integer($variable)
 is_string($variable)
 is_bool($variable)
@@ -540,7 +539,7 @@ is_object($variable)
 
 Salir del script
 
-```
+```php
 exit();
 exit("Mensaje");
 die();
@@ -549,7 +548,7 @@ die("Mensaje");
 
 Salir del ámbito devolviendo un valor
 
-```
+```php
 return $valor;
 ```
 
@@ -559,20 +558,20 @@ return $valor;
 
 Ruta de directorio actual
 
-```
+```php
 __DIR__
 ```
 
 Incluir / Ejecutar `fichero.php` (También devuelve el valor devuelto en su código)
 
-```
+```php
 include("fichero.php");
 include __DIR__ . "fichero.php";
 ```
 
 Redirigir navegador a `rutaDeArchivo.php` y ejecutarlo
 
-```
+```php
 header("Location: rutaDeArchivo.php");
 ```
 
@@ -582,61 +581,61 @@ header("Location: rutaDeArchivo.php");
 
 Sanitizar variable
 
-```
+```php
 htmlspecialchars($variable);
 ```
 
 Variable `$_POST` (Array asociativo con claves que son los `name` de un `<form>`)
 
-```
+```php
 $_POST
 ```
 
 Acceder a clave de `$_POST` con `name = "usuario"`
 
-```
+```php
 $_POST["usuario"]
 ```
 
 Variable `$_GET` (Array asociativo con claves mostradas en la URL)
 
-```
+```php
 $_GET
 ```
 
 Acceder a clave de `$_GET` con `name = "clave"`
 
-```
+```php
 $_GET["clave"]
 ```
 
 Variable `$_REQUEST` (Array asociativo con todos los campos ya sean de `$_GET` o `$_POST`)
 
-```
+```php
 $_REQUEST
 ```
 
 Acceder a clave de `$_REQUEST` con `name = "clave"`
 
-```
+```php
 $_REQUEST["clave"]
 ```
 
 Variable `$_FILES` (Array bidimensional asociativo con todos los archivos y sus atributos)
 
-```
+```php
 $_FILES
 ```
 
 Acceder a archivo de `$_FILES` con `name = "archivo"`
 
-```
+```php
 $_FILES["archivo"]
 ```
 
 Acceder a propiedades de un archivo
 
-```
+```php
 $_FILES["archivo"]["name"]	// Nombre
 $_FILES["archivo"]["type"]	// Tipo
 $_FILES["archivo"]["size"]	// Tamaño
@@ -646,13 +645,13 @@ $_FILES["archivo"]["error"]	// Error
 
 Variable `$_SERVER` (Array asociativo con información del servidor)
 
-```
+```php
 $_SERVER
 ```
 
 Método de la solicitud del formulario (devuelve `"GET"` o `"POST"`)
 
-```
+```php
 $_SERVER["REQUEST_METHOD"]
 ```
 
@@ -662,20 +661,20 @@ $_SERVER["REQUEST_METHOD"]
 
 Generar objeto tiempo de: hoy
 
-```
+```php
 strtotime("now")
 ```
 
 Generar objeto tiempo de: fecha en string
 
-```
+```php
 strtotime(string)
 strtotime("02-10-2024")
 ```
 
 Generar objeto tiempo de: tiempo de fecha específica con offset
 
-```
+```php
 strtotime("offset", tiempo);
 
 $hoy = strtotime("now");
@@ -690,13 +689,13 @@ Tipos de offsets
 
 Generar objeto fecha con formato `dd/mm/yyyy` de: hoy 
 
-```
+```php
 date("d/m/Y");
 ```
 
 Generar objeto fecha con formato `dd/mm/yyyy` de: tiempo de fecha específica
 
-```
+```php
 date("d/m/Y", strtotime("02-10-2024"))
 ```
 
@@ -715,73 +714,73 @@ Tipos de formatos de `date`
 
 Carácter en posición
 
-```
+```php
 $string[posicion]
 ```
 
 Longitud de string
 
-```
+```php
 strlen($string)
 ```
 
 String al revés
 
-```
+```php
 strrev($string)
 ```
 
 String en minúscula
 
-```
+```php
 strtolower($string)
 ```
 
 String en mayúscula
 
-```
+```php
 strtoupper($string)
 ```
 
 Comparar strings
 
-```
+```php
 strcmp($string1, $string2)
 ```
 
 Posición de primera ocurrencia de `string2` dentro de `string1`
 
-```
+```php
 strpos($string1, $string2);
 ```
 
 ¿`string1` contiene `string2`?
 
-```
+```php
 str_contains($string1, $string2)
 ```
 
 ¿`string1` empieza por `string2`?
 
-```
+```php
 str_starts_with($string1, $string2)
 ```
 
 ¿`string1` acaba por `string2`?
 
-```
+```php
 str_ends_with($string1, $string2)
 ```
 
 Array de substrings separados por `","` de `$string` (similar a `split()` de Java)
 
-```
+```php
 explode(",", $string)
 ```
 
 Generar string a partir de array de strings, separados por `","`
 
-```
+```php
 implode(",", $array)
 ```
 
@@ -791,7 +790,7 @@ implode(",", $array)
 
 Generar número aleatorio entre `1` y `100` (incluyente)
 
-```
+```php
 rand(1, 100)
 ```
 
@@ -801,7 +800,7 @@ rand(1, 100)
 
 Valor redondeado a `n` decimales
 
-```
+```php
 round($valor, n)
 ```
 
@@ -811,13 +810,13 @@ round($valor, n)
 
 Codificar texto a valores URL
 
-```
+```php
 urlencode(texto)
 ```
 
 Descodificar texto de valores URL
 
-```
+```php
 urldecode(texto)
 ```
 
@@ -827,103 +826,103 @@ urldecode(texto)
 
 Comprobar que variable cumple con expresión regular
 
-```
+```php
 preg_match($patron, $variable)
 ```
 
 Patrón que contenga la letra `a`
 
-```
+```php
 "/a/"
 ```
 
 Patrón que contenga la letra `a` o `b`
 
-```
+```php
 "/a|b/"
 ```
 
 Patrón que contenga una letra de `a`, `b` o `c`
 
-```
+```php
 "/[abc]/"
 ```
 
 Patrón que sea solamente un número
 
-```
+```php
 "/^[0-9]$/"
 ```
 
 Patrón que sean solamente `3` números
 
-```
+```php
 "/^[0-9]{3}$/"
 ```
 
 Patrón que contenga `3` números
 
-```
+```php
 "/[0-9]{3}/"
 ```
 
 Patrón que empiece por `3` números
 
-```
+```php
 "/^[0-9]{3}/"
 ```
 
 Patrón que acabe por `3` números
 
-```
+```php
 "/[0-9]{3}$/
 ```
 
 Patrón que contenga mayúsculas
 
-```
+```php
 "/[A-Z]/"
 ```
 
 Patrón que contenga minúsculas
 
-```
+```php
 "/[a-z]/"
 ```
 
 Patrón que no contenga minúsculas
 
-```
+```php
 "/[^a-z]/"
 ```
 
 Patrón que contenga `3` o más minúsculas
 
-```
+```php
 "/[a-z]{3,}/"
 ```
 
 Patrón que contenga `1` o más minúsculas
 
-```
+```php
 "/[a-z]+/"
 ```
 
 Patrón que contenga `0` o más minúsculas
 
-```
+```php
 "/[a-z]*/"
 ```
 
 Patrón que contenga `0` o `1` minúscula
 
-```
+```php
 "/[a-z]?/"
 ```
 
 Patron que contenga un número o minúscula o mayúscula
 
-```
+```php
 "/[0-9A-Za-z]/"
 ```
 
@@ -976,13 +975,13 @@ Patron que contenga un número o minúscula o mayúscula
 
 Lanzar excepción
 
-```
+```php
 throw new InvalidArgumentException("Mensaje de error");
 ```
 
 Cazar excepción
 
-```
+```php
 try{
 	// Código peligroso
 }catch(InvalidArgumentException $iae){
@@ -992,7 +991,7 @@ try{
 
 Mensaje de la excepción
 
-```
+```php
 $iae->getMessage()
 ```
 
@@ -1002,19 +1001,19 @@ $iae->getMessage()
 
 Crear array indexado
 
-```
+```php
 $miArray = ["Pepe", 20.3, "XD"];
 ```
 
 Crear array asociativo (similar a `HashMap` de Java)
 
-```
+```php
 $capitales = ["España" => "Madrid", "Francia" => "París", "Italia" => "Roma"];
 ```
 
 Acceder a posición de array
 
-```
+```php
 $miArray[0] = 5;
 $miArray[1] = "X";
 $capitales["España"]
@@ -1022,179 +1021,179 @@ $capitales["España"]
 
 Agregar valor a array
 
-```
+```php
 $miArray[] = valor;
 ```
 
 Tamaño de array
 
-```
+```php
 count($miArray)
 ```
 
 Generar array de números en un rango ordenadamente
 
-```
+```php
 range(1, 10)
 ```
 
 Array nuevo de función aplicada a elementos de un array
 
-```
+```php
 $arrayModificado = array_map($funcion, $array);
 ```
 
 Array nuevo de sólo los elementos de un array que cumplan un criterio
 
-```
+```php
 $arrayFiltrado = array_filter($array, $funcion);
 ```
 
 Valor devuelto luego de aplicar una función a un array iterativamente con un acumulador y su valor inicial
 
-```
+```php
 $valor = array_reduce($array, $funcion, $valorInicialAcum);
 ```
 
 Almacenar en variables los valores de un array (Desestructuración)
 
-```
+```php
 list($a, $b, $c, $d) = [1, 2, 3, 4];
 ```
 
 Array Multidimensional
 
-```
+```php
 $miArray = [[1, 2], [3, 4], [5, 6]];
 $miArray[0][1]
 ```
 
 Ordenar array original indexado ascendentemente y descendentemente
 
-```
+```php
 sort($array);
 rsort($array);
 ```
 
 Ordenar array original asociativo por valores ascendentemente y descendentemente
 
-```
+```php
 asort($array);
 arsort($array);
 ```
 
 Ordenar array original asociativo por claves ascendentemente y descendentemente
 
-```
+```php
 ksort($array);
 krsort($array);
 ```
 
 Ordenar array original por criterio
 
-```
+```php
 usort($array, criterio);
 ```
 
 ¿Está en un array un valor?
 
-```
+```php
 in_array($valor, $array)
 ```
 
 Array indexado de valores de un array (sea indexado o asociativo)
 
-```
+```php
 array_values($array)
 ```
 
 Array indexado de claves de un array
 
-```
+```php
 array_keys($array)
 ```
 
 ¿Existe la clave en el array?
 
-```
+```php
 array_key_exists($array, $clave)
 ```
 
 Array al revés
 
-```
+```php
 array_reverse($array);
 ```
 
 Insertar valor/es al final de un array
 
-```
+```php
 array_push($array, ...$valores);
 ```
 
 Extraer valor al final de un array (`null` si está vacío)
 
-```
+```php
 array_pop($array)
 ```
 
 Insertar valor/es al principio de un array
 
-```
+```php
 array_unshift($array, ...$valores);
 ```
 
 Extraer valor al principio de un array (`null` si está vacío)
 
-```
+```php
 array_shift($array)
 ```
 
 Intercambiar claves por valores
 
-```
+```php
 array_flip($array)
 ```
 
 Posición actual del puntero en el array
 
-```
+```php
 current($array)
 ```
 
 Moverse a posición anterior del puntero del array
 
-```
+```php
 prev($array);
 ```
 
 Moverse a posición posterior del puntero del array
 
-```
+```php
 next($array);
 ```
 
 Posición de la primera ocurrencia de elemento en array (`indexOf()` de Java)
 
-```
+```php
 array_search($elemento, $array)
 ```
 
 Porción del array empezando por un valor y de una longitud determinada, opcionalmente manteniendo las claves
 
-```
+```php
 array_slice($array, $inicio, $longitud, $preservarClaves)
 ```
 
 Reemplazar elementos de un array que están empezando por un valor y con una longitud determinada, por otros valores
 
-```
+```php
 array_splice($array, $inicio, $longitud, $valoresNuevos);
 ```
 
 Dos arrays concatenados
 
-```
+```php
 array_merge($array1, $array2)
 ```
 
@@ -1204,7 +1203,7 @@ array_merge($array1, $array2)
 
 Definir función
 
-```
+```php
 function saludar() {
 	echo "Hola";
 }
@@ -1232,14 +1231,14 @@ function sumarTodo(...$numeros) : void {
 
 Ejecutar función
 
-```
+```php
 saludar();
 echo suma(1,3);
 ```
 
 Usar función con argumentos desplegados (Las dos siguientes son equivalentes)
 
-```
+```php
 $nums = [1, 2, 3];
 
 sumarTodo(1, 2, 3)
@@ -1248,7 +1247,7 @@ sumarTodo(...$nums)
 
 Función como variable
 
-```
+```php
 $comparaEnteros = function($num1, $num2) {
 	if ($num1 > $num2) return 1;
 	if ($num1 < $num2) return -1;
@@ -1259,7 +1258,7 @@ $comparaEnteros(10,20);
 
 Función flecha (es directamente `return`)
 
-```
+```php
 fn($num) => $num ** 2
 ```
 
@@ -1269,7 +1268,7 @@ fn($num) => $num ** 2
 
 Crear referencia a variable global en función (importarla)
 
-```
+```php
 function miFuncion() {
 	global $variable;
 }
@@ -1277,7 +1276,7 @@ function miFuncion() {
 
 Usar variable global en función anónima (con `use`)
 
-```
+```php
 function($argumento) use($variable) {
 	// Instrucciones
 }
@@ -1289,7 +1288,7 @@ function($argumento) use($variable) {
 
 Crear y usar variable estática en función
 
-```
+```php
 function contador() {
 	static $cont = 0;
 	$cont++;
@@ -1302,7 +1301,7 @@ function contador() {
 
 Crear clase
 
-```
+```php
 class Objeto {
 
 	private int|float $atributo1;
@@ -1348,14 +1347,14 @@ class Objeto {
 
 Crear objeto
 
-```
+```php
 $objeto = new Objeto(12, "Hola", null);
 $vacio = new Vacio();
 ```
 
 Atributo que puede ser nulo
 
-```
+```php
 ?String cadena;
 ?int entero;
 ```
