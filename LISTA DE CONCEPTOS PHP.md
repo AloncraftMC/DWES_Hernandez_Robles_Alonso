@@ -956,6 +956,145 @@ Acceder a clave de `$_POST` con `name = "usuario"`
 $_POST["usuario"]
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 1</title>
+	</head>
+	<body>
+		<form method="post" action="index.php">
+			<input type="text" name="nombre"/>
+			<input type="submit"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+$nombre = $_POST["nombre"];
+echo "Hola, " . $nombre;
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 2</title>
+	</head>
+	<body>
+		<form method="post" action="index.php">
+			<input type="email" name="email"/>
+			<input type="submit"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(isset($_POST["email"]) && !empty($_POST["email"])) {
+    echo "El email es: " . $_POST["email"];
+} else {
+    echo "No se ha enviado un email.";
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 3</title>
+	</head>
+	<body>
+		<form method="post" action="index.php">
+			<label for="nombre">Nombre:</label>
+			<input type="text" name="nombre" required/>
+			<br>
+			<label for="apellido">Apellido:</label>
+			<input type="text" name="apellido" required/>
+			<br>
+			<label for="edad">Edad:</label>
+			<input type="number" name="edad" required/>
+			<br>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(!isset($_POST["nombre"]) || empty($_POST["nombre"])) exit();
+if(!isset($_POST["apellido"]) || empty($_POST["apellido"])) exit();
+if(!isset($_POST["edad"]) || empty($_POST["edad"])) exit();
+
+$nombre = $_POST["nombre"];
+$apellido = $_POST["apellido"];
+$edad = $_POST["edad"];
+
+echo "Hola, $nombre $apellido. Tienes $edad años.";
+```
+</details>
+
+<details>
+	<summary>Ejemplo 4</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 4</title>
+	</head>
+	<body>
+		<form method="post" action="index.php">
+			<label for="usuario">Usuario:</label>
+			<input type="text" name="usuario" required/>
+			<br>
+			<label for="password">Contraseña:</label>
+			<input type="password" name="password" required/>
+			<br>
+			<label for="remember">Recordarme</label>
+			<input type="checkbox" name="remember" value="1"/>
+			<br>
+			<input type="submit" value="Iniciar sesión"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(!isset($_POST["usuario"]) || empty($_POST["usuario"])) exit();
+if(!isset($_POST["password"]) || empty($_POST["password"])) exit();
+
+$usuario = $_POST["usuario"];
+$password = $_POST["password"];
+
+// Validación simple
+if($usuario == "admin" && $password == "1234") {
+    echo "Bienvenido, $usuario!";
+    if(isset($_POST["remember"]) && $_POST["remember"] == "1") {
+        echo " Has elegido recordar tu sesión.";
+    }
+} else {
+    echo "Usuario o contraseña incorrectos.";
+}
+```
+</details>
+
 Variable `$_GET` (Array asociativo con claves mostradas en la URL)
 
 ```php
