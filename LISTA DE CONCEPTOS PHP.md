@@ -764,6 +764,28 @@ Crear variable de referencia a variable `$a` llamada `$b`
 $b = &$a;
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$a = 10;
+$b = &$a;  // $b es una referencia a $a
+$b = 20;   // Cambia el valor de $b y también el de $a
+echo $a;   // Imprime 20, ya que $b y $a son la misma variable
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$nombre = "Juan";
+$referencia = &$nombre;  // $referencia es una referencia a $nombre
+$referencia = "Pedro";   // Cambia el valor de $referencia y también el de $nombre
+echo $nombre;            // Imprime "Pedro", ya que $referencia apunta a $nombre
+```
+</details>
+
 ---
 
 ## Funciones de Variables
@@ -774,17 +796,52 @@ $b = &$a;
 isset($variable)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$nombre = "Juan";
+if(isset($nombre)) {
+    echo "La variable está definida.";
+} else {
+    echo "La variable no está definida.";
+}
+```
+</details>
+
 ¿Existe y está vacía?
 
 ```php
 empty($variable)
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = "";
+if(empty($variable)) {
+    echo "La variable está vacía.";
+} else {
+    echo "La variable no está vacía.";
+}
+```
+</details>
+
 Eliminar variable en memoria
 
 ```php
 unset($variable);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$nombre = "Juan";
+unset($nombre);  // Elimina la variable $nombre
+```
+</details>
 
 ¿Es `<tipo de dato>`?
 
@@ -800,7 +857,7 @@ is_array($variable)
 is_object($variable)
 ```
 
-
+---
 
 ## Funciones de Salida
 
@@ -836,21 +893,56 @@ include("fichero.php");
 include __DIR__ . "fichero.php";
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+`fichero.php`
+```php
+$mensaje = "Hola desde el archivo incluido";
+```
+
+`Archivo Principal`
+```php
+include("fichero.php");
+echo $mensaje;  // Imprime "Hola desde el archivo incluido"
+```
+</details>
+
 Redirigir navegador a `rutaDeArchivo.php` y ejecutarlo
 
 ```php
 header("Location: rutaDeArchivo.php");
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+// Instrucciones
+
+header("Location: rutaDeArchivo.php"); // Redirige a 'rutaDeArchivo.php'
+exit();  // Es recomendable usar exit después de redirigir
+```
+</details>
+
 ---
 
 ## Variables Superglobales
 
-Sanitizar variable
+Sanitizar variable de caracteres conflictivos
 
 ```php
 htmlspecialchars($variable);
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "<Hola>";
+echo htmlspecialchars($texto);  // Imprime "&lt;Hola&gt;"
+```
+</details>
 
 Variable `$_POST` (Array asociativo con claves que son los `name` de un `<form>`)
 
