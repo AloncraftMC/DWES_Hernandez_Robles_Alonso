@@ -848,13 +848,13 @@ unset($nombre);  // Elimina la variable $nombre
 
 ```php
 is_integer($variable);
-is_string($variable)
-is_bool($variable)
-is_array($variable)
-is_double($variable)
-is_null($variable)
-is_array($variable)
-is_object($variable)
+is_string($variable);
+is_bool($variable);
+is_array($variable);
+is_double($variable);
+is_null($variable);
+is_array($variable);
+is_object($variable);
 ```
 
 ---
@@ -1106,6 +1106,101 @@ Acceder a clave de `$_GET` con `name = "clave"`
 ```php
 $_GET["clave"]
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 1</title>
+	</head>
+	<body>
+		<form method="get" action="index.php">
+			<input type="text" name="nombre"/>
+			<input type="submit"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+$nombre = $_GET["nombre"];
+echo "Hola, " . $nombre;
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 2</title>
+	</head>
+	<body>
+		<form method="get" action="index.php">
+			<input type="email" name="email"/>
+			<input type="submit"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(!isset($_GET["email"]) || empty($_GET["email"])) {
+    echo "No se ha enviado un email.";
+    exit();
+}
+
+$email = $_GET["email"];
+echo "El email es: " . $email;
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+`index.html`
+```html
+<html>
+	<head>
+		<title>Ejemplo 3</title>
+	</head>
+	<body>
+		<form method="get" action="index.php">
+			<label for="nombre">Nombre:</label>
+			<input type="text" name="nombre" required/>
+			<br>
+			<label for="apellido">Apellido:</label>
+			<input type="text" name="apellido" required/>
+			<br>
+			<label for="edad">Edad:</label>
+			<input type="number" name="edad" required/>
+			<br>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>
+</html>
+```
+
+`index.php`
+```php
+if(!isset($_GET["nombre"]) || empty($_GET["nombre"])) exit();
+if(!isset($_GET["apellido"]) || empty($_GET["apellido"])) exit();
+if(!isset($_GET["edad"]) || empty($_GET["edad"])) exit();
+
+$nombre = $_GET["nombre"];
+$apellido = $_GET["apellido"];
+$edad = $_GET["edad"];
+
+echo "Hola, $nombre $apellido. Tienes $edad años.";
+```
+</details>
 
 Variable `$_REQUEST` (Array asociativo con todos los campos ya sean de `$_GET` o `$_POST`)
 
