@@ -134,7 +134,7 @@ Mixto (en clase; en función)
 
 ```
 private mixed $mi_variable
-public function funcionMixta(mixed $variable) : mixed { … }
+public function mi_funcion(mixed $mi_variable) {...}
 ```
 
 ### Conversión de Tipos
@@ -292,6 +292,7 @@ $variable >>= $valor;
 `===` Estrictamente igual (valores y tipo)
 
 `!=` Distinto
+
 `<>` Distinto
 
 `!==` Estrictamente distinto (valores y tipo)
