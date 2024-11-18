@@ -382,6 +382,31 @@ if(condición){
 }
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$hora = 10;
+if($hora < 12) {
+    echo "Buenos días";  // Si la hora es antes de las 12
+} else {
+    echo "Buenas tardes";  // Si la hora es 12 o después
+}
+```
+</details>
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$usuarioAutenticado = false;
+if($usuarioAutenticado) {
+    echo "Acceso concedido";  // Si el usuario está autenticado
+} else {
+    echo "Acceso denegado";  // Si el usuario no está autenticado
+}
+```
+</details>
+
 Si se da `condición`, mostrar `1`, si no, `2`.
 
 ```php
@@ -402,6 +427,37 @@ if(condición1){
 }
 ```
 
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$hora = 14;
+if($hora < 12) {
+    echo "Buenos días";  // Si la hora es antes de las 12
+} else if($hora < 18) {
+    echo "Buenas tardes";  // Si la hora es entre las 12 y las 18
+} else {
+    echo "Buenas noches";  // Si la hora es después de las 18
+}
+```
+</details>
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$puntos = 85;
+if($puntos >= 90) {
+    echo "Excelente";  // Si los puntos son 90 o más
+} else if($puntos >= 70) {
+    echo "Bueno";  // Si los puntos son 70 o más pero menos de 90
+} else if($puntos >= 50) {
+    echo "Regular";  // Si los puntos son 50 o más pero menos de 70
+} else {
+    echo "Insuficiente";  // Si los puntos son menos de 50
+}
+```
+</details>
+
 ### Condicional `switch` / `match`
 
 Realizar instrucción dependiendo del valor de `variable`
@@ -421,6 +477,47 @@ switch($variable){
 		// Resto
 }
 ```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$color = "rojo";
+switch($color) {
+	case "azul":
+		echo "Color azul";
+		break;
+	case "rojo":
+		echo "Color rojo";
+		break;
+	case "verde":
+		echo "Color verde";
+		break;
+	default:
+		echo "Color desconocido";
+}
+```
+</details>
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$edad = 25;
+switch($edad) {
+	case 18:
+		echo "Tienes 18 años.";
+		break;
+	case 25:
+		echo "Tienes 25 años.";
+		break;
+	case 30:
+		echo "Tienes 30 años.";
+		break;
+	default:
+		echo "Edad no especificada.";
+}
+```
+</details>
 
 Elemento dependiendo de valor de `variable`
 
