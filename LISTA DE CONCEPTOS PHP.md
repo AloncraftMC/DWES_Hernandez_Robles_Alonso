@@ -547,7 +547,7 @@ die();
 die("Mensaje");
 ```
 
-Salir del script devolviendo un valor
+Salir del ámbito devolviendo un valor
 
 ```
 return $valor;
@@ -563,14 +563,14 @@ Ruta de directorio actual
 __DIR__
 ```
 
-Incluir fichero (También devuelve el valor devuelto en su código)
+Incluir / Ejecutar `fichero.php` (También devuelve el valor devuelto en su código)
 
 ```
 include("fichero.php");
 include __DIR__ . "fichero.php";
 ```
 
-Cargar fichero
+Redirigir navegador a `rutaDeArchivo.php` y ejecutarlo
 
 ```
 header("Location: rutaDeArchivo.php");
@@ -644,7 +644,7 @@ $_FILES["archivo"]["tmp_name"]	// Nombre en el cliente
 $_FILES["archivo"]["error"]	// Error
 ```
 
-Variable `$_SERVER` (Array asociativo con ...)
+Variable `$_SERVER` (Array asociativo con información del servidor)
 
 ```
 $_SERVER
@@ -684,9 +684,9 @@ $mañana = strtotime("+1 day", $hoy);
 
 Tipos de offsets
 
-- `+1 day` Un día más
-- `-2 month` - 2 meses menos
-- `+3 year` 3 años más
+- `"+1 day"` Un día más
+- `"-2 month"` 2 meses menos
+- `"+3 year"` 3 años más
 
 Generar objeto fecha con formato `dd/mm/yyyy` de: hoy 
 
@@ -743,7 +743,7 @@ String en mayúscula
 strtoupper($string)
 ```
 
-Comparar string
+Comparar strings
 
 ```
 strcmp($string1, $string2)
@@ -773,13 +773,13 @@ str_starts_with($string1, $string2)
 str_ends_with($string1, $string2)
 ```
 
-Array de substrings separados por `","` en string (similar a `split()` de Java)
+Array de substrings separados por `","` de `$string` (similar a `split()` de Java)
 
 ```
 explode(",", $string)
 ```
 
-Generar string a partir de array
+Generar string a partir de array de strings, separados por `","`
 
 ```
 implode(",", $array)
@@ -957,7 +957,7 @@ Patron que contenga un número o minúscula o mayúscula
 | `{3,}`      | Más de `3` veces       |
 | `{3,9}`     | Entre `3` y `9` veces  |
 
-### Anexo 4. Apéndice de Metacaracteres y Equivalencias:
+### Anexo 4. Apéndice de Metacaracteres y Equivalencias
 
 | Expresión | Descripción                  | Equivalencia          |
 |-----------|------------------------------|-----------------------|
@@ -1102,13 +1102,13 @@ usort($array, criterio);
 in_array($valor, $array)
 ```
 
-Array de valores de un array (redundante pero sirve)
+Array indexado de valores de un array (sea indexado o asociativo)
 
 ```
 array_values($array)
 ```
 
-Array de claves de un array
+Array indexado de claves de un array
 
 ```
 array_keys($array)
@@ -1132,7 +1132,7 @@ Insertar valor/es al final de un array
 array_push($array, ...$valores);
 ```
 
-Extraer valor al final de un array (null si está vacío)
+Extraer valor al final de un array (`null` si está vacío)
 
 ```
 array_pop($array)
@@ -1144,7 +1144,7 @@ Insertar valor/es al principio de un array
 array_unshift($array, ...$valores);
 ```
 
-Extraer valor al principio de un array (null si está vacío)
+Extraer valor al principio de un array (`null` si está vacío)
 
 ```
 array_shift($array)
@@ -1174,7 +1174,7 @@ Moverse a posición posterior del puntero del array
 next($array);
 ```
 
-Posición de la primera ocurrencia de elemento en array (`indexOf` de Java)
+Posición de la primera ocurrencia de elemento en array (`indexOf()` de Java)
 
 ```
 array_search($elemento, $array)
