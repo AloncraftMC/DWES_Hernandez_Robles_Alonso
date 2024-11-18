@@ -1683,7 +1683,7 @@ $array = explode(",", $string);
 print_r($array);
 ```
 
-`Salida`
+###### Salida
 ```
 Array
 (
@@ -2025,7 +2025,7 @@ $miArray[] = 4;
 print_r($miArray);
 ```
 
-`Salida`
+###### Salida
 ```php
 Array
 (
@@ -2052,7 +2052,7 @@ $miArray[] = "valor";
 print_r($miArray);
 ```
 
-`Salida`
+###### Salida
 ```php
 Array
 (
@@ -2092,7 +2092,7 @@ $numeros = range(6, 10);
 print_r($numeros);
 ```
 
-`Salida`
+###### Salida
 ```php
 Array
 (
@@ -2124,7 +2124,7 @@ $dobles = array_map(function($numero) {
 print_r($dobles);
 ```
 
-`Salida`
+###### Salida
 ```php
 Array
 (
@@ -2141,7 +2141,24 @@ Array
 	<summary>Ejemplo 2</summary>
 
 ```php
+$nombres = ["Juan", "Pedro", "Maria"];
+$edades = [30, 25, 28];
 
+$personas = array_map(function($nombre, $edad) {
+    return $nombre . " tiene " . $edad . " años";
+}, $nombres, $personas);
+
+print_r($personas);
+```
+
+###### Salida
+```php
+Array
+(
+    [0] => Juan tiene 30 años
+    [1] => Pedro tiene 25 años
+    [2] => Maria tiene 28 años
+)
 ```
 </details>
 
