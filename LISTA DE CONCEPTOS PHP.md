@@ -3207,10 +3207,11 @@ $comparaEnteros = function($num1, $num2) {
 	if ($num1 < $num2) return -1;
 	return 0;
 }
-$comparaEnteros(10, 20);
+
+echo $comparaEnteros(10, 20);
 ```
 
-Función flecha (es directamente `return`)
+Función flecha (hace directamente `return`)
 
 ```php
 fn($num) => $num ** 2
@@ -3240,9 +3241,9 @@ function miFuncion() {
     $variable += 5;
 }
 
-echo $variable;	// Muestra 10
+echo $variable;	// Imprime 10
 miFuncion();
-echo $variable;	// Muestra 15
+echo $variable;	// Imprime 15
 ```
 </details>
 
@@ -3264,9 +3265,9 @@ $miFuncion = function() use($variable) {
     $variable += 5;
 };
 
-echo $variable;  // Muestra 10
+echo $variable;	// Imprime 10
 $miFuncion();
-echo $variable;  // Muestra 10 (sin efecto)
+echo $variable;	// Imprime 10 (sin efecto)
 ```
 </details>
 
@@ -3285,12 +3286,12 @@ function($argumentos) use(&$variable) {
 $variable = 10;
 
 $miFuncion = function() use(&$variable) {
-    $variable += 5;  // Modifica la variable original por referencia
+    $variable += 5;
 };
 
-echo $variable;  // Muestra 10
-$miFuncion();    // Ejecuta la función que modifica la variable
-echo $variable;  // Muestra 15
+echo $variable;	// Imprime 10
+$miFuncion();
+echo $variable;	// Imprime 15
 ```
 </details>
 
