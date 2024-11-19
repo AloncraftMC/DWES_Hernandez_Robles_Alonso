@@ -389,9 +389,9 @@ if(condición){
 ```php
 $hora = 10;
 if($hora < 12) {
-	echo "Buenos días";  // Si la hora es antes de las 12
+	echo "Buenos días";	// Si la hora es antes de las 12
 } else {
-	echo "Buenas tardes";  // Si la hora es 12 o después
+	echo "Buenas tardes";	// Si la hora es 12 o después
 }
 ```
 </details>
@@ -402,9 +402,9 @@ if($hora < 12) {
 ```php
 $usuarioAutenticado = false;
 if($usuarioAutenticado) {
-	echo "Acceso concedido";  // Si el usuario está autenticado
+	echo "Acceso concedido";	// Si el usuario está autenticado
 } else {
-	echo "Acceso denegado";  // Si el usuario no está autenticado
+	echo "Acceso denegado";	// Si el usuario no está autenticado
 }
 ```
 </details>
