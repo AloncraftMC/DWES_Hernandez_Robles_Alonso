@@ -334,7 +334,7 @@ $$var;
 $var = "nombre";
 $$var = "Juan";
 
-echo $nombre;  // Imprime: Juan
+echo $nombre;  // Imprime "Juan"
 ```
 </details>
 
