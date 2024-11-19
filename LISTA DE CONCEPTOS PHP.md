@@ -3313,9 +3313,9 @@ function miFuncion(&$variable) {
     $variable += 5;
 }
 
-echo $variable;	// Muestra 10
+echo $variable;	// Imprime 10
 miFuncion();
-echo $variable;	// Muestra 15
+echo $variable;	// Imprime 15
 ```
 </details>
 
