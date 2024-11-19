@@ -404,7 +404,7 @@ $usuarioAutenticado = false;
 if($usuarioAutenticado) {
 	echo "Acceso concedido";	// Si el usuario está autenticado
 } else {
-	echo "Acceso denegado";	// Si el usuario no está autenticado
+	echo "Acceso denegado";		// Si el usuario no está autenticado
 }
 ```
 </details>
