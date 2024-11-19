@@ -577,7 +577,7 @@ while(condición) {
 $contador = 1;
 while($contador <= 5) {
 	echo "Contador: $contador\n";
-	$contador++;  // Aumenta el contador en cada iteración
+	$contador++;	// Aumenta el contador en cada iteración
 }
 ```
 </details>
@@ -599,7 +599,7 @@ do{
 $contador = 1;
 do {
 	echo "Contador: $contador\n";
-	$contador++;  // Aumenta el contador en cada iteración
+	$contador++;	// Aumenta el contador en cada iteración
 } while($contador <= 5);
 ```
 </details>
@@ -649,6 +649,7 @@ foreach ($array as $elemento) {
 
 ```php
 $numeros = [1, 2, 3, 4, 5];
+
 foreach ($numeros as $numero) {
 	echo $numero . "\n";
 }
@@ -660,6 +661,7 @@ foreach ($numeros as $numero) {
 
 ```php
 $nombres = ["Pepe", "Lola", "Alex", "Ana", "Javi"];
+
 foreach ($nombres as $nombre) {
 	echo $nombre . "\n";
 }
@@ -670,7 +672,7 @@ Recorrer array asociativo
 
 ```php
 foreach ($array as $clave => $valor) {
-	echo $clave . ":" . $valor;
+	echo $clave . ": " . $valor;
 }
 ```
 
@@ -678,7 +680,12 @@ foreach ($array as $clave => $valor) {
 	<summary>Ejemplo 1</summary>
 
 ```php
-$capitales = ["España" => "Madrid", "Francia" => "París", "Portugal" => "Lisboa"];
+$capitales = [
+	"España" => "Madrid",
+	"Francia" => "París",
+	"Portugal" => "Lisboa"
+];
+
 foreach ($capitales as $pais => $capital) {
 	echo "La capital de " . $pais . " es " . $capital ".\n";
 }
@@ -689,7 +696,12 @@ foreach ($capitales as $pais => $capital) {
 	<summary>Ejemplo 2</summary>
 
 ```php
-$array = ["nombre" => "Juan", "edad" => 30, "ciudad" => "Madrid"];
+$array = [
+	"nombre" => "Juan",
+	"edad" => 30,
+	"ciudad" => "Madrid"
+];
+
 foreach ($array as $clave => $valor) {
 	echo "$clave: $valor\n";
 }
@@ -713,7 +725,7 @@ while(condición){
 $numero = 10;
 while($numero > 0) {
 	if($numero == 5) {
-		break;  // Sale del bucle cuando $numero es igual a 5
+		break;	// Sale del bucle cuando $numero es igual a 5
 	}
 	echo "Número: $numero\n";
 	$numero--;
@@ -737,7 +749,7 @@ $numero = 10;
 while($numero > 0) {
 	$numero--;
 	if($numero % 2 == 0) {
-		continue;  // Salta la iteración cuando $numero es par
+		continue;	// Salta la iteración cuando $numero es par
 	}
 	echo "Número impar: $numero\n";
 }
@@ -780,9 +792,9 @@ echo $a;	// Imprime 20, ya que $b y $a son la misma variable
 
 ```php
 $nombre = "Juan";
-$referencia = &$nombre;	// $referencia es una referencia a $nombre
-$referencia = "Pedro";	// Cambia el valor de $referencia y también el de $nombre
-echo $nombre;		// Imprime "Pedro", ya que $referencia apunta a $nombre
+$ref = &$nombre;	// $ref es una referencia a $nombre
+$ref = "Pedro";	// Cambia el valor de $ref y también el de $nombre
+echo $nombre;		// Imprime "Pedro", ya que $ref apunta a $nombre
 ```
 </details>
 
@@ -801,6 +813,7 @@ isset($variable)
 
 ```php
 $nombre = "Juan";
+
 if(isset($nombre)) {
 	echo "La variable está definida.";
 } else {
@@ -820,6 +833,7 @@ empty($variable)
 
 ```php
 $variable = "";
+
 if(empty($variable)) {
 	echo "La variable está vacía.";
 } else {
