@@ -132,7 +132,7 @@ $mi_variable = null;
 Mixto (en clase; en función)
 
 ```php
-private mixed $mi_variable
+private mixed $mi_variable;
 public function mi_funcion(mixed $mi_variable) {...}
 ```
 
