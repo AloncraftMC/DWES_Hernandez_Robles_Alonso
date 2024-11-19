@@ -453,11 +453,11 @@ if(condición1){
 ```php
 $hora = 14;
 if($hora < 12) {
-	echo "Buenos días";  // Si la hora es antes de las 12
+	echo "Buenos días";	// Si la hora es antes de las 12
 } else if($hora < 18) {
-	echo "Buenas tardes";  // Si la hora es entre las 12 y las 18
+	echo "Buenas tardes";	// Si la hora es entre las 12 y las 18
 } else {
-	echo "Buenas noches";  // Si la hora es después de las 18
+	echo "Buenas noches";	// Si la hora es después de las 18
 }
 ```
 </details>
