@@ -1511,11 +1511,11 @@ $string[posicion]
 ```php
 $string = "Hola Mundo";
 
-echo $string[0]; // Imprime 'H'
-echo $string[5]; // Imprime 'M'
+echo $string[0];	// Imprime 'H'
+echo $string[5];	// Imprime 'M'
 
-echo $string[-1]; // Imprime 'o'
-echo $string[-2]; // Imprime 'd'
+echo $string[-1];	// Imprime 'o'
+echo $string[-2];	// Imprime 'd'
 ```
 </details>
 
@@ -1530,7 +1530,7 @@ strlen($string)
 
 ```php
 $string = "Hola Mundo";
-echo strlen($string); // Imprime 10
+echo strlen($string);	// Imprime 10
 ```
 </details>
 
