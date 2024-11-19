@@ -359,7 +359,7 @@ if(condición) instruccion();
 ```php
 $edad = 18;
 if($edad >= 18) {
-    echo "Eres mayor de edad.";
+	echo "Eres mayor de edad.";
 }
 ```
 </details>
@@ -389,9 +389,9 @@ if(condición){
 ```php
 $hora = 10;
 if($hora < 12) {
-    echo "Buenos días";  // Si la hora es antes de las 12
+	echo "Buenos días";  // Si la hora es antes de las 12
 } else {
-    echo "Buenas tardes";  // Si la hora es 12 o después
+	echo "Buenas tardes";  // Si la hora es 12 o después
 }
 ```
 </details>
@@ -402,9 +402,9 @@ if($hora < 12) {
 ```php
 $usuarioAutenticado = false;
 if($usuarioAutenticado) {
-    echo "Acceso concedido";  // Si el usuario está autenticado
+	echo "Acceso concedido";  // Si el usuario está autenticado
 } else {
-    echo "Acceso denegado";  // Si el usuario no está autenticado
+	echo "Acceso denegado";  // Si el usuario no está autenticado
 }
 ```
 </details>
@@ -453,11 +453,11 @@ if(condición1){
 ```php
 $hora = 14;
 if($hora < 12) {
-    echo "Buenos días";  // Si la hora es antes de las 12
+	echo "Buenos días";  // Si la hora es antes de las 12
 } else if($hora < 18) {
-    echo "Buenas tardes";  // Si la hora es entre las 12 y las 18
+	echo "Buenas tardes";  // Si la hora es entre las 12 y las 18
 } else {
-    echo "Buenas noches";  // Si la hora es después de las 18
+	echo "Buenas noches";  // Si la hora es después de las 18
 }
 ```
 </details>
@@ -468,13 +468,13 @@ if($hora < 12) {
 ```php
 $puntos = 85;
 if($puntos >= 90) {
-    echo "Excelente";  // Si los puntos son 90 o más
+	echo "Excelente";  // Si los puntos son 90 o más
 } else if($puntos >= 70) {
-    echo "Bueno";  // Si los puntos son 70 o más pero menos de 90
+	echo "Bueno";  // Si los puntos son 70 o más pero menos de 90
 } else if($puntos >= 50) {
-    echo "Regular";  // Si los puntos son 50 o más pero menos de 70
+	echo "Regular";  // Si los puntos son 50 o más pero menos de 70
 } else {
-    echo "Insuficiente";  // Si los puntos son menos de 50
+	echo "Insuficiente";  // Si los puntos son menos de 50
 }
 ```
 </details>
@@ -576,8 +576,8 @@ while(condición) {
 ```php
 $contador = 1;
 while($contador <= 5) {
-    echo "Contador: $contador\n";
-    $contador++;  // Aumenta el contador en cada iteración
+	echo "Contador: $contador\n";
+	$contador++;  // Aumenta el contador en cada iteración
 }
 ```
 </details>
@@ -598,8 +598,8 @@ do{
 ```php
 $contador = 1;
 do {
-    echo "Contador: $contador\n";
-    $contador++;  // Aumenta el contador en cada iteración
+	echo "Contador: $contador\n";
+	$contador++;  // Aumenta el contador en cada iteración
 } while($contador <= 5);
 ```
 </details>
@@ -619,7 +619,7 @@ for(inicialización, condición, iteración){
 
 ```php
 for($i = 0; $i < 5; $i++) {
-    echo $i . "\n";
+	echo $i . "\n";
 }
 ```
 </details>
@@ -629,7 +629,7 @@ for($i = 0; $i < 5; $i++) {
 
 ```php
 for($i = 10; $i >= 0; $i--) {
-    echo $i . "\n";
+	echo $i . "\n";
 }
 ```
 </details>
@@ -650,7 +650,7 @@ foreach ($array as $elemento) {
 ```php
 $numeros = [1, 2, 3, 4, 5];
 foreach ($numeros as $numero) {
-    echo $numero . "\n";
+	echo $numero . "\n";
 }
 ```
 </details>
@@ -661,7 +661,7 @@ foreach ($numeros as $numero) {
 ```php
 $nombres = ["Pepe", "Lola", "Alex", "Ana", "Javi"];
 foreach ($nombres as $nombre) {
-    echo $nombre . "\n";
+	echo $nombre . "\n";
 }
 ```
 </details>
@@ -680,7 +680,7 @@ foreach ($array as $clave => $valor) {
 ```php
 $capitales = ["España" => "Madrid", "Francia" => "París", "Portugal" => "Lisboa"];
 foreach ($capitales as $pais => $capital) {
-    echo "La capital de " . $pais . " es " . $capital ".\n";
+	echo "La capital de " . $pais . " es " . $capital ".\n";
 }
 ```
 </details>
@@ -691,7 +691,7 @@ foreach ($capitales as $pais => $capital) {
 ```php
 $array = ["nombre" => "Juan", "edad" => 30, "ciudad" => "Madrid"];
 foreach ($array as $clave => $valor) {
-    echo "$clave: $valor\n";
+	echo "$clave: $valor\n";
 }
 ```
 </details>
@@ -712,11 +712,11 @@ while(condición){
 ```php
 $numero = 10;
 while($numero > 0) {
-    if($numero == 5) {
-        break;  // Sale del bucle cuando $numero es igual a 5
-    }
-    echo "Número: $numero\n";
-    $numero--;
+	if($numero == 5) {
+		break;  // Sale del bucle cuando $numero es igual a 5
+	}
+	echo "Número: $numero\n";
+	$numero--;
 }
 ```
 </details>
@@ -735,11 +735,11 @@ while(condición){
 ```php
 $numero = 10;
 while($numero > 0) {
-    $numero--;
-    if($numero % 2 == 0) {
-        continue;  // Salta la iteración cuando $numero es par
-    }
-    echo "Número impar: $numero\n";
+	$numero--;
+	if($numero % 2 == 0) {
+		continue;  // Salta la iteración cuando $numero es par
+	}
+	echo "Número impar: $numero\n";
 }
 ```
 </details>
@@ -769,9 +769,9 @@ $b = &$a;
 
 ```php
 $a = 10;
-$b = &$a;  // $b es una referencia a $a
-$b = 20;   // Cambia el valor de $b y también el de $a
-echo $a;   // Imprime 20, ya que $b y $a son la misma variable
+$b = &$a;	// $b es una referencia a $a
+$b = 20;	// Cambia el valor de $b y también el de $a
+echo $a;	// Imprime 20, ya que $b y $a son la misma variable
 ```
 </details>
 
@@ -780,9 +780,9 @@ echo $a;   // Imprime 20, ya que $b y $a son la misma variable
 
 ```php
 $nombre = "Juan";
-$referencia = &$nombre;  // $referencia es una referencia a $nombre
-$referencia = "Pedro";   // Cambia el valor de $referencia y también el de $nombre
-echo $nombre;            // Imprime "Pedro", ya que $referencia apunta a $nombre
+$referencia = &$nombre;	// $referencia es una referencia a $nombre
+$referencia = "Pedro";	// Cambia el valor de $referencia y también el de $nombre
+echo $nombre;		// Imprime "Pedro", ya que $referencia apunta a $nombre
 ```
 </details>
 
@@ -802,9 +802,9 @@ isset($variable)
 ```php
 $nombre = "Juan";
 if(isset($nombre)) {
-    echo "La variable está definida.";
+	echo "La variable está definida.";
 } else {
-    echo "La variable no está definida.";
+	echo "La variable no está definida.";
 }
 ```
 </details>
@@ -821,9 +821,9 @@ empty($variable)
 ```php
 $variable = "";
 if(empty($variable)) {
-    echo "La variable está vacía.";
+	echo "La variable está vacía.";
 } else {
-    echo "La variable no está vacía.";
+	echo "La variable no está vacía.";
 }
 ```
 </details>
@@ -1004,9 +1004,9 @@ echo "Hola, " . $nombre;
 `index.php`
 ```php
 if(isset($_POST["email"]) && !empty($_POST["email"])) {
-    echo "El email es: " . $_POST["email"];
+	echo "El email es: " . $_POST["email"];
 } else {
-    echo "No se ha enviado un email.";
+	echo "No se ha enviado un email.";
 }
 ```
 </details>
@@ -1087,12 +1087,12 @@ $password = $_POST["password"];
 
 // Validación simple
 if($usuario == "admin" && $password == "1234") {
-    echo "Bienvenido, $usuario!";
-    if(isset($_POST["remember"]) && $_POST["remember"] == "1") {
-        echo " Has elegido recordar tu sesión.";
-    }
+	echo "Bienvenido, $usuario!";
+	if(isset($_POST["remember"]) && $_POST["remember"] == "1") {
+		echo " Has elegido recordar tu sesión.";
+	}
 } else {
-    echo "Usuario o contraseña incorrectos.";
+	echo "Usuario o contraseña incorrectos.";
 }
 ```
 </details>
@@ -1157,8 +1157,8 @@ echo "Hola, " . $nombre;
 `index.php`
 ```php
 if(!isset($_GET["email"]) || empty($_GET["email"])) {
-    echo "No se ha enviado un email.";
-    exit();
+	echo "No se ha enviado un email.";
+	exit();
 }
 
 $email = $_GET["email"];
@@ -1243,9 +1243,9 @@ $_REQUEST["clave"]
 `index.php`
 ```php
 if(isset($_REQUEST["usuario"])) {
-    echo "El usuario es: " . $_REQUEST["usuario"];
+	echo "El usuario es: " . $_REQUEST["usuario"];
 } else {
-    echo "No se ha enviado ningún usuario.";
+	echo "No se ha enviado ningún usuario.";
 }
 ```
 </details>
@@ -1273,9 +1273,9 @@ if(isset($_REQUEST["usuario"])) {
 `index.php`
 ```php
 if(isset($_REQUEST["email"])) {
-    echo "El email es: " . $_REQUEST["email"];
+	echo "El email es: " . $_REQUEST["email"];
 } else {
-    echo "No se ha enviado ningún email.";
+	echo "No se ha enviado ningún email.";
 }
 ```
 </details>
@@ -1327,23 +1327,23 @@ $_FILES["archivo"]["error"]	// Error
 `index.php`
 ```php
 if(isset($_FILES["archivo"])) {
-    $archivo = $_FILES["archivo"];
+	$archivo = $_FILES["archivo"];
 
-    // Acceder a las propiedades del archivo
-    echo "Nombre del archivo: " . $archivo["name"] . "<br>";
-    echo "Tipo de archivo: " . $archivo["type"] . "<br>";
-    echo "Tamaño del archivo: " . $archivo["size"] . " bytes<br>";
-    echo "Nombre temporal del archivo: " . $archivo["tmp_name"] . "<br>";
-    echo "Código de error: " . $archivo["error"] . "<br>";
+	// Acceder a las propiedades del archivo
+	echo "Nombre del archivo: " . $archivo["name"] . "<br>";
+	echo "Tipo de archivo: " . $archivo["type"] . "<br>";
+	echo "Tamaño del archivo: " . $archivo["size"] . " bytes<br>";
+	echo "Nombre temporal del archivo: " . $archivo["tmp_name"] . "<br>";
+	echo "Código de error: " . $archivo["error"] . "<br>";
 
-    // Verificar si hubo algún error
-    if($archivo["error"] === UPLOAD_ERR_OK) {
-        echo "Archivo subido correctamente.";
-    } else {
-        echo "Error en la subida del archivo.";
-    }
+	// Verificar si hubo algún error
+	if($archivo["error"] === UPLOAD_ERR_OK) {
+		echo "Archivo subido correctamente.";
+	} else {
+		echo "Error en la subida del archivo.";
+	}
 } else {
-    echo "No se ha enviado ningún archivo.";
+	echo "No se ha enviado ningún archivo.";
 }
 ```
 </details>
@@ -1600,9 +1600,9 @@ $string3 = "Hola Mundo";
 $string4 = "Python";
 
 if (strpos($string3, $string4) === false) {
-    echo "No se encuentra la subcadena."; // Imprime esto, ya que no se encuentra "Python"
+	echo "No se encuentra la subcadena."; // Imprime esto, ya que no se encuentra "Python"
 } else {
-    echo "Subcadena encontrada.";
+	echo "Subcadena encontrada.";
 }
 ```
 </details>
@@ -1688,9 +1688,9 @@ print_r($array);
 ```
 Array
 (
-    [0] => manzana
-    [1] => banana
-    [2] => kiwi
+	[0] => manzana
+	[1] => banana
+	[2] => kiwi
 )
 ```
 </details>
@@ -1762,7 +1762,7 @@ urldecode(texto)
 
 ```php
 $texto = "Hola+Mundo%21";
-echo urldecode($texto);  // Resultado: "Hola Mundo!"
+echo urldecode($texto);	 // Resultado: "Hola Mundo!"
 ```
 </details>
 
@@ -1784,9 +1784,9 @@ $texto = "Hola Mundo!";
 $patron = "/u/";
 
 if (preg_match($patron, $texto)) {
-    echo "¡Coincidencia encontrada!"; // Imprimirá esto
+	echo "¡Coincidencia encontrada!"; // Imprimirá esto
 } else {
-    echo "No se encontró coincidencia.";
+	echo "No se encontró coincidencia.";
 }
 ```
 </details>
@@ -1954,14 +1954,14 @@ try{
 
 ```php
 try {
-    $edad = -1;
-    if ($edad < 0) {
-        throw new InvalidArgumentException(); // Se lanzará esta excepción
-    }
-    echo "Edad válida.";
+	$edad = -1;
+	if ($edad < 0) {
+		throw new InvalidArgumentException(); // Se lanzará esta excepción
+	}
+	echo "Edad válida.";
 } catch (InvalidArgumentException $iae) {
-    // Maneja la excepción
-    echo "Error.";
+	// Maneja la excepción
+	echo "Error.";
 }
 ```
 </details>
@@ -1977,9 +1977,9 @@ $iae->getMessage()
 
 ```php
 try {
-    throw new InvalidArgumentException("Mensaje de error.");
+	throw new InvalidArgumentException("Mensaje de error.");
 } catch (InvalidArgumentException $iae) {
-    echo $iae->getMessage(); // Muestra el mensaje de la excepción
+	echo $iae->getMessage(); // Muestra el mensaje de la excepción
 }
 ```
 </details>
@@ -2031,12 +2031,12 @@ print_r($miArray);
 ```php
 Array
 (
-    [0] => 0
-    [1] => 5
-    [2] => 2
-    [3] => 3
-    [4] => 1
-    [5] => 4
+	[0] => 0
+	[1] => 5
+	[2] => 2
+	[3] => 3
+	[4] => 1
+	[5] => 4
 )
 ```
 </details>
@@ -2046,8 +2046,8 @@ Array
 
 ```php
 $miArray = [
-    "nombre" => "Juan",
-    "edad" => 30
+	"nombre" => "Juan",
+	"edad" => 30
 ];
 
 $miArray[] = "valor";
@@ -2059,9 +2059,9 @@ print_r($miArray);
 ```php
 Array
 (
-    [nombre] => Juan
-    [edad] => 30
-    [0] => valor
+	[nombre] => Juan
+	[edad] => 30
+	[0] => valor
 )
 ```
 </details>
@@ -2077,7 +2077,7 @@ count($miArray)
 
 ```php
 $miArray = [1, 2, 3, 4];
-echo count($miArray) // Imprime 4
+echo count($miArray); // Imprime 4
 ```
 </details>
 
@@ -2100,12 +2100,33 @@ print_r($numeros);
 ```php
 Array
 (
-    [0] => 6
-    [1] => 7
-    [2] => 8
-    [3] => 9
-    [4] => 10
+	[0] => 6
+	[1] => 7
+	[2] => 8
+	[3] => 9
+	[4] => 10
 )
+```
+</details>
+
+Desglose de valores de un array
+
+```php
+...$valores
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+function mostrar(...$valores){
+	foreach($valores as $valor){
+		echo $valor . "\n";
+	}
+}
+
+$numeros = [1, 2, 3, 4, 5];
+mostrar(...$numeros);	// mostrar(1, 2, 3, 4, 5);
 ```
 </details>
 
@@ -2122,7 +2143,7 @@ $arrayModificado = array_map($funcion, ...$arrays);
 $numeros = [1, 2, 3, 4, 5];
 
 $dobles = array_map(function($numero) {
-    return $numero * 2;
+	return $numero * 2;
 }, $numeros);
 
 print_r($dobles);
@@ -2133,11 +2154,11 @@ print_r($dobles);
 ```php
 Array
 (
-    [0] => 2
-    [1] => 4
-    [2] => 6
-    [3] => 8
-    [4] => 10
+	[0] => 2
+	[1] => 4
+	[2] => 6
+	[3] => 8
+	[4] => 10
 )
 ```
 </details>
@@ -2150,8 +2171,8 @@ $nombres = ["Juan", "Pedro", "Maria"];
 $edades = [30, 25, 28];
 
 $personas = array_map(function($nombre, $edad) {
-    return $nombre . " tiene " . $edad . " años";
-}, $nombres, $personas);
+	return $nombre . " tiene " . $edad . " años";
+}, $nombres, $edades);
 
 print_r($personas);
 ```
@@ -2161,9 +2182,9 @@ print_r($personas);
 ```php
 Array
 (
-    [0] => Juan tiene 30 años
-    [1] => Pedro tiene 25 años
-    [2] => Maria tiene 28 años
+	[0] => Juan tiene 30 años
+	[1] => Pedro tiene 25 años
+	[2] => Maria tiene 28 años
 )
 ```
 </details>
@@ -2178,7 +2199,24 @@ $arrayFiltrado = array_filter($array, $funcion);
 	<summary>Ejemplo</summary>
 
 ```php
+$numeros = [0, 1, 2, 3, 4];
 
+$pares = array_filter($numeros, function($numero) {
+	return $numero % 2 == 0;
+});
+
+print_r($pares);
+```
+
+###### Salida
+
+```php
+Array
+(
+	[0] => 0
+	[1] => 2
+	[2] => 4
+)
 ```
 </details>
 
@@ -2192,7 +2230,14 @@ $valor = array_reduce($array, $funcion, $valorInicialAcum);
 	<summary>Ejemplo</summary>
 
 ```php
+$numeros = [1, 2, 3, 4, 5];
 
+$suma = array_reduce($numeros, function($acumulador, $numero) {
+	$acumulador += $numero;
+	return $acumulador;
+}, 0);
+
+echo $suma; // Imprime 15
 ```
 </details>
 
@@ -2206,7 +2251,11 @@ list($a, $b, $c, $d) = [1, 2, 3, 4];
 	<summary>Ejemplo</summary>
 
 ```php
-
+list($a, $b, $c, $d) = [1, 2, 3, 4];
+echo $a; // Imprime 1
+echo $b; // Imprime 2
+echo $c; // Imprime 3
+echo $d; // Imprime 4
 ```
 </details>
 
@@ -2225,10 +2274,48 @@ rsort($array);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [5, 3, 8, 1, 2];
+sort($array);
+print_r($array);
+```
 
+###### Salida
+
+```
+Array
+(
+	[0] => 1
+	[1] => 2
+	[2] => 3
+	[3] => 5
+	[4] => 8
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = [5, 3, 8, 1, 2];
+rsort($array);
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[0] => 8
+	[1] => 5
+	[2] => 3
+	[3] => 2
+	[4] => 1
+)
 ```
 </details>
 
@@ -2240,10 +2327,62 @@ arsort($array);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [
+	"España" => "Madrid",
+	"Francia" => "París",
+	"Italia" => "Roma",
+	"Alemania" => "Berlín",
+	"Portugal" => "Lisboa"
+];
 
+asort($array);
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[Alemania] => Berlín
+	[Portugal] => Lisboa
+	[España] => Madrid
+	[Francia] => París
+	[Italia] => Roma
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = [
+	"España" => "Madrid",
+	"Francia" => "París",
+	"Italia" => "Roma",
+	"Alemania" => "Berlín",
+	"Portugal" => "Lisboa"
+];
+
+arsort($array);
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[Italia] => Roma
+	[Francia] => París
+	[España] => Madrid
+	[Portugal] => Lisboa
+	[Alemania] => Berlín
+)
 ```
 </details>
 
@@ -2255,10 +2394,62 @@ krsort($array);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [
+	"España" => "Madrid",
+	"Francia" => "París",
+	"Italia" => "Roma",
+	"Alemania" => "Berlín",
+	"Portugal" => "Lisboa"
+];
 
+ksort($array);
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[Alemania] => Berlín
+	[España] => Madrid
+	[Francia] => París
+	[Italia] => Roma
+	[Portugal] => Lisboa
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = [
+	"España" => "Madrid",
+	"Francia" => "París",
+	"Italia" => "Roma",
+	"Alemania" => "Berlín",
+	"Portugal" => "Lisboa"
+];
+
+krsort($array);
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[Portugal] => Lisboa
+	[Italia] => Roma
+	[Francia] => París
+	[España] => Madrid
+	[Alemania] => Berlín
+)
 ```
 </details>
 
@@ -2272,7 +2463,26 @@ usort($array, criterio);
 	<summary>Ejemplo</summary>
 
 ```php
+$array = ["manzana", "kiwi", "banana", "cereza", "uva"];
 
+usort($array, function($a, $b){
+	return strlen($a) - strlen($b); // Ordena según la longitud de las cadenas
+});
+
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[0] => uva
+	[1] => kiwi
+	[2] => banana
+	[3] => cereza
+	[4] => manzana
+)
 ```
 </details>
 
@@ -2286,7 +2496,10 @@ in_array($valor, $array)
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [1, 2, 3, 4, 5];
+$valor = 3;
 
+echo (in_array($valor, $array)) ? "Está" : "No está"; // Imprime "Está"
 ```
 </details>
 
@@ -2300,21 +2513,84 @@ array_values($array)
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza"
+];
 
+$valores = array_values($array);
+print_r($valores);
+```
+
+###### Salida
+
+```
+Array
+(
+	[0] => manzana
+	[1] => banana
+	[2] => cereza
+)
 ```
 </details>
 
-Array indexado de claves de un array
+Array indexado de claves de un array (y de un mismo elemento)
 
 ```php
-array_keys($array)
+array_keys($array);
+array_keys($array, $elemento);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza"
+];
 
+$claves = array_keys($array);
+print_r($claves);
+```
+
+###### Salida
+
+```
+Array
+(
+	[0] => a
+	[1] => b
+	[2] => c
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza",
+	"d" => "manzana"
+];
+
+$clavesManzana = array_keys($array, "manzana");
+print_r($clavesManzana);
+```
+
+###### Salida
+
+```
+Array
+(
+	[0] => a
+	[1] => d
+)
 ```
 </details>
 
@@ -2328,21 +2604,68 @@ array_key_exists($array, $clave)
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [
+	"España" => "Madrid",
+	"Francia" => "París"
+];
+$clave = "España";
 
+echo (array_key_exists($array, $clave)) ? "Está" : "No está"; // Imprime "Está"
 ```
 </details>
 
-Array al revés
+Array al revés (preservando claves o no)
 
 ```php
 array_reverse($array);
+array_reverse($array, $preservarClaves);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [1, 2, 3, 4, 5];
+$invertido = array_reverse($array);
+print_r($invertido);
+```
 
+###### Salida
+
+```
+Array
+(
+	[0] => 5
+	[1] => 4
+	[2] => 3
+	[3] => 2
+	[4] => 1
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza"
+];
+$invertido = array_reverse($array, true);
+print_r($invertido);
+```
+
+###### Salida
+
+```
+Array
+(
+	[c] => cereza
+	[b] => banana
+	[a] => manzana
+)
 ```
 </details>
 
@@ -2356,7 +2679,22 @@ array_push($array, ...$valores);
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [1, 2, 3];
+array_push($array, 4, 5);
+print_r($array);
+```
 
+###### Salida
+
+```
+Array
+(
+	[0] => 1
+	[1] => 2
+	[2] => 3
+	[3] => 4
+	[4] => 5
+)
 ```
 </details>
 
@@ -2370,7 +2708,24 @@ array_pop($array)
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [1, 2, 3, 4, 5];
+$ultimoElemento = array_pop($array);
 
+echo "Elemento eliminado: " . $ultimoElemento . "\n";
+print_r($array);
+```
+
+###### Salida
+
+```
+Elemento eliminado: 5
+Array
+(
+    [0] => 1
+    [1] => 2
+    [2] => 3
+    [3] => 4
+)
 ```
 </details>
 
@@ -2384,7 +2739,22 @@ array_unshift($array, ...$valores);
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [2, 3, 4];
+array_unshift($array, 0, 1);
+print_r($array);
+```
 
+###### Salida
+
+```
+Array
+(
+	[0] => 0
+	[1] => 1
+	[2] => 2
+	[3] => 3
+	[4] => 4
+)
 ```
 </details>
 
@@ -2398,11 +2768,27 @@ array_shift($array)
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [1, 2, 3, 4, 5];
+$primerElemento = array_shift($array);
+echo "Elemento eliminado: " . $primerElemento . "\n";
+print_r($array);
+```
 
+###### Salida
+
+```
+Elemento eliminado: 1
+Array
+(
+	[0] => 2
+	[1] => 3
+	[2] => 4
+	[3] => 5
+)
 ```
 </details>
 
-Intercambiar claves por valores
+Copia de array con claves intercambiadas por valores
 
 ```php
 array_flip($array)
@@ -2412,7 +2798,24 @@ array_flip($array)
 	<summary>Ejemplo</summary>
 
 ```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza"
+];
+$invertido = array_flip($array);
+print_r($invertido);
+```
 
+###### Salida
+
+```
+Array
+(
+	[manzana] => a
+	[banana] => b
+	[cereza] => c
+)
 ```
 </details>
 
@@ -2422,16 +2825,16 @@ Posición actual del puntero en el array
 current($array)
 ```
 
-Moverse a posición anterior del puntero del array
+(Moverse a) posición anterior del puntero del array
 
 ```php
-prev($array);
+prev($array)
 ```
 
-Moverse a posición posterior del puntero del array
+(Moverse a) posición posterior del puntero del array
 
 ```php
-next($array);
+next($array)
 ```
 
 Posición de la primera ocurrencia de elemento en array (`indexOf()` de Java)
@@ -2444,49 +2847,264 @@ array_search($elemento, $array)
 	<summary>Ejemplo</summary>
 
 ```php
-
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza"
+];
+$clave = array_search("banana", $array);
+echo "La clave de 'banana' es: " . $clave . "\n"; // Imprime 'b'
 ```
 </details>
 
-Porción del array empezando por un valor y de una longitud determinada, opcionalmente manteniendo las claves
+Porción del array empezando por un valor y de una longitud opcional determinada, opcionalmente manteniendo las claves
 
 ```php
 array_slice($array, $inicio, $longitud, $preservarClaves)
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza"
+	"d" => "ciruela"
+];
+$porcion = array_slice($array, 1);
+print_r($porcion);
+```
 
+###### Salida
+
+```
+Array
+(
+	[b] => banana
+	[c] => cereza
+	[d] => ciruela
+)
 ```
 </details>
 
-Reemplazar elementos de un array que están empezando por un valor y con una longitud determinada, por otros valores
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza",
+	"d" => "ciruela"
+];
+$porcion = array_slice($array, 1, 2);
+print_r($porcion);
+```
+
+###### Salida
+
+```
+Array
+(
+	[b] => banana
+	[c] => cereza
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza",
+	"d" => "ciruela"
+];
+$porcion = array_slice($array, 1, 2, false);
+print_r($porcion);
+```
+
+###### Salida
+
+```
+Array
+(
+	[0] => banana
+	[1] => cereza
+)
+```
+</details>
+
+Eliminar elementos del array original que están empezando por un valor y con una longitud determinada, y reemplazarlos opcionalmente por otros valores en array
 
 ```php
 array_splice($array, $inicio, $longitud, $valoresNuevos);
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza",
+	"d" => "ciruela"
+];
+array_splice($array, 1, 2);
+print_r($array);
+```
 
+###### Salida
+
+```
+Array
+(
+	[a] => manzana
+	[d] => ciruela
+)
 ```
 </details>
 
-Dos arrays concatenados
+<details>
+	<summary>Ejemplo 2</summary>
 
 ```php
-array_merge($array1, $array2)
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza",
+	"d" => "ciruela"
+];
+array_splice($array, 1, 2, ["pera", "kiwi"]);
+print_r($array);
+```
+
+###### Salida
+
+```
+Array
+(
+	[a] => manzana
+	[b] => pera
+	[c] => kiwi
+	[d] => ciruela
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+```php
+$array = [
+	"a" => "manzana",
+	"b" => "banana",
+	"c" => "cereza",
+	"d" => "ciruela"
+];
+$eliminados = array_splice($array, -3, 2);
+
+echo "Eliminados: ";
+print_r($eliminados);
+echo "Originales: ";
+print_r($array);
+```
+
+###### Salida
+
+```
+Eliminados: Array
+(
+	[b] => banana
+	[c] => cereza
+)
+Originales: Array
+(
+	[a] => manzana
+	[d] => ciruela
+)
+```
+</details>
+
+Dos o más arrays concatenados / fusionados
+
+```php
+array_merge($array1, ...$arrays)
 ```
 
 <details>
-	<summary>Ejemplo</summary>
+	<summary>Ejemplo 1</summary>
 
 ```php
+$array1 = ["a" => "manzana", "b" => "banana"];
+$array2 = ["c" => "cereza", "d" => "ciruela"];
 
+$fusion = array_merge($array1, $array2);
+print_r($fusion);
+```
+
+###### Salida
+
+```
+Array
+(
+	[a] => manzana
+	[b] => banana
+	[c] => cereza
+	[d] => ciruela
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+$array1 = ["a" => "manzana", "b" => "banana"];
+$array2 = ["b" => "cereza", "c" => "ciruela"];
+
+$fusion = array_merge($array1, $array2); // Se sobreescriben valores en caso de claves existentes
+print_r($fusion);
+```
+
+###### Salida
+
+```
+Array
+(
+	[a] => manzana
+	[b] => cereza
+	[c] => ciruela
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 3</summary>
+
+```php
+$array1 = ["a" => "manzana"];
+$array2 = ["b" => "banana"];
+$array3 = ["c" => "cereza"];
+
+$fusion = array_merge($array1, $array2, $array3);
+print_r($fusion);
+```
+
+###### Salida
+
+```
+Array
+(
+	[a] => manzana
+	[b] => banana
+	[c] => cereza
+)
 ```
 </details>
 
@@ -2509,11 +3127,11 @@ function hola(?String $nombre) : void {
 	echo "Hola ".$nombre;
 }
 
-function mostrar($string = "Valor por defecto") : void {
+function mostrar($string = "Valor por defecto") {
 	echo $string;
 }
 
-function sumarTodo(...$numeros) : void {
+function sumarTodo(...$numeros) {
 	$suma = 0;
 	for($i = 0; $i < count($numeros); $i++){
 		$suma += $numeros[$i];
@@ -2534,8 +3152,8 @@ Usar función con argumentos desplegados (Las dos siguientes son equivalentes)
 ```php
 $nums = [1, 2, 3];
 
-sumarTodo(1, 2, 3)
-sumarTodo(...$nums)
+echo sumarTodo(1, 2, 3);
+echo sumarTodo(...$nums);
 ```
 
 Función como variable
@@ -2546,7 +3164,7 @@ $comparaEnteros = function($num1, $num2) {
 	if ($num1 < $num2) return -1;
 	return 0;
 }
-$comparaEnteros(10,20);
+$comparaEnteros(10, 20);
 ```
 
 Función flecha (es directamente `return`)
@@ -2559,21 +3177,103 @@ fn($num) => $num ** 2
 
 ## Variables Globales
 
-Crear referencia a variable global en función (importarla)
+Usar variable global en función (importarla)
 
 ```php
 function miFuncion() {
 	global $variable;
-}
-```
-
-Usar variable global en función anónima (con `use`)
-
-```php
-function($argumento) use($variable) {
 	// Instrucciones
 }
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 10;
+
+function miFuncion() {
+    global $variable;
+    $variable += 5;
+}
+
+echo $variable;	// Muestra 10
+miFuncion();
+echo $variable;	// Muestra 15
+```
+</details>
+
+Pasar variable a función anónima como valor con `use`
+
+```php
+function($argumentos) use($variable) {
+	// Instrucciones
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 10;
+
+$miFuncion = function() use($variable) {
+    $variable += 5;
+};
+
+echo $variable;  // Muestra 10
+$miFuncion();
+echo $variable;  // Muestra 10 (sin efecto)
+```
+</details>
+
+Pasar variable a función anónima como referencia con `use` (similar a `global`)
+
+```php
+function($argumentos) use(&$variable) {
+	// Instrucciones
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 10;
+
+$miFuncion = function() use(&$variable) {
+    $variable += 5;  // Modifica la variable original por referencia
+};
+
+echo $variable;  // Muestra 10
+$miFuncion();    // Ejecuta la función que modifica la variable
+echo $variable;  // Muestra 15
+```
+</details>
+
+Pasar variable a función como referencia con `&` (similar a `global`)
+
+```php
+function miFuncion(&$variable) {
+	// Instrucciones
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 10;
+
+function miFuncion(&$variable) {
+    $variable += 5;
+}
+
+echo $variable;	// Muestra 10
+miFuncion();
+echo $variable;	// Muestra 15
+```
+</details>
 
 ---
 
@@ -2587,6 +3287,22 @@ function contador() {
 	$cont++;
 }
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+function miFuncion() {
+    static $contador = 0;
+    $contador++;
+    echo $contador . "\n";
+}
+
+miFuncion();	// Imprime 1
+miFuncion();	// Imprime 2
+miFuncion();	// Imprime 3
+```
+</details>
 
 ---
 
@@ -2612,10 +3328,10 @@ class Objeto {
 	public function getAtributo1() : int|float {
 		return $this->atributo1;
 	}
-	public function getAtributo2() : string{
+	public function getAtributo2() : string {
 		return $this->atributo2;
 	}
-	public function getAtributo3() : mixed{
+	public function getAtributo3() : mixed {
 		return $this->atributo3;
 	}
 	public function getAtributo4() {
