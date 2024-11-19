@@ -920,11 +920,11 @@ $mensaje = "Hola desde el archivo incluido";
 
 ```php
 include("fichero.php");
-echo $mensaje;  // Imprime "Hola desde el archivo incluido"
+echo $mensaje;	// Imprime "Hola desde el archivo incluido"
 ```
 </details>
 
-Redirigir navegador a `rutaDeArchivo.php` y ejecutarlo
+Redirigir navegador a `rutaDeArchivo.php` y ejecutar dicho script
 
 ```php
 header("Location: rutaDeArchivo.php");
@@ -936,8 +936,8 @@ header("Location: rutaDeArchivo.php");
 ```php
 // Instrucciones
 
-header("Location: rutaDeArchivo.php"); // Redirige a 'rutaDeArchivo.php'
-exit();  // Es recomendable usar exit después de redirigir
+header("Location: rutaDeArchivo.php");	// Redirige a 'rutaDeArchivo.php'
+exit();	// Es recomendable usar exit después de redirigir
 ```
 </details>
 
@@ -956,7 +956,7 @@ htmlspecialchars($variable);
 
 ```php
 $texto = "<Hola>";
-echo htmlspecialchars($texto);  // Imprime "&lt;Hola&gt;"
+echo htmlspecialchars($texto);	// Imprime "&lt;Hola&gt;"
 ```
 </details>
 
@@ -977,7 +977,8 @@ $_POST["usuario"]
 <details>
 	<summary>Ejemplo 1</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -992,7 +993,8 @@ $_POST["usuario"]
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 $nombre = $_POST["nombre"];
 echo "Hola, " . $nombre;
