@@ -468,13 +468,13 @@ if($hora < 12) {
 ```php
 $puntos = 85;
 if($puntos >= 90) {
-	echo "Excelente";  // Si los puntos son 90 o más
+	echo "Excelente";	// Si los puntos son 90 o más
 } else if($puntos >= 70) {
-	echo "Bueno";  // Si los puntos son 70 o más pero menos de 90
+	echo "Bueno";		// Si los puntos son 70 o más pero menos de 90
 } else if($puntos >= 50) {
-	echo "Regular";  // Si los puntos son 50 o más pero menos de 70
+	echo "Regular";		// Si los puntos son 50 o más pero menos de 70
 } else {
-	echo "Insuficiente";  // Si los puntos son menos de 50
+	echo "Insuficiente";	// Si los puntos son menos de 50
 }
 ```
 </details>
