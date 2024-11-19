@@ -1,3 +1,0 @@
-<?
-    array_merge()
-?>
