@@ -23,7 +23,7 @@ Imprimir texto
 ```php
 echo "Hola Mundo";
 echo $mi_variable;
-echo "Tengo ".$manzanas." manzanas.";
+echo "Tengo " . $manzanas . " manzanas.";
 
 print("Hola Mundo");
 ```
