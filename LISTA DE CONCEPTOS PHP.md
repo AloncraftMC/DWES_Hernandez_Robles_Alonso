@@ -1004,7 +1004,8 @@ echo "Hola, " . $nombre;
 <details>
 	<summary>Ejemplo 2</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1019,7 +1020,8 @@ echo "Hola, " . $nombre;
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(isset($_POST["email"]) && !empty($_POST["email"])) {
 	echo "El email es: " . $_POST["email"];
@@ -1032,7 +1034,8 @@ if(isset($_POST["email"]) && !empty($_POST["email"])) {
 <details>
 	<summary>Ejemplo 3</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1055,7 +1058,8 @@ if(isset($_POST["email"]) && !empty($_POST["email"])) {
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(!isset($_POST["nombre"]) || empty($_POST["nombre"])) exit();
 if(!isset($_POST["apellido"]) || empty($_POST["apellido"])) exit();
@@ -1072,7 +1076,8 @@ echo "Hola, $nombre $apellido. Tienes $edad años.";
 <details>
 	<summary>Ejemplo 4</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1095,7 +1100,8 @@ echo "Hola, $nombre $apellido. Tienes $edad años.";
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(!isset($_POST["usuario"]) || empty($_POST["usuario"])) exit();
 if(!isset($_POST["password"]) || empty($_POST["password"])) exit();
@@ -1132,7 +1138,8 @@ $_GET["clave"]
 <details>
 	<summary>Ejemplo 1</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1147,7 +1154,8 @@ $_GET["clave"]
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 $nombre = $_GET["nombre"];
 echo "Hola, " . $nombre;
@@ -1157,7 +1165,8 @@ echo "Hola, " . $nombre;
 <details>
 	<summary>Ejemplo 2</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1172,7 +1181,8 @@ echo "Hola, " . $nombre;
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(!isset($_GET["email"]) || empty($_GET["email"])) {
 	echo "No se ha enviado un email.";
@@ -1187,7 +1197,8 @@ echo "El email es: " . $email;
 <details>
 	<summary>Ejemplo 3</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1210,7 +1221,8 @@ echo "El email es: " . $email;
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(!isset($_GET["nombre"]) || empty($_GET["nombre"])) exit();
 if(!isset($_GET["apellido"]) || empty($_GET["apellido"])) exit();
@@ -1241,7 +1253,8 @@ $_REQUEST["clave"]
 <details>
 	<summary>Ejemplo 1</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1258,7 +1271,8 @@ $_REQUEST["clave"]
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(isset($_REQUEST["usuario"])) {
 	echo "El usuario es: " . $_REQUEST["usuario"];
@@ -1271,7 +1285,8 @@ if(isset($_REQUEST["usuario"])) {
 <details>
 	<summary>Ejemplo 2</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1288,7 +1303,8 @@ if(isset($_REQUEST["usuario"])) {
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(isset($_REQUEST["email"])) {
 	echo "El email es: " . $_REQUEST["email"];
@@ -1325,7 +1341,8 @@ $_FILES["archivo"]["error"]	// Error
 <details>
 	<summary>Ejemplo</summary>
 
-`index.html`
+###### `index.html`
+
 ```html
 <html>
 	<head>
@@ -1342,7 +1359,8 @@ $_FILES["archivo"]["error"]	// Error
 </html>
 ```
 
-`index.php`
+###### `index.php`
+
 ```php
 if(isset($_FILES["archivo"])) {
 	$archivo = $_FILES["archivo"];
