@@ -1783,7 +1783,7 @@ urlencode(texto)
 
 ```php
 $texto = "Hola Mundo!";
-echo urlencode($texto);  // Resultado: "Hola+Mundo%21"
+echo urlencode($texto);	// Resultado: "Hola+Mundo%21"
 ```
 </details>
 
@@ -1798,7 +1798,7 @@ urldecode(texto)
 
 ```php
 $texto = "Hola+Mundo%21";
-echo urldecode($texto);	 // Resultado: "Hola Mundo!"
+echo urldecode($texto);	// Resultado: "Hola Mundo!"
 ```
 </details>
 
@@ -1820,7 +1820,7 @@ $texto = "Hola Mundo!";
 $patron = "/u/";
 
 if (preg_match($patron, $texto)) {
-	echo "¡Coincidencia encontrada!"; // Imprimirá esto
+	echo "¡Coincidencia encontrada!";	// Imprimirá esto
 } else {
 	echo "No se encontró coincidencia.";
 }
@@ -1992,12 +1992,11 @@ try{
 try {
 	$edad = -1;
 	if ($edad < 0) {
-		throw new InvalidArgumentException(); // Se lanzará esta excepción
+		throw new InvalidArgumentException();	// Se lanzará esta excepción
 	}
 	echo "Edad válida.";
 } catch (InvalidArgumentException $iae) {
-	// Maneja la excepción
-	echo "Error.";
+	echo "Error.";	// Maneja la excepción
 }
 ```
 </details>
@@ -2015,7 +2014,7 @@ $iae->getMessage()
 try {
 	throw new InvalidArgumentException("Mensaje de error.");
 } catch (InvalidArgumentException $iae) {
-	echo $iae->getMessage(); // Muestra el mensaje de la excepción
+	echo $iae->getMessage();	// Muestra el mensaje de la excepción
 }
 ```
 </details>
@@ -2113,7 +2112,7 @@ count($miArray)
 
 ```php
 $miArray = [1, 2, 3, 4];
-echo count($miArray); // Imprime 4
+echo count($miArray);	// Imprime 4
 ```
 </details>
 
@@ -2273,7 +2272,7 @@ $suma = array_reduce($numeros, function($acumulador, $numero) {
 	return $acumulador;
 }, 0);
 
-echo $suma; // Imprime 15
+echo $suma;	// Imprime 15
 ```
 </details>
 
@@ -2288,10 +2287,10 @@ list($a, $b, $c, $d) = [1, 2, 3, 4];
 
 ```php
 list($a, $b, $c, $d) = [1, 2, 3, 4];
-echo $a; // Imprime 1
-echo $b; // Imprime 2
-echo $c; // Imprime 3
-echo $d; // Imprime 4
+echo $a;	// Imprime 1
+echo $b;	// Imprime 2
+echo $c;	// Imprime 3
+echo $d;	// Imprime 4
 ```
 </details>
 
@@ -2502,7 +2501,7 @@ usort($array, criterio);
 $array = ["manzana", "kiwi", "banana", "cereza", "uva"];
 
 usort($array, function($a, $b){
-	return strlen($a) - strlen($b); // Ordena según la longitud de las cadenas
+	return strlen($a) - strlen($b);	// Ordena según la longitud de las cadenas
 });
 
 print_r($array);
@@ -2535,7 +2534,7 @@ in_array($valor, $array)
 $array = [1, 2, 3, 4, 5];
 $valor = 3;
 
-echo (in_array($valor, $array)) ? "Está" : "No está"; // Imprime "Está"
+echo (in_array($valor, $array)) ? "Está" : "No está";	// Imprime "Está"
 ```
 </details>
 
@@ -2646,7 +2645,7 @@ $array = [
 ];
 $clave = "España";
 
-echo (array_key_exists($array, $clave)) ? "Está" : "No está"; // Imprime "Está"
+echo (array_key_exists($array, $clave)) ? "Está" : "No está";	// Imprime "Está"
 ```
 </details>
 
@@ -2734,7 +2733,7 @@ Array
 ```
 </details>
 
-Extraer valor al final de un array (`null` si está vacío)
+Extraer valor del final de un array (devuelve `null` si está vacío)
 
 ```php
 array_pop($array)
@@ -2794,7 +2793,7 @@ Array
 ```
 </details>
 
-Extraer valor al principio de un array (`null` si está vacío)
+Extraer valor del principio de un array (devuelve `null` si está vacío)
 
 ```php
 array_shift($array)
@@ -2839,6 +2838,7 @@ $array = [
 	"b" => "banana",
 	"c" => "cereza"
 ];
+
 $invertido = array_flip($array);
 print_r($invertido);
 ```
@@ -2888,8 +2888,9 @@ $array = [
 	"b" => "banana",
 	"c" => "cereza"
 ];
+
 $clave = array_search("banana", $array);
-echo "La clave de 'banana' es: " . $clave . "\n"; // Imprime 'b'
+echo "La clave de 'banana' es: " . $clave . "\n";	// Imprime 'b'
 ```
 </details>
 
@@ -2909,6 +2910,7 @@ $array = [
 	"c" => "cereza"
 	"d" => "ciruela"
 ];
+
 $porcion = array_slice($array, 1);
 print_r($porcion);
 ```
@@ -2935,6 +2937,7 @@ $array = [
 	"c" => "cereza",
 	"d" => "ciruela"
 ];
+
 $porcion = array_slice($array, 1, 2);
 print_r($porcion);
 ```
@@ -2960,6 +2963,7 @@ $array = [
 	"c" => "cereza",
 	"d" => "ciruela"
 ];
+
 $porcion = array_slice($array, 1, 2, false);
 print_r($porcion);
 ```
@@ -2991,6 +2995,7 @@ $array = [
 	"c" => "cereza",
 	"d" => "ciruela"
 ];
+
 array_splice($array, 1, 2);
 print_r($array);
 ```
@@ -3016,6 +3021,7 @@ $array = [
 	"c" => "cereza",
 	"d" => "ciruela"
 ];
+
 array_splice($array, 1, 2, ["pera", "kiwi"]);
 print_r($array);
 ```
@@ -3047,6 +3053,7 @@ $eliminados = array_splice($array, -3, 2);
 
 echo "Eliminados: ";
 print_r($eliminados);
+
 echo "Originales: ";
 print_r($array);
 ```
@@ -3104,7 +3111,7 @@ Array
 $array1 = ["a" => "manzana", "b" => "banana"];
 $array2 = ["b" => "cereza", "c" => "ciruela"];
 
-$fusion = array_merge($array1, $array2); // Se sobreescriben valores en caso de claves existentes
+$fusion = array_merge($array1, $array2);	// Se sobreescriben valores en caso de claves existentes
 print_r($fusion);
 ```
 
