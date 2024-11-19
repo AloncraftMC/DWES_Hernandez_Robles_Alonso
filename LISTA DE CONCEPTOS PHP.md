@@ -793,7 +793,7 @@ echo $a;	// Imprime 20, ya que $b y $a son la misma variable
 ```php
 $nombre = "Juan";
 $ref = &$nombre;	// $ref es una referencia a $nombre
-$ref = "Pedro";	// Cambia el valor de $ref y también el de $nombre
+$ref = "Pedro";		// Cambia el valor de $ref y también el de $nombre
 echo $nombre;		// Imprime "Pedro", ya que $ref apunta a $nombre
 ```
 </details>
@@ -910,12 +910,14 @@ include __DIR__ . "fichero.php";
 <details>
 	<summary>Ejemplo</summary>
 
-`fichero.php`
+###### `fichero.php`
+
 ```php
 $mensaje = "Hola desde el archivo incluido";
 ```
 
-`Archivo Principal`
+###### Archivo Principal
+
 ```php
 include("fichero.php");
 echo $mensaje;  // Imprime "Hola desde el archivo incluido"
