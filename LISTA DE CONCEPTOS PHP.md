@@ -1,6 +1,22 @@
 # LISTA DE CONCEPTOS PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 18/11/2024 (_Ahora en Markdown!_)
+> Ver. 19/11/2024 (_Ahora en Markdown!_)
+
+---
+
+## Cabecera
+
+```php
+<?php
+	// ...
+?>
+```
+
+```php
+<?
+	// sólo si short_open_tag=On (php.ini)
+?>
+```
 
 ---
 
@@ -358,6 +374,7 @@ if(condición) instruccion();
 
 ```php
 $edad = 18;
+
 if($edad >= 18) {
 	echo "Eres mayor de edad.";
 }
@@ -388,6 +405,7 @@ if(condición){
 
 ```php
 $hora = 10;
+
 if($hora < 12) {
 	echo "Buenos días";	// Si la hora es antes de las 12
 } else {
@@ -401,6 +419,7 @@ if($hora < 12) {
 
 ```php
 $usuarioAutenticado = false;
+
 if($usuarioAutenticado) {
 	echo "Acceso concedido";	// Si el usuario está autenticado
 } else {
@@ -452,6 +471,7 @@ if(condición1){
 
 ```php
 $hora = 14;
+
 if($hora < 12) {
 	echo "Buenos días";	// Si la hora es antes de las 12
 } else if($hora < 18) {
@@ -467,6 +487,7 @@ if($hora < 12) {
 
 ```php
 $puntos = 85;
+
 if($puntos >= 90) {
 	echo "Excelente";	// Si los puntos son 90 o más
 } else if($puntos >= 70) {
@@ -504,6 +525,7 @@ switch($variable){
 
 ```php
 $color = "rojo";
+
 switch($color) {
 	case "azul":
 		echo "Color azul";
@@ -525,6 +547,7 @@ switch($color) {
 
 ```php
 $edad = 25;
+
 switch($edad) {
 	case 18:
 		echo "Tienes 18 años.";
@@ -536,7 +559,7 @@ switch($edad) {
 		echo "Tienes 30 años.";
 		break;
 	default:
-		echo "Edad no especificada.";
+		echo "Edad no específica.";
 }
 ```
 </details>
@@ -575,6 +598,7 @@ while(condición) {
 
 ```php
 $contador = 1;
+
 while($contador <= 5) {
 	echo "Contador: $contador\n";
 	$contador++;	// Aumenta el contador en cada iteración
@@ -597,6 +621,7 @@ do{
 
 ```php
 $contador = 1;
+
 do {
 	echo "Contador: $contador\n";
 	$contador++;	// Aumenta el contador en cada iteración
@@ -910,13 +935,13 @@ include __DIR__ . "fichero.php";
 <details>
 	<summary>Ejemplo</summary>
 
-###### `fichero.php`
+**`fichero.php`**
 
 ```php
 $mensaje = "Hola desde el archivo incluido";
 ```
 
-###### Archivo Principal
+**Archivo Principal**
 
 ```php
 include("fichero.php");
@@ -977,7 +1002,7 @@ $_POST["usuario"]
 <details>
 	<summary>Ejemplo 1</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -993,7 +1018,7 @@ $_POST["usuario"]
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 $nombre = $_POST["nombre"];
@@ -1004,7 +1029,7 @@ echo "Hola, " . $nombre;
 <details>
 	<summary>Ejemplo 2</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1020,7 +1045,7 @@ echo "Hola, " . $nombre;
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(isset($_POST["email"]) && !empty($_POST["email"])) {
@@ -1034,7 +1059,7 @@ if(isset($_POST["email"]) && !empty($_POST["email"])) {
 <details>
 	<summary>Ejemplo 3</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1058,7 +1083,7 @@ if(isset($_POST["email"]) && !empty($_POST["email"])) {
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(!isset($_POST["nombre"]) || empty($_POST["nombre"])) exit();
@@ -1076,7 +1101,7 @@ echo "Hola, $nombre $apellido. Tienes $edad años.";
 <details>
 	<summary>Ejemplo 4</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1100,7 +1125,7 @@ echo "Hola, $nombre $apellido. Tienes $edad años.";
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(!isset($_POST["usuario"]) || empty($_POST["usuario"])) exit();
@@ -1138,7 +1163,7 @@ $_GET["clave"]
 <details>
 	<summary>Ejemplo 1</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1154,7 +1179,7 @@ $_GET["clave"]
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 $nombre = $_GET["nombre"];
@@ -1165,7 +1190,7 @@ echo "Hola, " . $nombre;
 <details>
 	<summary>Ejemplo 2</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1181,7 +1206,7 @@ echo "Hola, " . $nombre;
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(!isset($_GET["email"]) || empty($_GET["email"])) {
@@ -1197,7 +1222,7 @@ echo "El email es: " . $email;
 <details>
 	<summary>Ejemplo 3</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1221,7 +1246,7 @@ echo "El email es: " . $email;
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(!isset($_GET["nombre"]) || empty($_GET["nombre"])) exit();
@@ -1253,7 +1278,7 @@ $_REQUEST["clave"]
 <details>
 	<summary>Ejemplo 1</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1271,7 +1296,7 @@ $_REQUEST["clave"]
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(isset($_REQUEST["usuario"])) {
@@ -1285,7 +1310,7 @@ if(isset($_REQUEST["usuario"])) {
 <details>
 	<summary>Ejemplo 2</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1303,7 +1328,7 @@ if(isset($_REQUEST["usuario"])) {
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(isset($_REQUEST["email"])) {
@@ -1341,7 +1366,7 @@ $_FILES["archivo"]["error"]	// Error
 <details>
 	<summary>Ejemplo</summary>
 
-###### `index.html`
+**`index.html`**
 
 ```html
 <html>
@@ -1359,7 +1384,7 @@ $_FILES["archivo"]["error"]	// Error
 </html>
 ```
 
-###### `index.php`
+**`index.php`**
 
 ```php
 if(isset($_FILES["archivo"])) {
@@ -1719,7 +1744,7 @@ $array = explode(",", $string);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2061,7 +2086,7 @@ $miArray[] = 4;
 print_r($miArray);
 ```
 
-###### Salida
+**Salida**
 
 ```php
 Array
@@ -2089,7 +2114,7 @@ $miArray[] = "valor";
 print_r($miArray);
 ```
 
-###### Salida
+**Salida**
 
 ```php
 Array
@@ -2130,7 +2155,7 @@ $numeros = range(6, 10);
 print_r($numeros);
 ```
 
-###### Salida
+**Salida**
 
 ```php
 Array
@@ -2184,7 +2209,7 @@ $dobles = array_map(function($numero) {
 print_r($dobles);
 ```
 
-###### Salida
+**Salida**
 
 ```php
 Array
@@ -2212,7 +2237,7 @@ $personas = array_map(function($nombre, $edad) {
 print_r($personas);
 ```
 
-###### Salida
+**Salida**
 
 ```php
 Array
@@ -2243,7 +2268,7 @@ $pares = array_filter($numeros, function($numero) {
 print_r($pares);
 ```
 
-###### Salida
+**Salida**
 
 ```php
 Array
@@ -2317,7 +2342,7 @@ sort($array);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2340,7 +2365,7 @@ rsort($array);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2377,7 +2402,7 @@ asort($array);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2407,7 +2432,7 @@ arsort($array);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2444,7 +2469,7 @@ ksort($array);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2474,7 +2499,7 @@ krsort($array);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2507,7 +2532,7 @@ usort($array, function($a, $b){
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2558,7 +2583,7 @@ $valores = array_values($array);
 print_r($valores);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2591,7 +2616,7 @@ $claves = array_keys($array);
 print_r($claves);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2618,7 +2643,7 @@ $clavesManzana = array_keys($array, "manzana");
 print_r($clavesManzana);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2665,7 +2690,7 @@ $invertido = array_reverse($array);
 print_r($invertido);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2692,7 +2717,7 @@ $invertido = array_reverse($array, true);
 print_r($invertido);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2719,7 +2744,7 @@ array_push($array, 4, 5);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2750,7 +2775,7 @@ echo "Elemento eliminado: " . $ultimoElemento . "\n";
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Elemento eliminado: 5
@@ -2779,7 +2804,7 @@ array_unshift($array, 0, 1);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2809,7 +2834,7 @@ echo "Elemento eliminado: " . $primerElemento . "\n";
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Elemento eliminado: 1
@@ -2843,7 +2868,7 @@ $invertido = array_flip($array);
 print_r($invertido);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2915,7 +2940,7 @@ $porcion = array_slice($array, 1);
 print_r($porcion);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2942,7 +2967,7 @@ $porcion = array_slice($array, 1, 2);
 print_r($porcion);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -2968,7 +2993,7 @@ $porcion = array_slice($array, 1, 2, false);
 print_r($porcion);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -3000,7 +3025,7 @@ array_splice($array, 1, 2);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -3026,7 +3051,7 @@ array_splice($array, 1, 2, ["pera", "kiwi"]);
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -3058,7 +3083,7 @@ echo "Originales: ";
 print_r($array);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Eliminados: Array
@@ -3091,7 +3116,7 @@ $fusion = array_merge($array1, $array2);
 print_r($fusion);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -3115,7 +3140,7 @@ $fusion = array_merge($array1, $array2);	// Se sobreescriben valores en caso de 
 print_r($fusion);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
@@ -3139,7 +3164,7 @@ $fusion = array_merge($array1, $array2, $array3);
 print_r($fusion);
 ```
 
-###### Salida
+**Salida**
 
 ```
 Array
