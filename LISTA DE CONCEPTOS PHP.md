@@ -1545,7 +1545,7 @@ strrev($string)
 
 ```php
 $string = "Hola Mundo";
-echo strrev($string); // Imprime "odnuM aloH"
+echo strrev($string);	// Imprime "odnuM aloH"
 ```
 </details>
 
@@ -1560,7 +1560,7 @@ strtolower($string)
 
 ```php
 $string = "Hola Mundo";
-echo strtolower($string); // Imprime "hola mundo"
+echo strtolower($string);	// Imprime "hola mundo"
 ```
 </details>
 
@@ -1575,7 +1575,7 @@ strtoupper($string)
 
 ```php
 $string = "Hola Mundo";
-echo strtoupper($string); // Imprime "HOLA MUNDO"
+echo strtoupper($string);	// Imprime "HOLA MUNDO"
 ```
 </details>
 
@@ -1592,9 +1592,9 @@ strcmp($string1, $string2)
 $string1 = "Hola";
 $string2 = "Mundo";
 
-echo strcmp($string1, $string2); // Imprime un valor negativo porque "Hola" es menor que "Mundo"
-echo strcmp($string1, $string1); // Imprime 0 porque ambas cadenas son iguales
-echo strcmp($string2, $string1); // Imprime un valor positivo porque "Mundo" es mayor que "Hola"
+echo strcmp($string1, $string2);	// Imprime un valor negativo porque "Hola" es menor que "Mundo"
+echo strcmp($string1, $string1);	// Imprime 0 porque ambas cadenas son iguales
+echo strcmp($string2, $string1);	// Imprime un valor positivo porque "Mundo" es mayor que "Hola"
 ```
 </details>
 
@@ -1611,9 +1611,9 @@ strcasecmp($string1, $string2)
 $string1 = "Hola";
 $string2 = "hola";
 
-echo strcasecmp($string1, $string2); // Imprime 0 porque "Hola" y "hola" son consideradas iguales
-echo strcasecmp("Mundo", "mundo"); // Imprime 0 porque "Mundo" y "mundo" son iguales sin importar las mayúsculas
-echo strcasecmp("Hola", "Mundo"); // Imprime un valor negativo porque "Hola" es menor que "Mundo"
+echo strcasecmp($string1, $string2);	// Imprime 0 porque "Hola" y "hola" son consideradas iguales
+echo strcasecmp("Mundo", "mundo");	// Imprime 0 porque "Mundo" y "mundo" son iguales sin importar las mayúsculas
+echo strcasecmp("Hola", "Mundo");	// Imprime un valor negativo porque "Hola" es menor que "Mundo"
 ```
 </details>
 
@@ -1630,13 +1630,13 @@ strpos($string1, $string2);
 $string1 = "Hola Mundo";
 $string2 = "Mundo";
 
-echo strpos($string1, $string2); // Imprime 5, porque "Mundo" comienza en la posición 5
+echo strpos($string1, $string2);	// Imprime 5, porque "Mundo" comienza en la posición 5
 
 $string3 = "Hola Mundo";
 $string4 = "Python";
 
 if (strpos($string3, $string4) === false) {
-	echo "No se encuentra la subcadena."; // Imprime esto, ya que no se encuentra "Python"
+	echo "No se encuentra la subcadena.";	// Imprime esto, ya que no se encuentra "Python"
 } else {
 	echo "Subcadena encontrada.";
 }
@@ -1656,12 +1656,12 @@ str_contains($string1, $string2)
 $string1 = "Hola Mundo";
 $string2 = "Mundo";
 
-echo str_contains($string1, $string2) ? "Sí, contiene" : "No, no contiene"; // Imprime "Sí, contiene"
+echo str_contains($string1, $string2) ? "Sí, contiene" : "No, no contiene";	// Imprime "Sí, contiene"
 
 $string3 = "PHP es raro";
 $string4 = "Python";
 
-echo str_contains($string3, $string4) ? "Sí, contiene" : "No, no contiene"; // Imprime "No, no contiene"
+echo str_contains($string3, $string4) ? "Sí, contiene" : "No, no contiene";	// Imprime "No, no contiene"
 ```
 </details>
 
@@ -1679,8 +1679,8 @@ $string1 = "Hola Mundo";
 $string2 = "Hola";
 $string3 = "Mundo";
 
-echo str_starts_with($string1, $string2) ? "Sí" : "No"; // Imprime "Sí", porque "Hola Mundo" empieza con "Hola"
-echo str_starts_with($string1, $string3) ? "Sí" : "No"; // Imprime "No", porque "Hola Mundo" no empieza con "Mundo"
+echo str_starts_with($string1, $string2) ? "Sí" : "No";	// Imprime "Sí", porque "Hola Mundo" empieza con "Hola"
+echo str_starts_with($string1, $string3) ? "Sí" : "No";	// Imprime "No", porque "Hola Mundo" no empieza con "Mundo"
 ```
 </details>
 
@@ -1698,8 +1698,8 @@ $string1 = "Hola Mundo";
 $string2 = "Hola";
 $string3 = "Mundo";
 
-echo str_ends_with($string1, $string2) ? "Sí" : "No"; // Imprime "No", porque "Hola Mundo" no termina con "Hola"
-echo str_ends_with($string1, $string3) ? "Sí" : "No"; // Imprime "Sí", porque "Hola Mundo" termina con "Mundo"
+echo str_ends_with($string1, $string2) ? "Sí" : "No";	// Imprime "No", porque "Hola Mundo" no termina con "Hola"
+echo str_ends_with($string1, $string3) ? "Sí" : "No";	// Imprime "Sí", porque "Hola Mundo" termina con "Mundo"
 ```
 </details>
 
