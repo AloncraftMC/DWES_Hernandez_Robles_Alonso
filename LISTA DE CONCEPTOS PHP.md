@@ -600,9 +600,19 @@ while(condición) {
 $contador = 1;
 
 while($contador <= 5) {
-	echo "Contador: $contador\n";
+	echo $contador . "\n";
 	$contador++;	// Aumenta el contador en cada iteración
 }
+```
+
+**Salida**
+
+```
+1
+2
+3
+4
+5
 ```
 </details>
 
@@ -623,9 +633,19 @@ do{
 $contador = 1;
 
 do {
-	echo "Contador: $contador\n";
+	echo $contador . "\n";
 	$contador++;	// Aumenta el contador en cada iteración
 } while($contador <= 5);
+```
+
+**Salida**
+
+```
+1
+2
+3
+4
+5
 ```
 </details>
 
@@ -647,15 +667,33 @@ for($i = 0; $i < 5; $i++) {
 	echo $i . "\n";
 }
 ```
+
+**Salida**
+
+```
+0
+1
+2
+3
+4
+```
 </details>
 
 <details>
 	<summary>Ejemplo 2</summary>
 
 ```php
-for($i = 10; $i >= 0; $i--) {
+for($i = 3; $i > 0; $i--) {
 	echo $i . "\n";
 }
+```
+
+**Salida**
+
+```
+3
+2
+1
 ```
 </details>
 
@@ -665,7 +703,7 @@ Recorrer array indexado
 
 ```php
 foreach ($array as $elemento) {
-	echo $elemento;
+	// Instrucción
 }
 ```
 
@@ -679,6 +717,16 @@ foreach ($numeros as $numero) {
 	echo $numero . "\n";
 }
 ```
+
+**Salida**
+
+```
+1
+2
+3
+4
+5
+```
 </details>
 
 <details>
@@ -691,13 +739,23 @@ foreach ($nombres as $nombre) {
 	echo $nombre . "\n";
 }
 ```
+
+**Salida**
+
+```
+Pepe
+Lola
+Alex
+Ana
+Javi
+```
 </details>
 
 Recorrer array asociativo
 
 ```php
 foreach ($array as $clave => $valor) {
-	echo $clave . ": " . $valor;
+	// Instrucción
 }
 ```
 
@@ -715,6 +773,14 @@ foreach ($capitales as $pais => $capital) {
 	echo "La capital de " . $pais . " es " . $capital ".\n";
 }
 ```
+
+**Salida**
+
+```
+La capital de España es Madrid
+La capital de Francia es París
+La capital de Portugal es Lisboa
+```
 </details>
 
 <details>
@@ -730,6 +796,14 @@ $array = [
 foreach ($array as $clave => $valor) {
 	echo "$clave: $valor\n";
 }
+```
+
+**Salida**
+
+```
+nombre: Juan
+edad: 30
+ciudad: Madrid
 ```
 </details>
 
