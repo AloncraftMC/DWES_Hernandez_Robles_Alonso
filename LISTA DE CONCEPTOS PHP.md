@@ -1997,16 +1997,32 @@ Patrón que contenga un número o minúscula o mayúscula
 Lanzar excepción
 
 ```php
+throw new Exception("Mensaje de error");
+```
+
+Lanzar excepción de argumento inválido
+
+```php
 throw new InvalidArgumentException("Mensaje de error");
 ```
 
-Cazar excepción
+Cazar excepción(es)
 
 ```php
 try{
 	// Código peligroso
-}catch(InvalidArgumentException $iae){
+}catch(Exception $e){
 	// Mensaje de error informativo
+}
+```
+
+```php
+try{
+	// Código
+}catch(InvalidArgumentException  $iae){
+	// Argumento no válido
+}catch(Exception $e){
+	// Otras excepciones
 }
 ```
 
