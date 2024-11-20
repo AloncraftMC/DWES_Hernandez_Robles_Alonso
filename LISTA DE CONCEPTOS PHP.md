@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 19/11/2024 (_Ahora en Markdown!_)
+> Ver. 20/11/2024 (_Ahora en Markdown!_)
 
 ---
 
