@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 20/11/2024 (_Ahora en Markdown!_)
+> Ver. 22/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -1802,10 +1802,10 @@ echo str_ends_with($string1, $string3) ? "Sí" : "No";	// Imprime "Sí", porque 
 ```
 </details>
 
-Array de substrings separados por `","` de `$string` (similar a `split()` de Java)
+Array de substrings separados por `$separador` de `$string` (similar a `split()` de Java)
 
 ```php
-explode(",", $string)
+explode($separador, $string)
 ```
 
 <details>
@@ -1830,10 +1830,10 @@ Array
 ```
 </details>
 
-Generar string a partir de array de strings, separados por `","`
+Generar string a partir de array de strings, separados por `$separador`
 
 ```php
-implode(",", $array)
+implode($separador, $array)
 ```
 
 <details>
@@ -2178,7 +2178,7 @@ print_r($miArray);
 
 **Salida**
 
-```php
+```
 Array
 (
 	[0] => 0
@@ -2206,7 +2206,7 @@ print_r($miArray);
 
 **Salida**
 
-```php
+```
 Array
 (
 	[nombre] => Juan
@@ -2215,6 +2215,13 @@ Array
 )
 ```
 </details>
+
+Array Multidimensional
+
+```php
+$miArray = [[1, 2], [3, 4], [5, 6]];
+$miArray[0][1]
+```
 
 Tamaño de array
 
@@ -2247,7 +2254,7 @@ print_r($numeros);
 
 **Salida**
 
-```php
+```
 Array
 (
 	[0] => 6
@@ -2283,7 +2290,7 @@ mostrar(...$numeros);	// mostrar(1, 2, 3, 4, 5);
 Array nuevo de función aplicada a elementos de uno o varios array
 
 ```php
-$arrayModificado = array_map($funcion, ...$arrays);
+array_map($funcion, ...$arrays);
 ```
 
 <details>
@@ -2301,7 +2308,7 @@ print_r($dobles);
 
 **Salida**
 
-```php
+```
 Array
 (
 	[0] => 2
@@ -2329,7 +2336,7 @@ print_r($personas);
 
 **Salida**
 
-```php
+```
 Array
 (
 	[0] => Juan tiene 30 años
@@ -2342,7 +2349,7 @@ Array
 Array nuevo de sólo los elementos de un array que cumplan un criterio
 
 ```php
-$arrayFiltrado = array_filter($array, $funcion);
+array_filter($array, $funcion);
 ```
 
 <details>
@@ -2360,7 +2367,7 @@ print_r($pares);
 
 **Salida**
 
-```php
+```
 Array
 (
 	[0] => 0
@@ -2373,7 +2380,7 @@ Array
 Valor devuelto luego de aplicar una función a un array iterativamente con un acumulador y su valor inicial
 
 ```php
-$valor = array_reduce($array, $funcion, $valorInicialAcum);
+array_reduce($array, $funcion, $valorInicialAcum);
 ```
 
 <details>
@@ -2408,13 +2415,6 @@ echo $c;	// Imprime 3
 echo $d;	// Imprime 4
 ```
 </details>
-
-Array Multidimensional
-
-```php
-$miArray = [[1, 2], [3, 4], [5, 6]];
-$miArray[0][1]
-```
 
 Ordenar array original indexado ascendentemente y descendentemente
 
@@ -3192,7 +3192,7 @@ Originales: Array
 Dos o más arrays concatenados / fusionados
 
 ```php
-array_merge($array1, ...$arrays)
+array_merge(...$arrays)
 ```
 
 <details>
@@ -3263,6 +3263,51 @@ Array
 	[b] => banana
 	[c] => cereza
 )
+```
+</details>
+
+Array de substrings separados por `$separador` de `$string` (similar a `split()` de Java)
+
+```php
+explode($separador, $string)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$string = "manzana,banana,kiwi";
+$array = explode(",", $string);
+
+print_r($array);
+```
+
+**Salida**
+
+```
+Array
+(
+	[0] => manzana
+	[1] => banana
+	[2] => kiwi
+)
+```
+</details>
+
+Generar string a partir de array de strings, separados por `$separador`
+
+```php
+implode($separador, $array)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$array = ["manzana", "banana", "kiwi"];
+$string = implode(",", $array);
+
+echo $string; // Imprime "manzana,banana,kiwi"
 ```
 </details>
 
