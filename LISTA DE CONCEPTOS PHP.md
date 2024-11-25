@@ -1,6 +1,6 @@
 # LISTA DE CONCEPTOS PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 22/11/2024 (_Ahora en Markdown!_)
+> Ver. 25/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -306,14 +306,11 @@ $variable >>= $valor;
 
 `===` Estrictamente igual (valores y tipo)
 
-`!=` Distinto
-
-`<>` Distinto
+`!=` / `<>` Distinto
 
 `!==` Estrictamente distinto (valores y tipo)
 
 `>` Mayor
-
 
 `>=` Mayor o igual
 
@@ -1755,7 +1752,7 @@ str_contains($string1, $string2)
 $string1 = "Hola Mundo";
 $string2 = "Mundo";
 
-echo str_contains($string1, $string2) ? "Sí, contiene" : "No, no contiene";	// Imprime "Sí, contiene"
+echo str_contains($string1, $string2) ? "Sí contiene" : "No contiene";	// Imprime "Sí contiene"
 
 $string3 = "PHP es raro";
 $string4 = "Python";
