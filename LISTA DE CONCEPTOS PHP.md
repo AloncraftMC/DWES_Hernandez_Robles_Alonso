@@ -2113,7 +2113,7 @@ try{
 ```php
 try{
 	// Código
-}catch(InvalidArgumentException  $iae){
+}catch(InvalidArgumentException $iae){
 	// Argumento no válido
 }catch(Exception $e){
 	// Otras excepciones
