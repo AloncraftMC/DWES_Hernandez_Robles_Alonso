@@ -1889,7 +1889,7 @@ round($valor, n)
 
 ---
 
-## Funciones `decode()` y `uncode()` HTML
+## Funciones `urldecode()` y `urluncode()` HTML
 
 Codificar texto a valores URL
 
