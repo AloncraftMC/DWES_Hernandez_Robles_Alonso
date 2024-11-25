@@ -998,6 +998,7 @@ Salir del script
 ```php
 exit();
 exit("Mensaje");
+
 die();
 die("Mensaje");
 ```
