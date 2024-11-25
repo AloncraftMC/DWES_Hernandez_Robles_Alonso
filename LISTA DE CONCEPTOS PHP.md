@@ -40,6 +40,7 @@ Imprimir texto
 echo "Hola Mundo";
 echo $mi_variable;
 echo "Tengo " . $manzanas . " manzanas.";
+echo "Edad: $años";
 
 print("Hola Mundo");
 ```
@@ -94,6 +95,7 @@ phpinfo();
 Declarar constante
 
 ```php
+const PI = 3.141592;
 define("PI", 3.141592);
 ```
 
