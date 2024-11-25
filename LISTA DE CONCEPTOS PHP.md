@@ -1780,7 +1780,7 @@ echo str_contains($string1, $string2) ? "Sí contiene" : "No contiene";	// Impri
 $string3 = "PHP es raro";
 $string4 = "Python";
 
-echo str_contains($string3, $string4) ? "Sí, contiene" : "No, no contiene";	// Imprime "No, no contiene"
+echo str_contains($string3, $string4) ? "Sí contiene" : "No contiene";	// Imprime "No contiene"
 ```
 </details>
 
