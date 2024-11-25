@@ -833,11 +833,11 @@ while($numero > 0) {
 **Salida**
 
 ```
-10
-9
-8
-7
-6
+Número: 10
+Número: 9
+Número: 8
+Número: 7
+Número: 6
 ```
 </details>
 
@@ -861,6 +861,16 @@ while($numero > 0) {
 	}
 	echo "Número impar: $numero\n";
 }
+```
+
+**Salida**
+
+```
+Número impar: 9
+Número impar: 7
+Número impar: 5
+Número impar: 3
+Número impar: 1
 ```
 </details>
 
