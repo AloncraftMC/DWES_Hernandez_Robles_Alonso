@@ -1508,7 +1508,7 @@ if(isset($_FILES["archivo"])) {
 | Código | Error |
 |-|-|
 | `UPLOAD_ERR_OK` | Sin errores |
-| `UPLOAD_ERR_INI_SIZE`| El archivo es más grande que el valor permitido en la directiva upload_max_filesize de PHP |
+| `UPLOAD_ERR_INI_SIZE`| El archivo es más grande que el valor permitido en la directiva `upload_max_filesize` de PHP |
 | `UPLOAD_ERR_FORM_SIZE` | El archivo es más grande que el valor permitido en el formulario (a través de `MAX_FILE_SIZE`) |
 | `UPLOAD_ERR_PARTIAL` | El archivo fue subido parcialmente |
 | `UPLOAD_ERR_NO_FILE` | No se subió ningún archivo |
