@@ -829,6 +829,16 @@ while($numero > 0) {
 	$numero--;
 }
 ```
+
+**Salida**
+
+```
+10
+9
+8
+7
+6
+```
 </details>
 
 Ejecutar siguiente iteración del bucle
