@@ -901,7 +901,7 @@ $b = &$a;
 $a = 10;
 $b = &$a;	// $b es una referencia a $a
 $b = 20;	// Cambia el valor de $b y también el de $a
-echo $a;	// Imprime 20, ya que $b y $a son la misma variable
+echo $a;	// Imprime 20, ya que $b y $a apuntan al mismo valor en memoria
 ```
 </details>
 
