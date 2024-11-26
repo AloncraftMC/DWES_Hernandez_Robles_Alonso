@@ -105,6 +105,17 @@ define("PI", 3.141592);
 defined("PI")
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+define("ANCHURA", 2.5);
+
+echo defined("ANCHURA") ? "true" : "false";	// true
+echo defined("ALTURA");	? "true" : "false";	// false
+```
+</details>
+
 ---
 
 ## Variables y Tipos de Datos
@@ -156,19 +167,47 @@ public function mi_funcion(mixed $mi_variable) {...}
 
 ### Conversión de Tipos
 
+Obtener tipo de dato de variable (`integer` / `double` / `boolean` / `string` / `null` / `object`)
+
+```php
+gettype($variable);
+```
+
 Convertir a entero
 
 ```php
 (int) $variable
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$valor = "123.45";
+$entero = (int) $valor;
+
+echo $entero;	// Imprime 123
+echo gettype($entero);	// Imprime "integer"
+```
+</details>
+
 Convertir a decimal
 
 ```php
 (double) $variable
-(float) $variable
-(real) $variable
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$valor = "123";
+$doble = (double) $valor;
+
+echo $doble;	// Imprime 123
+echo gettype($doble);	// Imprime "double"
+```
+</details>
 
 Convertir a booleano
 
@@ -176,11 +215,35 @@ Convertir a booleano
 (boolean) $variable
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$valor = 0;
+$booleano = (boolean) $valor;
+
+echo $booleano ? 'true' : 'false';	// false
+echo gettype($booleano);	// Imprime "boolean"
+```
+</details>
+
 Convertir a cadena
 
 ```php
 (string) $variable
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$valor = 123;
+$cadena = (string) $valor;
+
+echo $cadena;  // Muestra "123"
+echo gettype($cadena);	// Imprime "string"
+```
+</details>
 
 Convertir a array
 
@@ -188,11 +251,35 @@ Convertir a array
 (array) $variable
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$valor = "texto";
+$array = (array) $valor;
+
+print_r($array);	// Imprime "Array ( [0] => texto )"
+echo gettype($array);	// Imprime "array"
+```
+</details>
+
 Convertir a objeto
 
 ```php
 (object) $variable
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$valor = "texto";
+$objeto = (object) $valor;
+
+print_r($objeto);	// Imprime "stdClass Object ( [scalar] => texto )"
+echo gettype($objeto);	// Imprime "object"
+```
+</details>
 
 ---
 
@@ -224,11 +311,31 @@ Incremento anterior
 ++$variable;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 1;
+echo ++$variable;	// Imprime 2
+echo $variable;		// Imprime 2
+```
+</details>
+
 Incremento posterior
 
 ```php
 $variable++;
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 1;
+echo $variable++;	// Imprime 1
+echo $variable;		// Imprime 2
+```
+</details>
 
 Decremento anterior
 
@@ -236,11 +343,31 @@ Decremento anterior
 --$variable;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 1;
+echo --$variable;	// Imprime 0
+echo $variable;		// Imprime 0
+```
+</details>
+
 Decremento posterior
 
 ```php
 $variable--;
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 1;
+echo $variable--;	// Imprime 1
+echo $variable;		// Imprime 0
+```
+</details>
 
 Sumar valor a variable
 
@@ -248,11 +375,33 @@ Sumar valor a variable
 $variable += $valor;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = 1;
+$var += 1;
+
+echo $var;	// Imprime 2
+```
+</details>
+
 Restar valor a variable
 
 ```php
 $variable -= $valor;
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = 1;
+$var -= 1;
+
+echo $var;	// Imprime 0
+```
+</details>
 
 Multiplicar valor a variable
 
@@ -260,11 +409,33 @@ Multiplicar valor a variable
 $variable *= $valor;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = 2;
+$var *= 2;
+
+echo $var;	// Imprime 4
+```
+</details>
+
 Dividir valor a variable
 
 ```php
 $variable /= $valor;
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = 6;
+$var /= 2;
+
+echo $var;	// Imprime 3
+```
+</details>
 
 Hacer módulo a variable
 
@@ -272,17 +443,50 @@ Hacer módulo a variable
 $variable %= $valor;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = 5;
+$var %= 3;
+
+echo $var;	// Imprime 2
+```
+</details>
+
 Hacer potencia con valor a variable
 
 ```php
 $variable **= valor;
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = 2;
+$var **= 3;
+
+echo $var;	// Imprime 8
+```
+</details>
+
 Concatenar valor (texto) a variable
 
 ```php
 $variable .= $valor
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$var = "Hola ";
+$var .= "mundo";
+
+echo $var;	// Imprime "Hola mundo"
+```
+</details>
 
 Convertir a entero o decimal si no lo es ya
 
@@ -873,16 +1077,6 @@ Número impar: 3
 Número impar: 1
 ```
 </details>
-
----
-
-## Función `gettype()`
-
-Obtener tipo de dato de variable (`integer` / `double` / `boolean` / `string` / `null` / `object`)
-
-```php
-gettype($variable);
-```
 
 ---
 
@@ -2180,7 +2374,7 @@ $capitales["Francia"];
 $capitales["España"] = "Madrid";
 ```
 
-Agregar valor al final de array indexado (en asociativos agrega el valor con el primer número disponible como clave)
+Agregar valor al final de array indexado (en asociativos genera el primer número disponible como clave)
 
 ```php
 $miArray[] = valor;
