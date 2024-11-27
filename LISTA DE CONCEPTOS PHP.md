@@ -1,4 +1,4 @@
-# $\Huge{\text{Lista de Conceptos PHP}}$
+# Lista de Conceptos PHP
 > Alonso Hernández Robles 2º DAW
 > Ver. 27/11/2024 (_Ahora en Markdown!_)
 
