@@ -3885,7 +3885,7 @@ Abrir fichero en un modo (y crearlo en el caso correspondiente). Devuelve el fic
 fopen("fichero.txt", "modo")
 ```
 
-### Modos de Apertura de icheros
+### Modos de Apertura de Ficheros
 | Modo | Descripción | Al no existir se crea, si es posible |
 |-|-|-|
 | `r` | Lectura | No |
