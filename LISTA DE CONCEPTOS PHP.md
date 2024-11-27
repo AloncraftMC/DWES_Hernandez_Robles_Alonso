@@ -1,6 +1,6 @@
-# LISTA DE CONCEPTOS PHP
+# $\Huge{\text{Lista de Conceptos PHP}}$
 > Alonso Hernández Robles 2º DAW
-> Ver. 25/11/2024 (_Ahora en Markdown!_)
+> Ver. 27/11/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -538,27 +538,6 @@ $variable >>= $valor;
 
 ---
 
-## Variables de Variables
-
-Crear variable cuyo nombre es el valor de la variable `$var`
-
-```php
-$$var;
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$var = "nombre";
-$$var = "Juan";
-
-echo $nombre;  // Imprime "Juan"
-```
-</details>
-
----
-
 ## Condicionales
 
 ### Condicional `if else`
@@ -1080,6 +1059,72 @@ Número impar: 1
 
 ---
 
+## Funciones
+
+Definir función
+
+```php
+function saludar() {
+	echo "Hola";
+}
+
+function suma(int|float $a, int|float $b) : int|float {
+	return $a + $b;
+}
+
+function hola(?String $nombre) : void {
+	echo "Hola ".$nombre;
+}
+
+function mostrar($string = "Valor por defecto") {
+	echo $string;
+}
+
+function sumarTodo(...$numeros) {
+	$suma = 0;
+	for($i = 0; $i < count($numeros); $i++){
+		$suma += $numeros[$i];
+	}
+	return $suma;
+}
+```
+
+Ejecutar función
+
+```php
+saludar();
+echo suma(1,3);
+```
+
+Usar función con argumentos desplegados (Las dos siguientes son equivalentes)
+
+```php
+$nums = [1, 2, 3];
+
+echo sumarTodo(1, 2, 3);
+echo sumarTodo(...$nums);
+```
+
+Función como variable
+
+```php
+$comparaEnteros = function($num1, $num2) {
+	if ($num1 > $num2) return 1;
+	if ($num1 < $num2) return -1;
+	return 0;
+}
+
+echo $comparaEnteros(10, 20);
+```
+
+Función flecha (hace directamente `return`)
+
+```php
+fn($num) => $num ** 2
+```
+
+---
+
 ## Referencia de Variables
 
 Crear variable de referencia a variable `$a` llamada `$b`
@@ -1112,166 +1157,159 @@ echo $nombre;		// Imprime "Pedro", ya que $ref apunta a $nombre
 
 ---
 
-## Funciones de Variables
+## Variables Globales
 
-¿Está inicializada y no es nula la variable?
-
-```php
-isset($variable)
-```
-
-<details>
-	<summary>Ejemplo</summary>
+Usar variable global en función (importarla)
 
 ```php
-$nombre = "Juan";
-
-if(isset($nombre)) {
-	echo "La variable está definida.";
-} else {
-	echo "La variable no está definida.";
+function miFuncion() {
+	global $variable;
+	// Instrucciones
 }
 ```
-</details>
-
-¿Existe y está vacía?
-
-```php
-empty($variable)
-```
 
 <details>
 	<summary>Ejemplo</summary>
 
 ```php
-$variable = "";
+$variable = 10;
 
-if(empty($variable)) {
-	echo "La variable está vacía.";
-} else {
-	echo "La variable no está vacía.";
+function miFuncion() {
+    global $variable;
+    $variable += 5;
+}
+
+echo $variable;	// Imprime 10
+miFuncion();
+echo $variable;	// Imprime 15
+```
+</details>
+
+Pasar variable a función anónima como valor con `use`
+
+```php
+function($argumentos) use($variable) {
+	// Instrucciones
 }
 ```
-</details>
 
-Eliminar variable en memoria
+<details>
+	<summary>Ejemplo</summary>
 
 ```php
-unset($variable);
+$variable = 10;
+
+$miFuncion = function() use($variable) {
+    $variable += 5;
+};
+
+echo $variable;	// Imprime 10
+$miFuncion();
+echo $variable;	// Imprime 10 (sin efecto)
+```
+</details>
+
+Pasar variable a función anónima como referencia con `use` (similar a `global`)
+
+```php
+function($argumentos) use(&$variable) {
+	// Instrucciones
+}
 ```
 
 <details>
 	<summary>Ejemplo</summary>
 
 ```php
-$nombre = "Juan";
-unset($nombre);  // Elimina la variable $nombre
+$variable = 10;
+
+$miFuncion = function() use(&$variable) {
+    $variable += 5;
+};
+
+echo $variable;	// Imprime 10
+$miFuncion();
+echo $variable;	// Imprime 15
 ```
 </details>
 
-¿Es `<tipo de dato>`?
-
+Pasar variable a función como referencia con `&` (similar a `global`)
 
 ```php
-is_integer($variable);
-is_string($variable);
-is_bool($variable);
-is_array($variable);
-is_double($variable);
-is_null($variable);
-is_array($variable);
-is_object($variable);
+function miFuncion(&$variable) {
+	// Instrucciones
+}
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = 10;
+
+function miFuncion(&$variable) {
+    $variable += 5;
+}
+
+echo $variable;	// Imprime 10
+miFuncion();
+echo $variable;	// Imprime 15
+```
+</details>
 
 ---
 
-## Funciones de Salida
+## Variables Estáticas
 
-Salir del script
-
-```php
-exit();
-exit("Mensaje");
-
-die();
-die("Mensaje");
-```
-
-Salir del ámbito devolviendo un valor
+Crear y usar variable estática en función
 
 ```php
-return $valor;
-```
-
----
-
-## Librerías y Ficheros
-
-Ruta de directorio actual
-
-```php
-__DIR__
-```
-
-Incluir / Ejecutar `fichero.php` (También devuelve el valor devuelto en su código)
-
-```php
-include("fichero.php");
-include __DIR__ . "fichero.php";
+function contador() {
+	static $cont = 0;
+	$cont++;
+}
 ```
 
 <details>
 	<summary>Ejemplo</summary>
 
-**`fichero.php`**
-
 ```php
-$mensaje = "Hola desde el archivo incluido";
-```
+function miFuncion() {
+    static $contador = 0;
+    $contador++;
+    echo $contador . "\n";
+}
 
-**Archivo Principal**
-
-```php
-include("fichero.php");
-echo $mensaje;	// Imprime "Hola desde el archivo incluido"
+miFuncion();	// Imprime 1
+miFuncion();	// Imprime 2
+miFuncion();	// Imprime 3
 ```
 </details>
 
-Redirigir navegador a `rutaDeArchivo.php` y ejecutar dicho script
+---
+
+## Variables de Variables
+
+Crear variable cuyo nombre es el valor de la variable `$var`
 
 ```php
-header("Location: rutaDeArchivo.php");
+$$var;
 ```
 
 <details>
 	<summary>Ejemplo</summary>
 
 ```php
-// Instrucciones
+$var = "nombre";
+$$var = "Juan";
 
-header("Location: rutaDeArchivo.php");	// Redirige a 'rutaDeArchivo.php'
-exit();	// Es recomendable usar exit después de redirigir
+echo $nombre;  // Imprime "Juan"
 ```
 </details>
 
 ---
 
 ## Variables Superglobales
-
-Sanitizar variable de caracteres conflictivos
-
-```php
-htmlspecialchars($variable);
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$texto = "<Hola>";
-echo htmlspecialchars($texto);	// Imprime "&lt;Hola&gt;"
-```
-</details>
 
 ### Variable `$_POST`
 
@@ -1724,6 +1762,214 @@ Método de la solicitud del formulario (devuelve `"GET"` o `"POST"`)
 $_SERVER["REQUEST_METHOD"]
 ```
 
+Ruta del archivo actual respecto de la raíz del servidor
+
+```php
+$_SERVER["PHP_SELF"]
+```
+
+---
+
+## Funciones de Comprobación
+
+¿Está inicializada y no es nula la variable?
+
+```php
+isset($variable)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$nombre = "Juan";
+
+if(isset($nombre)) {
+	echo "La variable está definida.";
+} else {
+	echo "La variable no está definida.";
+}
+```
+</details>
+
+¿Existe y está vacía?
+
+```php
+empty($variable)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$variable = "";
+
+if(empty($variable)) {
+	echo "La variable está vacía.";
+} else {
+	echo "La variable no está vacía.";
+}
+```
+</details>
+
+Eliminar variable en memoria
+
+```php
+unset($variable);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$nombre = "Juan";
+unset($nombre);  // Elimina la variable $nombre
+```
+</details>
+
+¿Es `<tipo de dato>`?
+
+
+```php
+is_integer($variable);
+is_string($variable);
+is_bool($variable);
+is_array($variable);
+is_double($variable);
+is_null($variable);
+is_array($variable);
+is_object($variable);
+```
+
+---
+
+## Funciones de Salida
+
+Salir del script
+
+```php
+exit();
+exit("Mensaje");
+
+die();
+die("Mensaje");
+```
+
+Salir del ámbito devolviendo un valor
+
+```php
+return $valor;
+```
+
+---
+
+## Funciones de URL
+
+Codificar texto a valores URL
+
+```php
+urlencode(texto)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "Hola Mundo!";
+echo urlencode($texto);	// Resultado: "Hola+Mundo%21"
+```
+</details>
+
+Descodificar texto de valores URL
+
+```php
+urldecode(texto)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "Hola+Mundo%21";
+echo urldecode($texto);	// Resultado: "Hola Mundo!"
+```
+</details>
+
+---
+
+## Funciones de Filtros
+
+Variable sanitizada de caracteres conflictivos en HTML
+
+```php
+htmlspecialchars($variable)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$texto = "<Hola>";
+echo htmlspecialchars($texto);	// Imprime "&lt;Hola&gt;"
+```
+</details>
+
+Variable con filtro aplicado de sanitización o validación específico
+
+```php
+filter_var($variable, FILTRO)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	echo($email." no es una dirección de email válida");
+}
+```
+</details>
+
+#### Filtros de Sanitización
+
+| Filtro | Descripción | Ejemplo de `$variable` | Resultado |
+|-|-|-|-|
+| `FILTER_SANITIZE_EMAIL` | Limpia un correo electrónico | `"correo@ejemplo,com"` | `"correo@ejemplo.com"` |
+| `FILTER_SANITIZE_NUMBER_INT` | Limpia un número entero | `"123abc"` | `"123"` |
+| `FILTER_SANITIZE_NUMBER_FLOAT` | Limpia un número decimal | `"1,234.56"` | `"1234.56"` |
+| `FILTER_SANITIZE_SPECIAL_CHARS` | Limpia una cadena de caracteres conflictivos | `"<br>"` | `"&lt;br&gt;"` |
+
+#### Filtros de Validación
+
+| Filtro | Descripción | Ejemplo de `$variable` | Resultado |
+|-|-|-|-|
+| `FILTER_VALIDATE_EMAIL` | Valida un correo electrónico | `"correo@ejemplo.com"` | `"correo@ejemplo.com"` |
+| `FILTER_VALIDATE_INT` | Valida un número entero | `"123"` | `123` |
+| `FILTER_VALIDATE_FLOAT` | Valida un número decimal | `"3.14"` | `3.14` |
+| `FILTER_VALIDATE_BOOLEAN` | Convierte a booleano | `true`, `false`, `1`, `0`, `"yes"`, `"no"` | `true\|false` |
+
+---
+
+## Número Aleatorio
+
+Generar número aleatorio entre `1` y `100` (incluyente)
+
+```php
+rand(1, 100)
+```
+
+---
+
+## Redondeo
+
+Valor redondeado a `n` decimales
+
+```php
+round($valor, n)
+```
+
 ---
 
 ## Fechas
@@ -1810,7 +2056,9 @@ echo "Fecha y hora: " . date("Y-m-d H:i:s", $timestamp);
 | `s`         | Segundos (con ceros iniciales) (`00` a `59`)                 | `00`, `15`, `59`      |
 | `u`         | Microsegundos                                                | `654321`              |
 
-## Funciones de Strings
+---
+
+## Strings
 
 Carácter en posición (empezando por el final si `posicion` $<$ `0`)
 
@@ -2058,293 +2306,6 @@ $array = ["manzana", "banana", "kiwi"];
 $string = implode(",", $array);
 
 echo $string; // Imprime "manzana,banana,kiwi"
-```
-</details>
-
----
-
-## Número Aleatorio
-
-Generar número aleatorio entre `1` y `100` (incluyente)
-
-```php
-rand(1, 100)
-```
-
----
-
-## Redondeo
-
-Valor redondeado a `n` decimales
-
-```php
-round($valor, n)
-```
-
----
-
-## Funciones `urldecode()` y `urluncode()` HTML
-
-Codificar texto a valores URL
-
-```php
-urlencode(texto)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$texto = "Hola Mundo!";
-echo urlencode($texto);	// Resultado: "Hola+Mundo%21"
-```
-</details>
-
-Descodificar texto de valores URL
-
-```php
-urldecode(texto)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$texto = "Hola+Mundo%21";
-echo urldecode($texto);	// Resultado: "Hola Mundo!"
-```
-</details>
-
----
-
-## Expresiones Regulares
-
-¿Variable cumple con expresión regular?
-
-```php
-preg_match($patron, $variable)
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$texto = "Hola Mundo!";
-$patron = "/u/";
-
-if (preg_match($patron, $texto)) {
-	echo "¡Coincidencia encontrada!";	// Imprimirá esto
-} else {
-	echo "No se encontró coincidencia.";
-}
-```
-</details>
-
-Patrón que contenga la letra `a`
-
-```php
-"/a/"
-```
-
-Patrón que contenga la letra `a` o `b`
-
-```php
-"/a|b/"
-```
-
-Patrón que contenga una letra de `a`, `b` o `c`
-
-```php
-"/[abc]/"
-```
-
-Patrón que sea solamente un número
-
-```php
-"/^[0-9]$/"
-```
-
-Patrón que sean solamente `3` números
-
-```php
-"/^[0-9]{3}$/"
-```
-
-Patrón que contenga `3` números
-
-```php
-"/[0-9]{3}/"
-```
-
-Patrón que empiece por `3` números
-
-```php
-"/^[0-9]{3}/"
-```
-
-Patrón que acabe por `3` números
-
-```php
-"/[0-9]{3}$/"
-```
-
-Patrón que contenga mayúsculas
-
-```php
-"/[A-Z]/"
-```
-
-Patrón que contenga minúsculas
-
-```php
-"/[a-z]/"
-```
-
-Patrón que no contenga minúsculas
-
-```php
-"/[^a-z]/"
-```
-
-Patrón que contenga `3` o más minúsculas
-
-```php
-"/[a-z]{3,}/"
-```
-
-Patrón que contenga `1` o más minúsculas
-
-```php
-"/[a-z]+/"
-```
-
-Patrón que contenga `0` o más minúsculas
-
-```php
-"/[a-z]*/"
-```
-
-Patrón que contenga `0` o `1` minúscula
-
-```php
-"/[a-z]?/"
-```
-
-Patrón que contenga un número o minúscula o mayúscula
-
-```php
-"/[0-9A-Za-z]/"
-```
-
-### Anexo 1. Literales y Conjuntos específicos y de Rango
-
-| Expresión         | Descripción                   |
-|-------------------|-------------------------------|
-| `a`               | Literal                       |
-| `[abc]`           | Conjunto específico           |
-| `[A-Z]`           | Conjunto de Rango             |
-| `[A-Za-z0-9]`     | Conjunto Agrupado de Rango    |
-| `[A-Zabc]`        | Conjunto Agrupado Mixto       |
-
-### Anexo 2. Delimitación de cadena
-
-| Expresión | Descripción |
-|-----------|-------------|
-| `^`       | Inicio      |
-| `$`       | Fin         |
-| `\|`      | OR          |
-| `[^...]`  | NOT         |
-
-### Anexo 3. Apéndice de Cuantificadores
-
-| Expresión   | Descripción            |
-|-------------|------------------------|
-| `?`         | `0` o `1` veces        |
-| `*`         | `0` o más veces        |
-| `+`         | `1` o más veces        |
-| `{5}`       | `5` veces              |
-| `{3,}`      | Más de `3` veces       |
-| `{3,9}`     | Entre `3` y `9` veces  |
-
-### Anexo 4. Apéndice de Metacaracteres y Equivalencias
-
-| Expresión | Descripción                  | Equivalencia          |
-|-----------|------------------------------|-----------------------|
-| `\d`      | Dígito                       | `[0-9]`               |
-| `\D`      | No dígito                    | `[^0-9]`              |
-| `\w`      | Carácter Alfanumérico        | `[A-Za-z0-9]`         |
-| `\W`      | Carácter No Alfanumérico     | `[^A-Za-z0-9]`        |
-| `\s`      | Espacio Invisible            | `[ \t\n\r\f\v]`       |
-| `\S`      | Carácter No Invisible        | `[^ \t\n\r\f\v]`      |
-| `.`       | Comodín (Excepto `\n`)       | No tiene              |
-
----
-
-## Excepciones
-
-Lanzar excepción
-
-```php
-throw new Exception("Mensaje de error");
-```
-
-Lanzar excepción de argumento inválido
-
-```php
-throw new InvalidArgumentException("Mensaje de error");
-```
-
-Cazar excepción(es)
-
-```php
-try{
-	// Código peligroso
-}catch(Exception $e){
-	// Mensaje de error informativo
-}
-```
-
-```php
-try{
-	// Código
-}catch(InvalidArgumentException $iae){
-	// Argumento no válido
-}catch(Exception $e){
-	// Otras excepciones
-}
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-try {
-	$edad = -1;
-	if ($edad < 0) {
-		throw new InvalidArgumentException();	// Se lanzará esta excepción
-	}
-	echo "Edad válida.";
-} catch (InvalidArgumentException $iae) {
-	echo "Error.";	// Maneja la excepción
-}
-```
-</details>
-
-Mensaje de la excepción
-
-```php
-$iae->getMessage()
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-try {
-	throw new InvalidArgumentException("Mensaje de error.");
-} catch (InvalidArgumentException $iae) {
-	echo $iae->getMessage();	// Muestra el mensaje de la excepción
-}
 ```
 </details>
 
@@ -3527,198 +3488,285 @@ echo $string; // Imprime "manzana,banana,kiwi"
 
 ---
 
-## Funciones
+## Expresiones Regulares
 
-Definir función
+¿Variable cumple con expresión regular?
 
 ```php
-function saludar() {
-	echo "Hola";
-}
+preg_match($patron, $variable)
+```
 
-function suma(int|float $a, int|float $b) : int|float {
-	return $a + $b;
-}
+<details>
+	<summary>Ejemplo</summary>
 
-function hola(?String $nombre) : void {
-	echo "Hola ".$nombre;
-}
+```php
+$texto = "Hola Mundo!";
+$patron = "/u/";
 
-function mostrar($string = "Valor por defecto") {
-	echo $string;
+if (preg_match($patron, $texto)) {
+	echo "¡Coincidencia encontrada!";	// Imprimirá esto
+} else {
+	echo "No se encontró coincidencia.";
 }
+```
+</details>
 
-function sumarTodo(...$numeros) {
-	$suma = 0;
-	for($i = 0; $i < count($numeros); $i++){
-		$suma += $numeros[$i];
+Patrón que contenga la letra `a`
+
+```php
+"/a/"
+```
+
+Patrón que contenga la letra `a` o `b`
+
+```php
+"/a|b/"
+```
+
+Patrón que contenga una letra de `a`, `b` o `c`
+
+```php
+"/[abc]/"
+```
+
+Patrón que sea solamente un número
+
+```php
+"/^[0-9]$/"
+```
+
+Patrón que sean solamente `3` números
+
+```php
+"/^[0-9]{3}$/"
+```
+
+Patrón que contenga `3` números
+
+```php
+"/[0-9]{3}/"
+```
+
+Patrón que empiece por `3` números
+
+```php
+"/^[0-9]{3}/"
+```
+
+Patrón que acabe por `3` números
+
+```php
+"/[0-9]{3}$/"
+```
+
+Patrón que contenga mayúsculas
+
+```php
+"/[A-Z]/"
+```
+
+Patrón que contenga minúsculas
+
+```php
+"/[a-z]/"
+```
+
+Patrón que no contenga minúsculas
+
+```php
+"/[^a-z]/"
+```
+
+Patrón que contenga `3` o más minúsculas
+
+```php
+"/[a-z]{3,}/"
+```
+
+Patrón que contenga `1` o más minúsculas
+
+```php
+"/[a-z]+/"
+```
+
+Patrón que contenga `0` o más minúsculas
+
+```php
+"/[a-z]*/"
+```
+
+Patrón que contenga `0` o `1` minúscula
+
+```php
+"/[a-z]?/"
+```
+
+Patrón que contenga un número o minúscula o mayúscula
+
+```php
+"/[0-9A-Za-z]/"
+```
+
+### Anexo 1. Literales y Conjuntos específicos y de Rango
+
+| Expresión         | Descripción                   |
+|-------------------|-------------------------------|
+| `a`               | Literal                       |
+| `[abc]`           | Conjunto específico           |
+| `[A-Z]`           | Conjunto de Rango             |
+| `[A-Za-z0-9]`     | Conjunto Agrupado de Rango    |
+| `[A-Zabc]`        | Conjunto Agrupado Mixto       |
+
+### Anexo 2. Delimitación de cadena
+
+| Expresión | Descripción |
+|-----------|-------------|
+| `^`       | Inicio      |
+| `$`       | Fin         |
+| `\|`      | OR          |
+| `[^...]`  | NOT         |
+
+### Anexo 3. Apéndice de Cuantificadores
+
+| Expresión   | Descripción            |
+|-------------|------------------------|
+| `?`         | `0` o `1` veces        |
+| `*`         | `0` o más veces        |
+| `+`         | `1` o más veces        |
+| `{5}`       | `5` veces              |
+| `{3,}`      | Más de `3` veces       |
+| `{3,9}`     | Entre `3` y `9` veces  |
+
+### Anexo 4. Apéndice de Metacaracteres y Equivalencias
+
+| Expresión | Descripción                  | Equivalencia          |
+|-----------|------------------------------|-----------------------|
+| `\d`      | Dígito                       | `[0-9]`               |
+| `\D`      | No dígito                    | `[^0-9]`              |
+| `\w`      | Carácter Alfanumérico        | `[A-Za-z0-9]`         |
+| `\W`      | Carácter No Alfanumérico     | `[^A-Za-z0-9]`        |
+| `\s`      | Espacio Invisible            | `[ \t\n\r\f\v]`       |
+| `\S`      | Carácter No Invisible        | `[^ \t\n\r\f\v]`      |
+| `.`       | Comodín (Excepto `\n`)       | No tiene              |
+
+---
+
+## Librerías y Ficheros
+
+Ruta de directorio actual
+
+```php
+__DIR__
+```
+
+Incluir / Ejecutar `fichero.php` (También devuelve el valor devuelto en su código)
+
+```php
+include("fichero.php");
+include __DIR__ . "fichero.php";
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.php`**
+
+```php
+$mensaje = "Hola desde el archivo incluido";
+```
+
+**Archivo Principal**
+
+```php
+include("fichero.php");
+echo $mensaje;	// Imprime "Hola desde el archivo incluido"
+```
+</details>
+
+Redirigir navegador a `rutaDeArchivo.php` y ejecutar dicho script
+
+```php
+header("Location: rutaDeArchivo.php");
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+// Instrucciones
+
+header("Location: rutaDeArchivo.php");	// Redirige a 'rutaDeArchivo.php'
+exit();	// Es recomendable usar exit después de redirigir
+```
+</details>
+
+---
+
+## Excepciones
+
+Lanzar excepción
+
+```php
+throw new Exception("Mensaje de error");
+```
+
+Lanzar excepción de argumento inválido
+
+```php
+throw new InvalidArgumentException("Mensaje de error");
+```
+
+Cazar excepción(es)
+
+```php
+try{
+	// Código peligroso
+}catch(Exception $e){
+	// Mensaje de error informativo
+}
+```
+
+```php
+try{
+	// Código
+}catch(InvalidArgumentException $iae){
+	// Argumento no válido
+}catch(Exception $e){
+	// Otras excepciones
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+try {
+	$edad = -1;
+	if ($edad < 0) {
+		throw new InvalidArgumentException();	// Se lanzará esta excepción
 	}
-	return $suma;
+	echo "Edad válida.";
+} catch (InvalidArgumentException $iae) {
+	echo "Error.";	// Maneja la excepción
 }
-```
-
-Ejecutar función
-
-```php
-saludar();
-echo suma(1,3);
-```
-
-Usar función con argumentos desplegados (Las dos siguientes son equivalentes)
-
-```php
-$nums = [1, 2, 3];
-
-echo sumarTodo(1, 2, 3);
-echo sumarTodo(...$nums);
-```
-
-Función como variable
-
-```php
-$comparaEnteros = function($num1, $num2) {
-	if ($num1 > $num2) return 1;
-	if ($num1 < $num2) return -1;
-	return 0;
-}
-
-echo $comparaEnteros(10, 20);
-```
-
-Función flecha (hace directamente `return`)
-
-```php
-fn($num) => $num ** 2
-```
-
----
-
-## Variables Globales
-
-Usar variable global en función (importarla)
-
-```php
-function miFuncion() {
-	global $variable;
-	// Instrucciones
-}
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$variable = 10;
-
-function miFuncion() {
-    global $variable;
-    $variable += 5;
-}
-
-echo $variable;	// Imprime 10
-miFuncion();
-echo $variable;	// Imprime 15
 ```
 </details>
 
-Pasar variable a función anónima como valor con `use`
+Mensaje de la excepción
 
 ```php
-function($argumentos) use($variable) {
-	// Instrucciones
-}
+$iae->getMessage()
 ```
 
 <details>
 	<summary>Ejemplo</summary>
 
 ```php
-$variable = 10;
-
-$miFuncion = function() use($variable) {
-    $variable += 5;
-};
-
-echo $variable;	// Imprime 10
-$miFuncion();
-echo $variable;	// Imprime 10 (sin efecto)
-```
-</details>
-
-Pasar variable a función anónima como referencia con `use` (similar a `global`)
-
-```php
-function($argumentos) use(&$variable) {
-	// Instrucciones
+try {
+	throw new InvalidArgumentException("Mensaje de error.");
+} catch (InvalidArgumentException $iae) {
+	echo $iae->getMessage();	// Muestra el mensaje de la excepción
 }
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$variable = 10;
-
-$miFuncion = function() use(&$variable) {
-    $variable += 5;
-};
-
-echo $variable;	// Imprime 10
-$miFuncion();
-echo $variable;	// Imprime 15
-```
-</details>
-
-Pasar variable a función como referencia con `&` (similar a `global`)
-
-```php
-function miFuncion(&$variable) {
-	// Instrucciones
-}
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-$variable = 10;
-
-function miFuncion(&$variable) {
-    $variable += 5;
-}
-
-echo $variable;	// Imprime 10
-miFuncion();
-echo $variable;	// Imprime 15
-```
-</details>
-
----
-
-## Variables Estáticas
-
-Crear y usar variable estática en función
-
-```php
-function contador() {
-	static $cont = 0;
-	$cont++;
-}
-```
-
-<details>
-	<summary>Ejemplo</summary>
-
-```php
-function miFuncion() {
-    static $contador = 0;
-    $contador++;
-    echo $contador . "\n";
-}
-
-miFuncion();	// Imprime 1
-miFuncion();	// Imprime 2
-miFuncion();	// Imprime 3
 ```
 </details>
 
