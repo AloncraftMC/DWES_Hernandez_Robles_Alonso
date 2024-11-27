@@ -4054,6 +4054,28 @@ Contenido completo de un fichero (no hace falta abrirlo)
 file_get_contents("fichero.txt");
 ```
 
+<details>
+	<summary>Ejemplo</summary>
+
+**`quijote.txt`**
+```
+En un lugar de la mancha
+de cuyo nombre no quiero acordarme
+vivía un hidalgo
+muy extraño XD
+```
+
+**`index.php`**
+```php
+echo file_get_contents("quijote.txt");
+```
+
+**Salida**
+```
+En un lugar de la mancha de cuyo nombre no quiero acordarme vivía un hidalgo muy extraño XD
+```
+</details>
+
 Sobreescribir contenido de un fichero (no hace falta abrirlo)
 
 ```php
@@ -4135,13 +4157,13 @@ readdir()
 <details>
 	<summary>Ejemplo</summary>
 
-**carpeta**
+**`carpeta`**
 ```
 carpeta1/
 carpeta2/
 ```
 
-**index.php**
+**`index.php`**
 ```php
 opendir("carpeta");
 
