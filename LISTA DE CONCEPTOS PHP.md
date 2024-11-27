@@ -3726,7 +3726,7 @@ Ruta de directorio actual
 __DIR__
 ```
 
-Incluir / Ejecutar `fichero.php` (También devuelve el valor devuelto en su código)
+Incluir / Ejecutar `fichero.php`. Si falla, no detiene la ejecución.
 
 ```php
 include("fichero.php");
@@ -3739,14 +3739,124 @@ include __DIR__ . "fichero.php";
 **`fichero.php`**
 
 ```php
-$mensaje = "Hola desde el archivo incluido";
+echo "Incluido correctamente.";
 ```
 
 **Archivo Principal**
 
 ```php
 include("fichero.php");
-echo $mensaje;	// Imprime "Hola desde el archivo incluido"
+include("fichero.php");
+
+echo "Resto de instrucciones.";
+```
+
+**Salida**
+
+```
+Incluido correctamente.
+Incluido correctamente.
+Resto de instrucciones.
+```
+</details>
+
+Incluir / Ejecutar `fichero.php` si no se ha hecho ya. Si falla, no detiene la ejecución.
+
+```php
+include_once("fichero.php");
+include_once __DIR__ . "fichero.php";
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.php`**
+
+```php
+echo "Incluido correctamente.";
+```
+
+**Archivo Principal**
+
+```php
+include_once("fichero.php");
+include_once("fichero.php");	// Ignorado porque ya se ha incluido
+
+echo "Resto de instrucciones.";
+```
+
+**Salida**
+
+```
+Incluido correctamente.
+Resto de instrucciones.
+```
+</details>
+
+Incluir / Ejecutar `fichero.php`. Si falla, se detiene la ejecución.
+
+```php
+require("fichero.php");
+require __DIR__ . "fichero.php";
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.php`**
+
+```php
+echo "Incluido correctamente.";
+```
+
+**Archivo Principal**
+
+```php
+require("fichero.php");
+require("fichero.php");
+
+echo "Resto de instrucciones.";
+```
+
+**Salida**
+
+```
+Incluido correctamente.
+Incluido correctamente.
+Resto de instrucciones.
+```
+</details>
+
+Incluir / Ejecutar `fichero.php` si no se ha hecho ya. Si falla, se detiene la ejecución.
+
+```php
+require_once("fichero.php");
+require_once __DIR__ . "fichero.php";
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.php`**
+
+```php
+echo "Incluido correctamente.";
+```
+
+**Archivo Principal**
+
+```php
+require_once("fichero.php");
+require_once("fichero.php");	// Ignorado porque ya se ha incluido
+
+echo "Resto de instrucciones.";
+```
+
+**Salida**
+
+```
+Incluido correctamente.
+Resto de instrucciones.
 ```
 </details>
 
