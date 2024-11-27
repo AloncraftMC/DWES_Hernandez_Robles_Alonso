@@ -1064,22 +1064,59 @@ Número impar: 1
 Definir función
 
 ```php
+function miFuncion(){
+	// Instrucciones
+}
+
+function miFuncion(argumentos){
+	// Instrucciones
+}
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
 function saludar() {
 	echo "Hola";
 }
+```
+</details>
 
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
 function suma(int|float $a, int|float $b) : int|float {
 	return $a + $b;
 }
+```
+</details>
 
+<details>
+	<summary>Ejemplo 3</summary>
+
+```php
 function hola(?String $nombre) : void {
 	echo "Hola ".$nombre;
 }
+```
+</details>
 
+<details>
+	<summary>Ejemplo 4</summary>
+
+```php
 function mostrar($string = "Valor por defecto") {
 	echo $string;
 }
+```
+</details>
 
+<details>
+	<summary>Ejemplo 5</summary>
+
+```php
 function sumarTodo(...$numeros) {
 	$suma = 0;
 	for($i = 0; $i < count($numeros); $i++){
@@ -1088,13 +1125,23 @@ function sumarTodo(...$numeros) {
 	return $suma;
 }
 ```
+</details>
 
 Ejecutar función
+
+```php
+miFuncion();
+miFuncion(argumentos);
+```
+
+<details>
+	<summary>Ejemplo</summary>
 
 ```php
 saludar();
 echo suma(1,3);
 ```
+</details>
 
 Usar función con argumentos desplegados (Las dos siguientes son equivalentes)
 
@@ -1108,6 +1155,17 @@ echo sumarTodo(...$nums);
 Función como variable
 
 ```php
+$miFuncion = function(argumentos) {
+	// Instrucciones
+}
+
+miFuncion(argumentos);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
 $comparaEnteros = function($num1, $num2) {
 	if ($num1 > $num2) return 1;
 	if ($num1 < $num2) return -1;
@@ -1116,12 +1174,21 @@ $comparaEnteros = function($num1, $num2) {
 
 echo $comparaEnteros(10, 20);
 ```
+</details>
 
 Función flecha (hace directamente `return`)
 
 ```php
-fn($num) => $num ** 2
+fn(argumentos) => valor
 ```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$cuadrado = fn($num) => $num ** 2;
+```
+</details>
 
 ---
 
@@ -3697,6 +3764,392 @@ header("Location: rutaDeArchivo.php");
 
 header("Location: rutaDeArchivo.php");	// Redirige a 'rutaDeArchivo.php'
 exit();	// Es recomendable usar exit después de redirigir
+```
+</details>
+
+Abrir fichero en un modo (y crearlo en el caso correspondiente). Devuelve el fichero, y `false` si no es posible abrirlo.
+
+```php
+fopen("fichero.txt", "modo")
+```
+
+#### Modos de apertura de ficheros
+| Modo | Descripción | Al no existir se crea, si es posible |
+|-|-|-|
+| `r` | Lectura | No |
+| `r+` | Lectura y escritura | No |
+| `w` | Escritura (sobreescribiendo) | Sí |
+| `w+` | Lectura y Escritura (sobreescribiendo) | Sí |
+| `a` | Escritura (añadiendo) | Sí |
+| `a+` | Lectura y Escritura (añadiendo) | Sí |
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$quijote = fopen("quijote.txt", "r");
+$pizarra = fopen("pizarra.txt", "w");
+$apuntes = fopen("apuntes.txt", "a+");
+```
+</details>
+
+Leer siguiente carácter de fichero
+
+```php
+fgetc($fichero);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.txt`**
+
+```
+Word
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+echo fgetc($fichero);	// Imprime "W"
+echo fgetc($fichero);	// Imprime "o"
+echo fgetc($fichero);	// Imprime "r"
+echo fgetc($fichero);	// Imprime "d"
+```
+</details>
+
+Leer siguiente línea de fichero
+
+```php
+fgets($fichero);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.txt`**
+
+```
+Primera
+Segunda
+Última
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+echo fgets($fichero);	// Imprime "Primera"
+echo fgets($fichero);	// Imprime "Segunda"
+echo fgets($fichero);	// Imprime "Última"
+```
+</details>
+
+Posición del puntero de lectura
+
+```php
+ftell($fichero);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.txt`**
+
+```
+Primera
+Segunda
+Última
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+echo ftell($fichero);	// Imprime 0
+echo fgets($fichero);	// Imprime "Primera"
+echo ftell($fichero);	// Imprime 8
+echo fgets($fichero);	// Imprime "Segunda"
+echo ftell($fichero);	// Imprime 16
+```
+</details>
+
+Establecer posición del puntero de lectura
+
+```php
+fseek($fichero, $posicion);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.txt`**
+
+```
+Unica
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+fseek($fichero, 2);
+echo fgetc($fichero);	// Imprime 'n'
+
+fseek($fichero, 4);
+echo fgetc($fichero);	// Imprime 'c'
+```
+</details>
+
+Establecer posición del puntero de lectura al principio del archivo
+
+```php
+rewind($fichero);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.txt`**
+
+```
+Primera
+Segunda
+Última
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+echo fgets($fichero);	// Imprime "Primera"
+echo fgets($fichero);	// Imprime "Segunda"
+
+rewind($fichero);
+echo fgets($fichero);	// Imprime "Primera"
+```
+</details>
+
+¿El puntero de lectura está al final del archivo?
+
+```php
+feof($fichero);
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+**`fichero.txt`**
+
+```
+Línea
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+echo feof($fichero) ? 'true' : 'false';	// Imprime false
+echo fgets($fichero);			// Imprime "Línea"
+echo feof($fichero) ? 'true' : 'false';	// Imprime true
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+**`fichero.txt`**
+
+```
+Primera
+Segunda
+Última
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+while(!feof($fichero)){
+	echo fgets($fichero) . "<br>";
+}
+```
+
+**Salida**
+
+```
+Primera
+Segunda
+Última
+```
+</details>
+
+Escribir al final del fichero
+
+```php
+fwrite($fichero, "cadena");
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**`fichero.txt`**
+
+```
+Primera
+Segunda
+```
+
+**`index.php`**
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+
+fwrite($fichero, "Tercera\n");
+fwrite($fichero, "Última\n");
+
+rewind($fichero);
+
+while(!feof($fichero)){
+	echo fgets($fichero) . "<br>";
+}
+```
+
+**Salida**
+
+```
+Primera
+Segunda
+Tercera
+Última
+```
+</details>
+
+Cerrar fichero
+
+```php
+fclose($fichero);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$fichero = fopen("fichero.txt", "a+");
+// Instrucciones
+fclose($fichero);
+```
+</details>
+
+Contenido completo de un fichero (no hace falta abrirlo)
+
+```php
+file_get_contents("fichero.txt");
+```
+
+Sobreescribir contenido de un fichero (no hace falta abrirlo)
+
+```php
+file_put_contents("fichero.txt", "texto");
+```
+
+Tamaño de fichero en bytes
+
+```php
+filesize("fichero.txt")
+```
+
+¿El fichero existe?
+
+```php
+file_exists("fichero.txt");
+```
+
+¿Es un archivo?
+
+```php
+is_file("fichero.txt")
+```
+
+¿Es una carpeta?
+
+```php
+is_dir("fichero.txt")
+```
+
+Renombrar fichero
+
+```php
+rename("fichero.txt", "nuevo.txt");
+```
+
+Mover fichero
+
+```php
+move("fichero.txt", "ruta/");
+```
+
+Copiar fichero
+
+```php
+copy("fichero.txt", "ruta/");
+```
+
+Borrar fichero
+
+```php
+unlink("fichero.txt");
+```
+
+Crear carpeta (devuelve `false` si falla)
+
+```php
+mkdir("carpeta");
+```
+
+Eliminar carpeta (devuelve `false` si falla)
+
+```php
+rmdir("carpeta");
+```
+
+Abrir carpeta con gestor de directorios (devuelve `false` si falla)
+
+```php
+opendir("carpeta")
+```
+
+Nombre de siguiente carpeta en directorio actual (devuelve `false` si falla)
+
+```php
+readdir()
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+**carpeta**
+```
+carpeta1/
+carpeta2/
+```
+
+**index.php**
+```php
+opendir("carpeta");
+
+echo readdir();	// Imprime "."
+echo readdir();	// Imprime ".."
+echo readdir();	// Imprime "carpeta1"
+echo readdir();	// Imprime "carpeta2"
+echo readdir();	// No imprime nada
 ```
 </details>
 
