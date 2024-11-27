@@ -1999,7 +1999,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 ```
 </details>
 
-#### Filtros de Sanitización
+### Filtros de Sanitización
 
 | Filtro | Descripción | Ejemplo de `$variable` | Resultado |
 |-|-|-|-|
@@ -2008,7 +2008,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 | `FILTER_SANITIZE_NUMBER_FLOAT` | Limpia un número decimal | `"1,234.56"` | `"1234.56"` |
 | `FILTER_SANITIZE_SPECIAL_CHARS` | Limpia una cadena de caracteres conflictivos | `"<br>"` | `"&lt;br&gt;"` |
 
-#### Filtros de Validación
+### Filtros de Validación
 
 | Filtro | Descripción | Ejemplo de `$variable` | Resultado |
 |-|-|-|-|
@@ -3883,7 +3883,7 @@ Abrir fichero en un modo (y crearlo en el caso correspondiente). Devuelve el fic
 fopen("fichero.txt", "modo")
 ```
 
-#### Modos de apertura de ficheros
+### Modos de apertura de ficheros
 | Modo | Descripción | Al no existir se crea, si es posible |
 |-|-|-|
 | `r` | Lectura | No |
