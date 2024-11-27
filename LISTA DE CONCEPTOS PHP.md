@@ -1917,7 +1917,9 @@ Salir del script
 ```php
 exit();
 exit("Mensaje");
+```
 
+```php
 die();
 die("Mensaje");
 ```
