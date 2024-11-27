@@ -2019,7 +2019,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 ---
 
-## Número Aleatorio
+## Números Aleatorios
 
 Generar número aleatorio entre `1` y `100` (incluyente)
 
@@ -2093,7 +2093,7 @@ echo "Fecha y hora: " . date("Y-m-d H:i:s", $timestamp);
 ```
 </details>
 
-### Tipos de formatos de `date`
+### Tipos de Formatos de `date`
 
 | Formato     | Descripción                                                  | Ejemplos              |
 |-------------|--------------------------------------------------------------|-----------------------|
@@ -3883,7 +3883,7 @@ Abrir fichero en un modo (y crearlo en el caso correspondiente). Devuelve el fic
 fopen("fichero.txt", "modo")
 ```
 
-### Modos de apertura de ficheros
+### Modos de Apertura de icheros
 | Modo | Descripción | Al no existir se crea, si es posible |
 |-|-|-|
 | `r` | Lectura | No |
