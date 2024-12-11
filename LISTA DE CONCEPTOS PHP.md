@@ -4960,7 +4960,7 @@ class Mando implements Transportable, Inalambrico{	// Declarado en apartado ante
 
 ---
 
-Espacios de nombres
+## Espacios de nombres
 
 - Conjunto de constantes, funciones, clases e interfaces englobadas en un mismo nombre.
 
