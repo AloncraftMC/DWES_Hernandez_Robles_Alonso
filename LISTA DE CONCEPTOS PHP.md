@@ -4591,6 +4591,7 @@ Modificadores de acceso
 
 ```php
 class Objeto{
+
 	private const PRIVADA = "privada";
 	protected const PROTEGIDA = "protegida";
 	public const PUBLICA = "publica";
@@ -4602,6 +4603,7 @@ class Objeto{
 		echo self::PUBLICA;
 		echo self::POR_DEFECTO;
 	}
+	
 }
 
 echo Objeto::PUBLICA;	// Imprime "publica"
