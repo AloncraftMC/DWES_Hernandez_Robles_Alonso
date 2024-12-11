@@ -4593,8 +4593,15 @@ Modificadores de acceso
 class Objeto{
 	private const PRIVADA = "privada";
 	protected const PROTEGIDA = "protegida";
-	public 	const PUBLICA = "publica";
+	public const PUBLICA = "publica";
 	const POR_DEFECTO = "publica";
+
+	public function mostrarConstantes(){
+		echo self::PRIVADA;
+		echo self::PROTEGIDA;
+		echo self::PUBLICA;
+		echo self::POR_DEFECTO;
+	}
 }
 
 echo Objeto::PUBLICA;	// Imprime "publica"
