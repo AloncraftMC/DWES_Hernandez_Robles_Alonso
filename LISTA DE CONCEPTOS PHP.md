@@ -4581,7 +4581,7 @@ class Objeto{
 }
 ```
 
-### Modificadores de acceso
+#### Modificadores de acceso
 
 - `private`: Clase propia
 - `protected`: Clase propia y clases heredadas
