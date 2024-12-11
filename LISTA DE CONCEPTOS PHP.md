@@ -4583,11 +4583,11 @@ class Objeto{
 
 #### Modificadores de acceso
 
-Los modificadores de acceso son obligatorios en atributos.
-
 - `private`: Clase propia
 - `protected`: Clase propia y clases heredadas
 - `public` (por defecto): Todo
+
+Los modificadores de acceso son obligatorios en atributos.
 
 ### Constantes
 
