@@ -1,6 +1,6 @@
 # Lista de Conceptos PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 27/11/2024 (_Ahora en Markdown!_)
+> Ver. 11/12/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -4364,46 +4364,26 @@ try {
 Crear clase
 
 ```php
-class Objeto {
-
-	private int|float $atributo1;
-	private string $atributo2;
-	private mixed $atributo3;
-	private $atributo4;
-
-	public function __construct(int|float $atributo1, string $atributo2, mixed $atributo3, $atributo4) {
-		$this->atributo1 = $atributo1;
-		$this->atributo2 = $atributo2;
-		$this->atributo3 = $atributo3;
-		$this->atributo4 = $atributo4;
-	}
-
-	public function getAtributo1() : int|float {
-		return $this->atributo1;
-	}
-	public function getAtributo2() : string {
-		return $this->atributo2;
-	}
-	public function getAtributo3() : mixed {
-		return $this->atributo3;
-	}
-	public function getAtributo4() {
-		return $this->atributo4;
-	}
-
-	public function setAtributo1(int|float $atributo1) {
-		$this->atributo1 = $atributo1;
-	}
-	public function setAtributo2(string $atributo2) {
-		$this->atributo2 = $atributo2;
-	}
-	public function setAtributo3(mixed $atributo3) {
-		$this->atributo3 = $atributo3;
-	}
-	public function setAtributo3($atributo4) {
-		$this->atributo4 = $atributo4;
-	}
+class Objeto{
 	
+	public $atributo1;
+	public $atributo2;
+	...
+
+	public function __construct($atributo1, $atributo2, ...){
+		$this->atributo1 = $atributo1;
+		$this->atributo2 = $atributo2;
+		...
+	}
+
+	public function metodo1(){
+		// Instrucciones
+	}
+	public function metodo2($argumentos){
+		// Instrucciones
+	}
+	...
+
 }
 ```
 
@@ -4414,9 +4394,655 @@ $objeto = new Objeto(12, "Hola", null);
 $vacio = new Vacio();
 ```
 
-Atributo que puede ser nulo
+Crear objeto con argumentos especificados en el constructor
 
 ```php
-?String cadena;
-?int entero;
+$objeto = new Objeto(unAtributo: $valor, otroAtributo: $valor, ...);
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+class Usuario{
+	private $nombre;
+	private $apellido1;
+	private $apellido2;
+	public function __construct($nombre, $apellido1, $apellido2){
+		$this->nombre = $nombre;
+		$this->apellido1 = $apellido1;
+		$this->apellido2 = $apellido2;
+	}
+}
+
+$usuario = new Usuario(apellido1: "Hernández", apellido2: "Robles", nombre: "Alonso");
+```
+</details>
+
+Acceder a propiedades (públicas) del objeto
+
+```php
+$objeto->atributo
+$objeto->metodo();
+$objeto->metodo(args);
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+class Persona{
+	public $nombre;
+	public $edad;
+
+	public function __construct($nombre, $edad){
+		$this->nombre = $nombre;
+		$this->edad = $edad;
+	}
+
+	public function __toString(){
+		return "Nombre:" + $this->nombre . ", Edad: " . $this->edad;
+	}
+
+	public function saludar(){
+		echo "Hola!";
+	}
+}
+
+$objeto = new Objeto("Alonso", 20);
+
+echo $persona->nombre;		// Imprime "Alonso"
+echo $persona->edad;		// Imprime 20
+
+echo $persona->__toString();	// Imprime "Nombre: Alonso, Edad: 20"
+$persona.saludar();		// Imprime "Hola!"
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+class Persona{
+	private $nombre;
+	private $edad;
+
+	public function __construct($nombre, $edad){
+		$this->nombre = $nombre;
+		$this->edad = $edad;
+	}
+
+	public function getNombre(){
+		return $this->nombre;
+	}
+
+	public function getEdad(){
+		return $this->edad;
+	}
+}
+
+$persona = new Persona("Alonso", 20);
+
+echo $persona->getNombre();	// Imprime "Alonso"
+echo $persona->getEdad();	// Imprime 20
+
+echo $persona->nombre;		// Error
+echo $persona->edad;		// Error
+```
+</details>
+
+Promoción de propiedades del constructor
+
+```php
+class Objeto{
+
+	public function __construct(public $atributo1, public $atributo2){
+	}
+
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+class Persona{
+	public function __construct(private $nombre, private $edad){
+	}
+
+	public function getNombre(){
+		return $this->nombre;
+	}
+
+	public function getEdad(){
+		return $this->edad;
+	}
+}
+
+$persona = new Persona("Alonso", 20);
+
+echo $persona->getNombre();	// Imprime "Alonso"
+echo $persona->getEdad();	// Imprime 20
+```
+</details>
+
+Destructor (es llamado al hacer `unset($variable);`)
+
+```php
+class Objeto{
+
+	public function __destruct(){
+		echo "Se ha invocado al destructor.";
+		// Instrucciones
+	}
+
+}
+```
+
+### Encapsulación
+
+```php
+class Objeto{
+
+	private $atributo1;
+	private $atributo2;
+	...
+
+	public function __construct($atributo1, $atributo2, ...) {
+		$this->atributo1 = $atributo1;
+		$this->atributo2 = $atributo2;
+		...
+	}
+
+	public function getAtributo1() {
+		return $this->atributo1;
+	}
+	public function getAtributo2() {
+		return $this->atributo2;
+	}
+	...
+
+	public function setAtributo1($atributo1) {
+		$this->atributo1 = $atributo1;
+	}
+	public function setAtributo2($atributo2) {
+		$this->atributo2 = $atributo2;
+	}
+	...
+
+	public function metodo1(){
+		// Instrucciones
+	}
+	public function metodo2($args){
+		// Instrucciones
+	}
+	...
+	
+}
+```
+
+Modificadores de acceso
+
+- `private`: Clase propia
+- `protected`: Clase propia y clases heredadas
+- `public` (por defecto): Todo
+
+### Constantes
+
+```php
+class Objeto{
+	private const PRIVADA = "privada";
+	protected const PROTEGIDA = "protegida";
+	public 	const PUBLICA = "publica";
+	const POR_DEFECTO = "publica";
+}
+
+echo Objeto::PUBLICA;	// Imprime "publica"
+echo Objeto::POR_DEFECTO;   // Imprime "publica"
+```
+
+### Propiedades Tipadas
+
+```php
+class Objeto{
+
+	private int $atributo1;
+	private string $atributo2;
+	private bool $atributo3;
+	private Tipo $atributo4;
+	...
+
+	public function __construct(int $atributo1, string $atributo2, bool $atributo3, Objeto $atributo4){
+		$this->atributo1 = $atributo1;
+		$this->atributo2 = $atributo2;
+		$this->atributo3 = $atributo3;
+		$this->atributo4 = $atributo4;
+		...
+	}
+
+	public function metodo0() : void{
+		// Instrucciones
+	}
+	public function metodo1(Tipo $argumentoArbitrario) : int{
+		// Instrucciones
+		return $entero;
+	}
+	public function metodo2() : string{
+		// Instrucciones
+		return $cadena;
+	}
+	public function metodo3() : bool{
+		// Instrucciones
+		return $booleano;
+	}
+	public function metodo4() : Tipo{
+		// Instrucciones
+		return $objeto;
+	}
+	...
+
+}
+```
+
+#### Propiedades Tipadas Nullables
+
+```php
+class Objeto{
+	
+	private ?string $atributoNullable;
+
+	public function __construct(?string $atributoNullable){
+		$this->atributoNullable = $atributoNullable;
+	}
+
+	public function metodoNullable(?int $argumentoNullable) : ?bool{
+		(condición) ? return true : null;
+	}
+
+}
+```
+
+### Propiedades Estáticas
+
+```php
+class Objeto{
+
+	private static $atributoEstatico = "valor";
+
+	public static function metodoEstatico() {
+		echo self::$atributoEstatico;
+	}
+
+}
+
+Objeto::metodoEstatico();	// Imprime "valor"
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+class PersonaEspaña{
+	private static $formatoDNI = "/^[0-9]{8}[A-Z]$/";
+	public static function validarDNI($dni){
+		if(preg_match(self::$formatoDNI, $dni)) return "DNI Válido";
+		return "DNI no válido";
+	}
+}
+
+echo PersonaEspaña::validarDNI("71524257A");	// Imprime "DNI válido"
+echo PersonaEspaña::validarDNI("JAJAJA");	// Imprime "DNI no válido"
+```
+</details>
+
+### Herencia
+
+```php
+class Padre{
+
+	private $atributo1;
+
+	public function __construct($atributo1){
+		$this->atributo1 = $atributo1;
+	}
+
+	public function getAtributo1(){
+		return $this->atributo1;
+	}
+	public function setAtributo1($atributo1){
+		$this->atributo1 = $atributo1;
+	}
+	public function __toString(){
+		return "Atributo1: " . $this->atributo1;
+	}
+
+}
+
+class Hija extends Padre{
+
+	private $atributo2;
+
+	public function __construct($atributo1, $atributo2){
+		parent::__construct($atributo1);
+		$this->atributo2 = $atributo2;
+	}
+
+	public function getAtributo2(){
+		return $this->atributo2;
+	}
+	public function setAtributo2($atributo2){
+		$this->atributo2 = $atributo2;
+	}
+	public function __toString(){
+		return parent::__toString() . "; " . $this->atributo2;
+	}
+
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+class Persona{
+
+	private $nombre;
+
+	public function __construct($nombre){
+		$this->nombre = $nombre;
+	}
+	
+	public function queSoy(){
+		return "Soy una persona";
+	}
+
+}
+
+class Estudiante extends Persona{
+
+	private $asignaturas;
+
+	public function __construct($nombre, $asignaturas){
+		parent::__construct($nombre);
+		$this->asignaturas = $asignaturas;
+	}
+
+	public function queSoy(){
+		return "Soy un estudiante";
+	}
+
+}
+
+$persona = new Persona("Alonso");
+$estudiante = new Estudiante("Pepe", "Matemáticas");
+
+echo $persona->queSoy();	// Imprime "Soy una persona"
+echo $estudiante->queSoy();	// Imprime "Soy un estudiante"
+```
+</details>
+
+---
+
+## Traits
+
+- Un trait es similar a una clase abstracta. No se puede instanciar y las clases los usan con `use`.
+```php
+trait Trait{
+
+	private $atributo1;
+	private $atributo2;
+	...
+	
+	public function metodo1($argumentoArbitrario){
+		// Instrucciones
+	}
+	public function metodo2(){
+		// Instrucciones
+	}
+	...
+
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+trait UtilFecha{
+
+	private $fecha;
+
+	public function nuevaFecha(){
+		$this->fecha = new DateTime();
+	}
+
+	public function getFecha(){
+		return $this->fecha->format("d/m/Y");
+	}
+
+}
+```
+</details>
+
+Usar trait(s) en clase
+
+```php
+class Objeto{
+	
+	use Trait1, Trait2, ...;
+
+	public function __construct(){
+		$this->metodo1();
+		$this->metodo2();
+		...
+	}
+
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+class Factura{
+
+	use UtilFecha;	// Definido en el ejemplo anterior
+
+	public function __construct(){
+		$this->nuevaFecha();
+	}
+
+}
+
+$factura = new Factura();
+echo $factura->getFecha();	// Imprime la fecha de hoy en formato dd-mm-yyyy
+```
+</details>
+
+---
+
+## Interfaces
+
+- Son un conjuto de métodos sin implementación para que una o varias clases los implementen en su declaración.
+
+```php
+interface Interfaz{
+	public function metodo1();
+	public function metodo2($argumentoArbitrario);
+	...
+}
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+interface Animal{
+	public function hacerSonido();
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+interface Transportable{
+	public function mover($destino);
+}
+
+interface Inalambrico{
+	public function conectarDispositivo($dispositivo);
+}
+```
+</details>
+
+Usar interfaz(ces) en clase
+
+```php
+class Objeto implements Interfaz1, Interfaz2, ...{
+	
+	public function metodo1(){
+		// Instrucciones
+	}
+
+	public function metodo2(){
+		// Instrucciones
+	}
+
+	...
+	
+}
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+class Perro implements Animal{	// Declarado en apartado anterior
+	public function hacerSonido(){
+		echo "Guau!";
+	}
+}
+
+class Gato implements Animal{	// Declarado en apartado anterior
+	public function hacerSonido(){
+		echo "Miau!";
+	}
+}
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+class Mando implements Transportable, Inalambrico{	// Declarado en apartado anterior
+
+	public function mover($destino){
+		echo "El mando se ha movido a " . $destino;
+	}
+
+	public function conectarDispositivo($dispositivo){
+		echo "El mando se ha conectado a " . $dispositivo;
+	}
+
+}
+```
+</details>
+
+---
+
+Espacios de nombres
+
+- Conjunto de constantes, funciones, clases e interfaces englobadas en un mismo nombre.
+
+**`espacio.php`**
+
+```php
+namespace Espacio;
+
+const CONSTANTE = 3.141592;
+
+function funcion(){
+	// Instrucciones
+}
+
+class Objeto{
+	// Atributos y Métodos
+}
+
+interface Interfaz{
+	// Firmas de métodos
+}
+```
+
+Usar elementos de espacio de nombres sin importarlo
+
+**`index.php`**
+
+```php
+include("espacio.php");
+
+echo Espacio\CONSTANTE;
+Espacio\funcion();
+$objeto = new Espacio\Objeto();
+class Otra implements Espacio\Interfaz{
+	// Implementaciones de métodos
+}
+```
+
+Importar elementos de espacio de nombres y usarlos
+
+**`index.php`**
+
+```php
+include("espacio.php");
+
+use const Espacio\CONSTANTE;
+use function Espacio\funcion;
+use Espacio\Objeto;
+use Espacio\Interfaz;
+
+echo CONSTANTE;
+funcion();
+$objeto = new Objeto();
+class Otra implements Interfaz{
+	// Implementaciones de métodos
+}
+```
+
+Importar espacio de nombres con alias y usar sus elementos
+
+```php
+include("espacio.php");
+
+use Espacio as E;
+
+echo E\CONSTANTE;
+E\funcion();
+$objeto = new E\Objeto();
+class Otra implements E\Interfaz{
+	// Implementaciones de métodos
+}
+```
+
+Importar elementos de espacio de nombres con alias y usarlos
+
+**`index.php`**
+
+```php
+include("espacio.php");
+
+use const Espacio\CONSTANTE as MI_CONSTANTE;
+use function Espacio\funcion as miFuncion;
+use Espacio\Objeto as miObjeto;
+use Espacio\Interfaz as miInterfaz;
+
+echo MI_CONSTANTE;
+miFuncion();
+$objeto = new miObjeto();
+class Otra implements miInterfaz{
+	// Implementaciones de métodos
+}
 ```
