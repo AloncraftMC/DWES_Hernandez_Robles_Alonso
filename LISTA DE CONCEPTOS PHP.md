@@ -1,6 +1,6 @@
 # Lista de Conceptos PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 11/12/2024 (_Ahora en Markdown!_)
+> Ver. 13/12/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -1910,7 +1910,7 @@ is_object($variable);
 
 ---
 
-## Funciones de Salida
+## Funciones de Fin
 
 Salir del script
 
@@ -1932,7 +1932,9 @@ return $valor;
 
 ---
 
-## Funciones de URL
+## Funciones de Codificación
+
+### Funciones de URL
 
 Codificar texto a valores URL
 
@@ -1961,6 +1963,155 @@ urldecode(texto)
 ```php
 $texto = "Hola+Mundo%21";
 echo urldecode($texto);	// Resultado: "Hola Mundo!"
+```
+</details>
+
+### Funciones JSON
+
+Dato a JSON
+
+```php
+json_encode($variable)
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$array = ["manzana", "banana", "naranja"];
+$json = json_encode($array);
+
+echo $json;	// ["manzana","banana","naranja"]
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+class Persona{
+	public function __construct(public $nombre, public $apellidos){}
+}
+
+$objeto = new Persona("Alonso", "Hernandez Robles");
+$json = json_encode($objeto);
+
+echo $json;	// {"nombre":"Alonso","apellidos":"Hernandez Robles"}
+```
+</details>
+
+JSON a dato
+
+```php
+json_decode($variable)
+```
+
+<details>
+	<summary>Ejemplo 1</summary>
+
+```php
+$json = '["manzana", "banana", "naranja"]';
+$array = json_decode($json);
+
+print_r($array);
+```
+
+**Salida**
+
+```
+Array (
+	[0] => manzana
+	[1] => banana
+	[2] => naranja
+)
+```
+</details>
+
+<details>
+	<summary>Ejemplo 2</summary>
+
+```php
+class Persona{
+	public function __construct(public $nombre, public $apellidos){}
+}
+
+$json = '{"nombre":"Alonso","apellidos":"Hernandez Robles"}';
+$objeto = json_decode($json);
+
+$persona = new Persona($objeto->nombre, $objeto->apellidos);
+
+echo "Objeto:<br>";
+print_r($objeto);
+
+echo "<br>";
+
+echo "Persona:<br>";
+print_r($persona);
+```
+
+**Salida**
+
+```
+Objeto:
+stdClass Object (
+	[nombre] => Alonso
+	[apellidos] =>
+	Hernandez Robles
+)
+
+Persona:
+Persona Object (
+	[nombre] => Alonso
+	[apellidos] =>
+	Hernandez Robles
+)
+```
+</details>
+
+### Funciones de Serialización
+
+- La serialización sirve para la estandarización de datos en PHP
+
+Dato serializado
+
+```php
+serialize($variable)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$array = ["nombre" => "Alonso", "apellidos" => "Hernández"];
+$serializado = serialize($array);
+
+echo $serializado;	// Imprime a:2:{s:6:"nombre";s:6:"Alonso";s:9:"apellidos";s:9:"Hernández";}
+```
+</details>
+
+Dato deserializado
+
+```php
+unserialize($variable)
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+$serializado = 'a:2:{s:6:"nombre";s:6:"Alonso";s:9:"apellidos";s:9:"Hernández";}';
+$array = unserialize($serializado);
+
+print_r($array);
+```
+
+**Salida**
+
+```
+Array (
+	[nombre] => Alonso
+	[apellidos] => Hernández
+)
 ```
 </details>
 
@@ -4342,7 +4493,7 @@ try {
 Mensaje de la excepción
 
 ```php
-$iae->getMessage()
+$e->getMessage()
 ```
 
 <details>
@@ -4708,6 +4859,8 @@ echo PersonaEspaña::validarDNI("JAJAJA");	// Imprime "DNI no válido"
 
 ### Herencia
 
+- En PHP, la herencia múltiple no es soportada (sólo es posible heredar de una clase).
+
 ```php
 class Padre{
 
@@ -4792,11 +4945,69 @@ echo $estudiante->queSoy();	// Imprime "Soy un estudiante"
 ```
 </details>
 
----
+### Clases Abstractas
 
-## Traits
+- No se pueden instanciar.
+- Orientada para heredar de ella e implementar los métodos abstractos si los hay.
+
+```php
+abstract class Abstracta{
+
+	private $atributo1;
+	private $atributo2;
+	...
+
+	public abstract function metodoAbstracto1();
+	public abstract function metodoAbstracto2();
+	...
+
+	public function metodo1(){
+		...
+	}
+	public function metodo2(){
+		...
+	}
+	...
+
+}
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+abstract class Animal{
+
+	public abstract function hacerSonido();
+
+	public function alimentarse(){
+		echo "El animal se está alimentando.";
+	}
+
+}
+
+class Perro extends Animal{
+
+	public function hacerSonido(){
+		echo "WOOF!";
+	}
+
+}
+
+class Gato extends Animal{
+
+	public function hacerSonido(){
+		echo "Miau!";
+	}
+
+}
+```
+</details>
+
+### Traits
 
 - Un trait es similar a una clase abstracta. No se puede instanciar y las clases los usan con `use`.
+
 ```php
 trait Trait{
 
@@ -4870,11 +5081,9 @@ echo $factura->getFecha();	// Imprime la fecha de hoy en formato dd-mm-yyyy
 ```
 </details>
 
----
+### Interfaces
 
-## Interfaces
-
-- Son un conjuto de métodos sin implementación para que una o varias clases los implementen en su declaración.
+- Conjunto de métodos sin implementación para que una o varias clases los implementen en su declaración.
 
 ```php
 interface Interfaz{
@@ -4980,7 +5189,7 @@ function funcion(){
 }
 
 class Objeto{
-	// Atributos y Métodos
+	// Atributos y métodos
 }
 
 interface Interfaz{
@@ -4995,9 +5204,16 @@ Usar elementos de espacio de nombres sin importarlo
 ```php
 include("espacio.php");
 
+// Constante:
 echo Espacio\CONSTANTE;
+
+// Función:
 Espacio\funcion();
+
+// Clase:
 $objeto = new Espacio\Objeto();
+
+// Interfaz:
 class Otra implements Espacio\Interfaz{
 	// Implementaciones de métodos
 }
@@ -5016,8 +5232,11 @@ use Espacio\Objeto;
 use Espacio\Interfaz;
 
 echo CONSTANTE;
+
 funcion();
+
 $objeto = new Objeto();
+
 class Otra implements Interfaz{
 	// Implementaciones de métodos
 }
@@ -5030,9 +5249,16 @@ include("espacio.php");
 
 use Espacio as E;
 
+// Constante:
 echo E\CONSTANTE;
+
+// Función:
 E\funcion();
+
+// Clase:
 $objeto = new E\Objeto();
+
+// Interfaz:
 class Otra implements E\Interfaz{
 	// Implementaciones de métodos
 }
@@ -5051,8 +5277,11 @@ use Espacio\Objeto as miObjeto;
 use Espacio\Interfaz as miInterfaz;
 
 echo MI_CONSTANTE;
+
 miFuncion();
+
 $objeto = new miObjeto();
+
 class Otra implements miInterfaz{
 	// Implementaciones de métodos
 }
