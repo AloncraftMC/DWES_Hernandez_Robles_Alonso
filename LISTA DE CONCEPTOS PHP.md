@@ -1924,6 +1924,12 @@ die();
 die("Mensaje");
 ```
 
+Salir del ámbito
+
+```php
+return;
+```
+
 Salir del ámbito devolviendo un valor
 
 ```php
@@ -4734,8 +4740,8 @@ class Objeto{
 
 #### Modificadores de acceso
 
-- `private`: Clase propia
-- `protected`: Clase propia y clases heredadas
+- `private`: Clase base
+- `protected`: Clase base y clases heredadas
 - `public` (por defecto): Todo
 
 Los modificadores de acceso son obligatorios en atributos.
@@ -4948,7 +4954,7 @@ echo $estudiante->queSoy();	// Imprime "Soy un estudiante"
 ### Clases Abstractas
 
 - No se pueden instanciar.
-- Orientada para heredar de ella e implementar los métodos abstractos si los hay.
+- Orientadas para heredar de ellas e implementar los métodos abstractos si los hay.
 
 ```php
 abstract class Abstracta{
