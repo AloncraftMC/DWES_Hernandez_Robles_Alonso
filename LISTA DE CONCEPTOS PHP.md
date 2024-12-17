@@ -1,6 +1,6 @@
 # Lista de Conceptos PHP
 > Alonso Hernández Robles 2º DAW
-> Ver. 13/12/2024 (_Ahora en Markdown!_)
+> Ver. 17/12/2024 (_Ahora en Markdown!_)
 
 ---
 
@@ -1835,6 +1835,50 @@ Ruta del archivo actual respecto de la raíz del servidor
 $_SERVER["PHP_SELF"]
 ```
 
+¿El servidor usa protocolo HTTPS? (Si está activada, suele devolver `"on"`)
+
+```php
+$_SERVER["HTTPS"]
+```
+
+### Variable `$_COOKIE`
+
+> Ver [Cookies](#cookies)
+
+(Array asociativo con las cookies)
+
+```php
+$_COOKIE
+```
+
+Valor de cookie específica
+
+```php
+$_COOKIE["nombre"]
+```
+
+Valor de la cookie de sesión
+
+```php
+$_COOKIE["PHPSESSID"]
+```
+
+### Variable `$_SESSION`
+
+> Ver [Sesiones](#sesiones)
+
+(Array asociativo con las variables guardadas relacionadas con la sesión de un usuario)
+
+```php
+$_SESSION
+```
+
+Valor de variable de sesión específica
+
+```php
+$_SESSION["variable"]
+```
+
 ---
 
 ## Funciones de Comprobación
@@ -1915,11 +1959,13 @@ is_object($variable);
 Salir del script
 
 ```php
+exit;
 exit();
 exit("Mensaje");
 ```
 
 ```php
+die;
 die();
 die("Mensaje");
 ```
@@ -2199,6 +2245,12 @@ round($valor, n)
 ---
 
 ## Fechas
+
+Segundos desde `01/01/1970 00:00:00`
+
+```php
+time()
+```
 
 Generar objeto tiempo de: hoy
 
@@ -5292,3 +5344,126 @@ class Otra implements miInterfaz{
 	// Implementaciones de métodos
 }
 ```
+
+---
+
+## Cookies
+
+> Ver [`$_COOKIE`](#variable-_cookie)
+
+- Las cookies persisten entre distintas sesiones de navegador (son guardadas en el equipo).
+- Son destruidas al expirar.
+
+Crear cookie (sólo nombre y valor son obligatorios)
+
+```php
+setcookie($nombre, $valor, $fechaExpiracion, $ruta, $dominio, $soloSegura, $soloHTTP);
+```
+
+Crear cookie que expira en una hora en la raíz del directorio del servidor
+
+```php
+setcookie("cookie", "valor", time() + 3600, "/");
+```
+
+Crear cookie que expira al salir del navegador (no se ha especificado fecha de expiración)
+
+```php
+setcookie("cookie", "valor");
+```
+
+Eliminar cookie (establece fecha de expiración en el pasado o nada más crearla)
+
+```php
+setcookie("cookie", "", 0);
+setcookie("cookie", "", time() - $numeroPositivo);
+setcookie("cookie", "", time());
+```
+
+---
+
+## Sesiones
+
+> Ver [`$_SESSION`](#variable-_session)
+
+- Las sesiones persisten entre distintas pestañas (son guardadas en la instancia actual del navegador).
+- Son destruidas al cerrar el navegador.
+
+Iniciar una sesión (para guardar datos en `$_SESSION`), generando un ID para la misma.
+
+```php
+session_start();
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+session_start();
+
+$_SESSION["nombre"] = "Alonso";
+$_SESSION["apellido"] = "Hernández";
+```
+</details>
+
+Establecer parámetros de la cookie que controla la sessión actual (sólo es obligatoria la fecha de expiración, y ésta son los segundos desde el inicio de la sesión)
+
+```php
+session_set_cookie_params($fechaExpiracion, $ruta, $dominio, $soloSegura, $soloHTTP);
+```
+
+Eliminar todas las variables de `$_SESSION`
+
+```php
+session_unset();
+```
+
+Eliminar todas las variables de `$_SESSION` y destruir sesión actual
+
+```php
+session_destroy();
+```
+
+<details>
+	<summary>Ejemplo</summary>
+
+```php
+// Establece la fecha de expiración de la cookie de sesión a una hora a partir de ahora
+
+session_set_cookie_params(3600);
+session_start();
+```
+</details>
+
+Regenerar ID de la sesión
+
+```php
+session_regenerate_id();
+session_regenerate_id(false);
+```
+
+Regenerar ID de la sesión y destruir sesión actual
+
+```php
+session_regenerate_id(true);
+```
+
+ID de la sesión
+
+```php
+session_id()
+```
+
+Establecer ID de la sesión
+
+```php
+session_id("miID");
+```
+
+### Variables de configuración de sesión en `php.ini`
+
+| Variable | Descripción |
+| - | - |
+| `session.cookie_lifetime` | Tiempo de vida por defecto de la cookie de sesión en segundos |
+| `session.gc_maxlifetime` | Tiempo máximo de vida de los datos de sesión en el servidor |
+| `session.name` | Nombre de la cookie de sesión. Por defecto es `PHPSESSID` |
