@@ -5467,3 +5467,7 @@ session_id("miID");
 | `session.cookie_lifetime` | Tiempo de vida por defecto de la cookie de sesión en segundos |
 | `session.gc_maxlifetime` | Tiempo máximo de vida de los datos de sesión en el servidor |
 | `session.name` | Nombre de la cookie de sesión. Por defecto es `PHPSESSID` |
+
+---
+
+## 
